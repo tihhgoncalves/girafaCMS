@@ -1,0 +1,87 @@
+ul.ui-widget-content{
+}
+ul.ui-widget-content li{
+	float: none;
+}
+
+
+/**
+** BOTÃO VERDE
+**/
+
+button.btn.green{
+    background-color: #5BB75B;
+    background-image: linear-gradient(to bottom, #62C462, #51A351);
+    background-repeat: repeat-x;
+    border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+    color: #FFFFFF;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+		font-size: 14px;
+		color: #FFF;
+
+}
+button.btn.green span.ui-button-text{
+	color: #FFF;
+}
+
+button.btn.green:hover,
+button.btn.green:focus,
+button.btn.green:active,
+button.btn.green.active,
+button.btn.green.disabled,
+button.btn.green[disabled] {
+  color: #ffffff;
+  background-color: #51A351;
+  text-decoration: none;
+  background-position: 0 -15px;
+	-webkit-transition: background-position 0.1s linear;
+	-moz-transition: background-position 0.1s linear;
+	-o-transition: background-position 0.1s linear;
+	transition: background-position 0.1s linear;
+	
+}
+
+button.btn.green .ui-icon{
+	background-image: url(../javascripts/jquery.ui/nbrazil-cms/images/ui-icons_nbrazil_white.png);
+}
+
+
+/**
+** BOTÃO VERMELHO
+**/
+
+button.btn.red{
+    background-color: #DA4F49;
+    background-image: linear-gradient(to bottom, #EE5F5B, #BD362F);
+    background-repeat: repeat-x;
+    border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+    color: #FFFFFF;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+		font-size: 14px;
+		color: #FFF;
+
+}
+button.btn.red span.ui-button-text{
+	color: #FFF;
+}
+
+button.btn.red:hover,
+button.btn.red:focus,
+button.btn.red:active,
+button.btn.red.active,
+button.btn.red.disabled,
+button.btn.red[disabled] {
+  color: #ffffff;
+  background-color: #BD362F;
+  text-decoration: none;
+  background-position: 0 -15px;
+	-webkit-transition: background-position 0.1s linear;
+	-moz-transition: background-position 0.1s linear;
+	-o-transition: background-position 0.1s linear;
+	transition: background-position 0.1s linear;
+	
+}
+
+button.btn.red .ui-icon{
+	background-image: url(../javascripts/jquery.ui/nbrazil-cms/images/ui-icons_nbrazil_white.png);
+}

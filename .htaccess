@@ -1,0 +1,35 @@
+#Ativar módulo rewrite
+# .htaccess do Ministrar2 - CMS da Nova Brazil
+# www.novabrazil.art.br
+
+#LINK AMIGÁVEL
+RewriteEngine On
+
+#Regras: se não existir arquivo ou diretório com o endereço fornecido
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+#Reescrever URL, adicionando o query string
+RewriteRule ^(.*) ./index.php?url=$1 [QSA]
+
+#Habilita o fopen no PHP
+php_flag allow_url_fopen on
+
+
+#Comprimir arquivos..
+<Files *.css>
+SetOutputFilter DEFLATE
+</Files>
+
+<Files *.js>
+SetOutputFilter DEFLATE
+</Files>
+#HTTP/1.0 - Cache - 1 dia
+ExpiresActive On
+ExpiresDefault "access plus 1 day"
+ExpiresByType image/jpeg "access plus 7 days"
+ 
+#HTTP/1.1 - Cache - 1 dia
+<FilesMatch "\.(jpg|jpeg|png|gif|swf|css|js)$">
+    Header set Cache-Control "max-age=86400, public"
+</FilesMatch>

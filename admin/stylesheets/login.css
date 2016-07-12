@@ -1,0 +1,147 @@
+@charset "utf-8";
+/* CSS Document */
+
+body {
+  background-image:url(../images/bg.jpg);
+  background-repeat:repeat-x;
+  background-position: top center;
+  background-color: #FFFFFF;
+}
+form#login{
+  padding: 0;
+  margin: 0;
+  border: 0;
+  width: 290px;
+  float: left;
+}
+
+form#login input[type=text], 
+form#login input[type=password]{
+	background-color: #B2B2B2;
+  width: 285px;
+  height: 58px;
+	line-height: 50px;
+  padding: 4px 45px;
+	margin: 6px 0;
+  border: 0;
+	font-size: 28px;
+	text-align: center;
+	color: #515151;
+}
+
+form#login input[type=text]{
+	background-image:url(../images/login_user.png);
+	background-repeat: no-repeat;
+	background-position: 15px 22px;
+}
+
+form#login input[type=password]{
+	background-image:url(../images/login_pass.png);
+	background-repeat: no-repeat;
+	background-position: 15px 22px;
+}
+
+form label input {
+  margin-left: 17px;
+}
+form input#btn{
+  padding-top: 10px;
+  padding-left: 342px;
+}
+
+div#box {
+  width: 900px;
+  height: 255px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-left: -450px;
+  margin-top: -125px;
+}
+
+div#box div#logo {
+  width: 255px;
+  height: 255px;
+  background-image:url(../images/login_logo.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  float: left;
+}
+div#box div#painel {
+  float: right;
+  width: 545px;
+  height:181px;
+  margin-top: 37px;
+
+}
+div#box div#painel span#legend {
+  display: block;
+  font-size: 14px;
+  padding-top: 26px;
+  padding-left: 68px;
+  padding-bottom: 20px;
+}
+div#box img#nbrazil {
+  float: right;
+  clear: right;
+  padding-right: 10px;
+}
+div#box div#painel span#msg {
+	background-color: #C93438;
+	color: #FFF;
+	text-align: center;
+	display: block;
+	width: 375px;
+	height: 30px;
+	line-height: 30px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 15px;
+
+	margin-top: -31px;
+	
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;		
+}
+
+#rodape{
+	text-align: center;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	position: fixed;
+	bottom: 0;
+	background-color: #696969;
+	color: #D2D2D2;
+	width: 100%;
+	padding: 5px 0;
+}
+#rodape a{
+	font-weight: bold;
+	text-decoration: none;
+	color: #FFF;
+}
+#rodape b{
+	color: #FFF;
+}
+#rodape a:hover{
+	text-decoration: underline;
+}
+#flags{
+	position: absolute;
+}
+#flags li{
+	float: left;
+	margin-right: 6px;
+	cursor: pointer;
+	
+	filter:alpha(opacity=25);
+	opacity: 0.25;
+	-moz-opacity:0.25;
+	-webkit-opacity:0.25;		
+}
+#flags li.selected{
+	filter:alpha(opacity=100);
+	opacity: 1;
+	-moz-opacity:1;
+	-webkit-opacity:1;
+}
