@@ -430,7 +430,7 @@ class nbrAdminGrid{
    * @param string $this->formFile
    */
   public function PrintHTML(){
-    global $hub, $dataSet, $cms, $ADMIN_PAGES_PATH;
+    global $hub, $dataSet, $cms, $ADMIN_PAGES_PATH, $ADMIN_IMAGES_URL;
 
     //Descobre qual a coluna fluída
     $columnFluid = null;
@@ -676,7 +676,7 @@ class nbrAdminGrid{
 
           $html .= '<td class="icons">' . "\r\n";
           $html .= '<a href="' . $hub->GetUrl() . '">' . "\r\n";
-          $html .= '<img src="images/icon_grid_edit.png" width="16" height="16" alt="Editar" />' . "\r\n";
+          $html .= '<img src="' . $ADMIN_IMAGES_URL . 'icon_grid_edit.png" width="16" height="16" alt="Editar" />' . "\r\n";
           $html .= '</a>' . "\r\n";
         }
 
@@ -689,7 +689,7 @@ class nbrAdminGrid{
           if($this->macroFile != null)
           $hub->SetParam('fileMacro', $this->module->folderPath . $this->macroFile);
           $html .= '<a title="Clique aqui para excluir este registro" href="javascript:void(0);" onclick="deleteReg(\'' . $this->tableName . '\', \'' . $record->ID . '\', \'' . $hub->GetUrl() . '\');">';
-          $html .= '<img src="images/ico-delete.png" alt="Delete" />';
+          $html .= '<img src="' . $ADMIN_IMAGES_URL . 'ico-delete.png" alt="Delete" />';
           $html .= '</a></td>' . "\r\n";
         }
 
