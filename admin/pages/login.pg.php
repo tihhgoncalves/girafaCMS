@@ -30,13 +30,13 @@
         	<?
         	foreach ($langs->languages as $flag) {
         	?>
-        	<li class="<?= ($flag == $langs->language)?'selected':null; ?>" lang="<?= $flag; ?>" ><img src="flags/<?= $flag; ?>_admin.gif" width="29" height="20"></li>
+        	<li class="<?= ($flag == $langs->language)?'selected':null; ?>" lang="<?= $flag; ?>" ><img src="<?= $ADMIN_FLAGS_URL . $flag; ?>_admin.gif" width="29" height="20"></li>
         	<?
 			}
         	?>
         </ul>
         
-      <input name="" id="btn" type="image" src="images/login_btn_entrar.png" />
+      <input name="" id="btn" type="image" src="<?= $ADMIN_IMAGES_URL; ?>login_btn_entrar.png" />
     </form>
     <?
     if($hub->ExistParam('msg')){

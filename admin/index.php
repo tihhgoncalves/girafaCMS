@@ -1,12 +1,10 @@
 <?php
-
 //Inicia sessão..
 session_start();
 
-//Altera configurações do PHP (forçado)
-ini_set("upload_max_filesize","1024M");
-ini_set("post_max_size","1024M");
-ini_set('memory_limit', '1024M'); 
+//declara path root para includes..
+set_include_path('../../../');
+
 
 error_reporting( E_ALL ^E_NOTICE ); //Mostra todos os erros menos os NOTICE..
 
@@ -26,16 +24,8 @@ date_default_timezone_set('America/Sao_Paulo');
 //Seta no Cabeçalho codificação do fonte..
 header('Content-type: text/html; charset=utf-8');
 
-//Verifica se o CMS já foi instalado...
-if(file_exists('../../config.php'))
-  include('../../config.php');
-else {
-  header('LOCATION: ../../install/index.php');
-  exit;
-}
-
 //Carrega framework
-include($ROOT_PATH . 'cms/nbr.loader.php');
+include('bower_components/girafaCMS/loader.php');
 
 //Carrega framework Admin
 include($ADMIN_PATH . 'nbr.admin.loader.php');

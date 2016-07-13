@@ -161,7 +161,7 @@ class nbrAdminHub{
   }
   
   public function GetUrl($clearLevel = true){
-    global $ADMIN_URL;
+    global $ADMIN_URL, $ROUTER_LINKMASK;
 
     $str = $this->arrayToStr($this->levels);
     $str = $this->crypt($str);
@@ -178,7 +178,7 @@ class nbrAdminHub{
       $this->starts();      
     }
     
-    return $ADMIN_URL . 'index.php?hub=' . $key;
+    return $ADMIN_URL . $ROUTER_LINKMASK . $key;
   }
   
   /**

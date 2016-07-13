@@ -5,8 +5,11 @@ session_start();
 //Seta no Cabeçalho codificação do fonte..
 header('Content-type: text/html; charset=utf-8');
 
+// Acerta o horário caso seu servidor
+date_default_timezone_set('America/Sao_Paulo');
+
 //Carrega framework
-include($ROOT_PATH . 'bower_components/girafaCMS/loader.php');
+include('./bower_components/girafaCMS/loader.php');
 
 //Carrega objeto de Idioma..
 $langs	= new nbrLangs('FRONT');

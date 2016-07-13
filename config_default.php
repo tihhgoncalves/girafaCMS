@@ -2,7 +2,8 @@
 $config_d["ROOT_PATH"]               = "/root/site/";
 $config_d["ROOT_URL"]                = "http://localhost/site";
 
-$config_d["ADMIN_URL"]               = "{ROOT_URL}bower_components/girafaCMS/admin/";
+$config_d["ADMIN_URL"]               = "{ROOT_URL}admin/"; // equivalente a {ROOT_URL}bower_components/girafaCMS/admin/ - manipulado no .htaccess
+$config_d["ADMIN_THEME_URL"]         = "{ROOT_URL}bower_components/girafaCMS/admin/";
 $config_d["ADMIN_PATH"]              = "{ROOT_PATH}bower_components/girafaCMS/admin/";
 
 $config_d["CMS_PATH"]                = "{ROOT_PATH}bower_components/girafaCMS/";
@@ -28,7 +29,7 @@ $config_d["CACHE_URL"]               = "{TEMP_URL}cache/";
 $config_d["COOKIE_EXPIRE"]           = mktime(0, 0, 0,date("m"), date("d") + 7, date("Y")); //1 semana
 
 /** Configurações de Roteador (de links) **/
-$config_d["ROUTER_LINKMASK"]         = "index.php?url=";
+$config_d["ROUTER_LINKMASK"]         = "";//index.php?hub=
 
 /** Arquivos de utilizados para compor o HTML do Front **/
 $config_d["FRONT_THEME_PATH"]        = "{ROOT_PATH}site/theme/";
@@ -41,12 +42,14 @@ $config_d["FRONT_SCRIPTS_URL"]       = "{ROOT_URL}site/scripts/";
 /** Arquivos de utilizados para compor o HTML do Admin **/
 $config_d["ADMIN_PAGES_PATH"]        = "{ADMIN_PATH}pages/";
 $config_d["ADMIN_PAGES_URL"]         = "{ADMIN_URL}pages/";
+$config_d["ADMIN_FLAGS_PATH"]        = "{ADMIN_PATH}flags/";
+$config_d["ADMIN_FLAGS_URL"]         = "{ADMIN_THEME_URL}flags/";
 $config_d["ADMIN_STYLESHEET_PATH"]   = "{ADMIN_PATH]stylesheets/";
-$config_d["ADMIN_STYLESHEET_URL"]    = "{ADMIN_URL}stylesheets/";
-$config_d["ADMIN_JAVASCRIPT_URL"]    = "{ADMIN_URL}javascripts/";
+$config_d["ADMIN_STYLESHEET_URL"]    = "{ADMIN_THEME_URL}stylesheets/";
+$config_d["ADMIN_JAVASCRIPT_URL"]    = "{ADMIN_THEME_URL}javascripts/";
 $config_d["ADMIN_JAVASCRIPT_PATH"]   = "{ADMIN_PATH}javascripts/";
 $config_d["ADMIN_IMAGES_PATH"]       = "{ADMIN_PATH}images/";
-$config_d["ADMIN_IMAGES_URL"]        = "{ADMIN_URL}images/";
+$config_d["ADMIN_IMAGES_URL"]        = "{ADMIN_THEME_URL}images/";
 $config_d["ADMIN_FUNCTIONS_PATH"]    = "{ADMIN_PATH}functions/";
 $config_d["ADMIN_UPLOAD_PATH"]       = "{ROOT_PATH}site/uploads/";
 $config_d["ADMIN_UPLOAD_URL"]        = "{ROOT_URL}site/uploads/";
