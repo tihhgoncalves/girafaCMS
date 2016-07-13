@@ -8,10 +8,7 @@ header('Content-type: text/html; charset=utf-8');
 //Carrega framework
 include($ROOT_PATH . 'bower_components/girafaCMS/loader.php');
 
-die('parou!');
-
 //Carrega objeto de Idioma..
-//include($OBJECTS_PATH . 'nbr.obj.langs.php');
 $langs	= new nbrLangs('FRONT');
 
 //Carrega Eventos de Plugins...

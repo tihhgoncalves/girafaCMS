@@ -89,7 +89,7 @@ class nbrCMS
    * @return string
    */
   public function GetFrontStyleSheetUrl(){
-    return $this->themeURL . 'stylesheets/';
+    return $this->themeURL . 'css/';
   }
   
   /**
@@ -98,7 +98,7 @@ class nbrCMS
    * @return string
    */
   public function GetFrontJavaScriptUrl(){
-    return $this->themeURL . 'javascripts/';
+    return $this->themeURL . 'js/';
   }
 
   /**
@@ -107,7 +107,7 @@ class nbrCMS
    * @return string
    */
   public function GetFrontStyleSheetPath(){
-    return $this->themePath . 'stylesheets/';
+    return $this->themePath . 'css/';
   }
   
   /**
@@ -116,7 +116,7 @@ class nbrCMS
    * @return string
    */
   public function GetFrontJavaScriptPath(){
-    return $this->themePath . 'javascripts/';
+    return $this->themePath . 'js/';
   }  
   
   /**
