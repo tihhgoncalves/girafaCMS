@@ -1,105 +1,92 @@
 <?
+$config_d["ROOT_PATH"]               = "/root/site/";
+$config_d["ROOT_URL"]                = "http://localhost/site";
 
-$GLOBALS["ROOT_PATH"] =   "/dados/http/ochefia.com/www/";
-$GLOBALS["ROOT_URL"] =    "http://www.ochefia.com/";
-$GLOBALS["ADMIN_URL"] =   $ROOT_URL . "cms/admin/";
+$config_d["ADMIN_URL"]               = "{ROOT_URL}bower_components/girafaCMS/admin/";
+$config_d["ADMIN_PATH"]              = "{ROOT_PATH}bower_components/girafaCMS/admin/";
 
-$GLOBALS["LANG"]                   = "pt-br";
-$GLOBALS["SITEKEY"]                = "LS6kXs0t";
+$config_d["CMS_PATH"]                = "{ROOT_PATH}bower_components/girafaCMS/";
 
-$GLOBALS["LINK_PREFIX"]            = ""; //index.php?url=
+$config_d["LANG"]                    = "pt-br";
+$config_d["SITEKEY"]                 = "13246789";
 
+$config_d["LINK_PREFIX"]             = ""; //index.php?url=
 
 /** Configurações de Administração **/
-$GLOBALS["MODULES_PATH"]           = $ROOT_PATH . "cms/modules/";
-$GLOBALS["MODULES_URL"]            = $ROOT_URL  . "cms/modules/";
-$GLOBALS["PLUGINS_PATH"]           = $ROOT_PATH . "cms/plugins/";
-$GLOBALS["PLUGINS_URL"]            = $ROOT_URL  . "cms/plugins/";
-$GLOBALS["OBJECTS_PATH"]           = $ROOT_PATH . "cms/objects/";
-$GLOBALS["FUNCTIONS_PATH"]         = $ROOT_PATH . "cms/functions/";
-$GLOBALS["TEMP_PATH"]              = $ROOT_PATH . "cms/temp/";
+$config_d["MODULES_PATH"]            = "{CMS_PATH}modules/";
+$config_d["MODULES_URL"]             = "{ROOT_URL}modules/";
+$config_d["PLUGINS_PATH"]            = "{CMS_PATH}plugins/";
+$config_d["PLUGINS_URL"]             = "{ROOT_URL}plugins/";
+$config_d["OBJECTS_PATH"]            = "{CMS_PATH}objects/";
+$config_d["FUNCTIONS_PATH"]          = "{CMS_PATH}functions/";
 
+$config_d["TEMP_PATH"]               = "{ROOT_PATH}temp/";
+$config_d["TEMP_URL"]                = "{ROOT_URL}temp/";
 
-$GLOBALS["CACHE_PATH"]             = $ROOT_PATH . "cms/cache/";
-$GLOBALS["CACHE_URL"]              = $ROOT_URL . "cms/cache/";
-$GLOBALS["COOKIE_EXPIRE"]          = mktime(0, 0, 0,date("m"), date("d") + 7, date("Y")); //1 semana
-
+$config_d["CACHE_PATH"]              = "{TEMP_PATH}cache/";
+$config_d["CACHE_URL"]               = "{TEMP_URL}cache/";
+$config_d["COOKIE_EXPIRE"]           = mktime(0, 0, 0,date("m"), date("d") + 7, date("Y")); //1 semana
 
 /** Configurações de Roteador (de links) **/
-$GLOBALS["ROUTER_LINKMASK"]        = "index.php?url=";
-
+$config_d["ROUTER_LINKMASK"]         = "index.php?url=";
 
 /** Arquivos de utilizados para compor o HTML do Front **/
-$GLOBALS["FRONT_THEME_PATH"]       = $ROOT_PATH   . "site/theme/";
-$GLOBALS["FRONT_THEME_URL"]        = $ROOT_URL    . "site/theme/";
-$GLOBALS["FRONT_THEMEMOBILE_PATH"] = $ROOT_PATH   . "site/theme/";
-$GLOBALS["FRONT_THEMEMOBILE_URL"]  = $ROOT_URL    . "site/theme/";
-$GLOBALS["FRONT_PAGES_PATH"]       = $ROOT_PATH   . "site/pages/";
-$GLOBALS["FRONT_PAGES_URL"]        = $ROOT_URL    . "site/pages/";
-$GLOBALS["FRONT_SCRIPTS_PATH"]     = $ROOT_PATH   . "site/scripts/";
-$GLOBALS["FRONT_SCRIPTS_URL"]      = $ROOT_URL    . "site/scripts/";
-
+$config_d["FRONT_THEME_PATH"]        = "{ROOT_PATH}site/theme/";
+$config_d["FRONT_THEME_URL"]         = "{ROOT_URL}site/theme/";
+$config_d["FRONT_PAGES_PATH"]        = "{ROOT_PATH}site/pages/";
+$config_d["FRONT_PAGES_URL"]         = "{ROOT_URL}site/pages/";
+$config_d["FRONT_SCRIPTS_PATH"]      = "{ROOT_PATH}site/scripts/";
+$config_d["FRONT_SCRIPTS_URL"]       = "{ROOT_URL}site/scripts/";
 
 /** Arquivos de utilizados para compor o HTML do Admin **/
-$GLOBALS["ADMIN_PATH"]             = $ROOT_PATH   . "cms/admin/";
-$GLOBALS["ADMIN_PAGES_PATH"]       = $ADMIN_PATH  . "pages/";
-$GLOBALS["ADMIN_PAGES_URL"]        = $ADMIN_URL   . "pages/";
-$GLOBALS["ADMIN_STYLESHEET_PATH"]  = $ADMIN_PATH . "stylesheets/";
-$GLOBALS["ADMIN_STYLESHEET_URL"]   = $ADMIN_URL   . "stylesheets/";
-$GLOBALS["ADMIN_JAVASCRIPT_URL"]   = $ADMIN_URL   . "javascripts/";
-$GLOBALS["ADMIN_JAVASCRIPT_PATH"]  = $ADMIN_PATH . "javascripts/";
-$GLOBALS["ADMIN_IMAGES_PATH"]      = $ADMIN_PATH  . "images/";
-$GLOBALS["ADMIN_IMAGES_URL"]       = $ADMIN_URL   . "images/";
-$GLOBALS["ADMIN_FUNCTIONS_PATH"]   = $ADMIN_PATH  . "functions/";
-$GLOBALS["ADMIN_UPLOAD_PATH"]      = $ROOT_PATH  . "site/uploads/";
-$GLOBALS["ADMIN_UPLOAD_URL"]       = $ROOT_URL   . "site/uploads/";
-$GLOBALS["ADMIN_LANGS_PATH"]      = $ROOT_PATH   . "site/langs/";
-
+$config_d["ADMIN_PAGES_PATH"]        = "{ADMIN_PATH}pages/";
+$config_d["ADMIN_PAGES_URL"]         = "{ADMIN_URL}pages/";
+$config_d["ADMIN_STYLESHEET_PATH"]   = "{ADMIN_PATH]stylesheets/";
+$config_d["ADMIN_STYLESHEET_URL"]    = "{ADMIN_URL}stylesheets/";
+$config_d["ADMIN_JAVASCRIPT_URL"]    = "{ADMIN_URL}javascripts/";
+$config_d["ADMIN_JAVASCRIPT_PATH"]   = "{ADMIN_PATH}javascripts/";
+$config_d["ADMIN_IMAGES_PATH"]       = "{ADMIN_PATH}images/";
+$config_d["ADMIN_IMAGES_URL"]        = "{ADMIN_URL}images/";
+$config_d["ADMIN_FUNCTIONS_PATH"]    = "{ADMIN_PATH}functions/";
+$config_d["ADMIN_UPLOAD_PATH"]       = "{ROOT_PATH}site/uploads/";
+$config_d["ADMIN_UPLOAD_URL"]        = "{ROOT_URL}site/uploads/";
+$config_d["ADMIN_LANGS_PATH"]        = "{ROOT_PATH}site/langs/";
 
 /** Configurações de Banco de dados **/
-$GLOBALS["DB_TYPE"]                = "mysql";
-if( $_SERVER['HTTP_HOST'] == 'localhost') {
-    $GLOBALS["DB_HOST"] = "nbz.net.br";
-} else {
-    $GLOBALS["DB_HOST"] = "localhost";
-}
-$GLOBALS["DB_USER"]                = "root";
-$GLOBALS["DB_PASS"]                = "nwtiago";
-$GLOBALS["DB_PORT"]                = "";
-$GLOBALS["DB_DATABASE"]            = "ochefia_com_pec";
-$GLOBALS["DB_PERSISTENT"]          = true;
+$config_d["DB_TYPE"]                 = "mysql";
+$config_d["DB_HOST"]                 = "localhost";
+$config_d["DB_USER"]                 = "root";
+$config_d["DB_PASS"]                 = "123";
+$config_d["DB_PORT"]                 = "";
+$config_d["DB_DATABASE"]             = "db_name";
+$config_d["DB_PERSISTENT"]           = true;
 
-
-$GLOBALS["SITE_TITLE"]             = "O Chefia";
-$GLOBALS["SITE_DESCRIPTION"]       = "Peça seu lanche pela internet sem sair de casa";
-$GLOBALS["SITE_PAGEINDEX"]         = "home";
+$config_d["SITE_TITLE"]              = "Seu Site";
+$config_d["SITE_DESCRIPTION"]        = "Descrição do Seu Site";
+$config_d["SITE_PAGEINDEX"]          = "home";
 
 /** Configurações de e-mail **/
-$email                             = array();
-$email["FROMNAME"]                 = "O Chefia";
-$email["FROM"]                     = "contato@zbraestudio.com.br";
-$email["SENDTYPE"]                 = "smtp";
-$email["CC"]                       = "";
-$email["CCO"]                      = "";
-$email["SMTPHOST"]                 = "smtp.gmail.com";
-$email["SMTPUSER"]                 = "envia@novabrazil.art.br";
-$email["SMTPPASS"]                 = "nbrazil123";
-$email["SMTPSECURE"]               = "ssl";    //ssl tls (ou deixe em branco)
-$email["SMTPPORT"]                 = "465";
-$GLOBALS["EMAIL_CONFIG"]           = $email;
-
-
+$email                              = array();
+$email["FROMNAME"]                  = "Seu Site";
+$email["FROM"]                      = "contato@dominio.com.br";
+$email["SENDTYPE"]                  = "mail";
+$email["CC"]                        = "";
+$email["CCO"]                       = "";
+$email["SMTPHOST"]                  = "";
+$email["SMTPUSER"]                  = "";
+$email["SMTPPASS"]                  = "";
+$email["SMTPSECURE"]                = "";    //ssl tls (ou deixe em branco)
+$email["SMTPPORT"]                  = "";
+$config_d["EMAIL_CONFIG"]            = $email;
 
 /** Configurações de idiomas **/
-$idiomas                           = array();
-$idiomas["activated"]              = array("pt-br");
-$idiomas["default"]                = "pt-br";
-$GLOBALS["LANGS_ADMIN"]            = $idiomas;
+$idiomas                            = array();
+$idiomas["activated"]               = array("pt-br");
+$idiomas["default"]                 = "pt-br";
+$config_d["LANGS_ADMIN"]             = $idiomas;
 
-$idiomas                           = array();
-$idiomas["activated"]              = array("pt-br");
-$idiomas["default"]                = "pt-br";
-$GLOBALS["LANGS_FRONT"]            = $idiomas;
-
-
+$idiomas                            = array();
+$idiomas["activated"]               = array("pt-br");
+$idiomas["default"]                 = "pt-br";
+$config_d["LANGS_FRONT"]             = $idiomas;
 ?>
