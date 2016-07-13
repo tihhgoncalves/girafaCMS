@@ -297,7 +297,7 @@ if($hub->ExistParam('_moduleID')){
   <div style="clear:left"></div>
 </div>
 <!-- CONTEUDO - FIM -->
-<div id="rodape">Este site é administrado pelo CMS <a href="http://www.novabrazil.art.br" target="_blank">Ministrar</a>, na <b>versão <?= $cms->GetVersion(); ?></b> - PHP <?=  phpversion(); ?></div>
+<div id="rodape">Este é um sistema da <a href="http://www.zbraestudio.com.br" target="_blank">Z.BRA Estúdio</a>, na <b>versão <?= $cms->GetVersion(); ?></b> - PHP <?=  phpversion(); ?></div>
 <div id="status"></div>
 
 </body>
