@@ -7,6 +7,7 @@ $config_d["ADMIN_THEME_URL"]         = "{ROOT_URL}bower_components/girafaCMS/adm
 $config_d["ADMIN_PATH"]              = "{ROOT_PATH}bower_components/girafaCMS/admin/";
 
 $config_d["CMS_PATH"]                = "{ROOT_PATH}bower_components/girafaCMS/";
+$config_d["CMS_URL"]                 = "{ROOT_URL}bower_components/girafaCMS/";
 
 $config_d["LANG"]                    = "pt-br";
 $config_d["SITEKEY"]                 = "13246789";

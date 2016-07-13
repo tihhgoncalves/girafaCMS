@@ -30,7 +30,7 @@ $form->PrintHTML();
 
 
 function macroFromFields($fieldName, $record, $legend, $length, $columns, $valueDefault, $required, $readOnly, $height, $options, $required_str, $fileType, $fileTypeDescritio){
-  global $cms, $moduleObj;
+  global $cms, $moduleObj, $CMS_PATH, $CMS_URL;
   
   switch ($fieldName){
     
@@ -45,14 +45,14 @@ function macroFromFields($fieldName, $record, $legend, $length, $columns, $value
       $html .= '<div id="icones" class="field ' . $columnsStr . '">' . "\r\n";
       $html .= '<input name="Icon" id="Icon" type="hidden" value="' . $record->Icon . '">' . "\r\n";
       
-      $path = $cms->GetRootPath() . 'cms/icons/';
+      $path = $CMS_PATH . 'icons/';
       if ($dh = opendir($path)) {
         while (($file = readdir($dh)) !== false) {
           
           if($file != '.' && $file != '..' && $file != '.svn'){
             
            $html .= '<div class="' . (($record->Icon == $file)?'iconeSelected':'icone') . '" arquivoNome="' . $file . '">' . "\r\n";
-           $html .= '<img src="' . $cms->GetRootUrl() . 'cms/icons/' . $file . '">' . "\r\n";
+           $html .= '<img src="' . $CMS_URL . 'icons/' . $file . '">' . "\r\n";
            $html .= '</div>' . "\r\n";           
            
           }

@@ -51,9 +51,7 @@ foreach($configs as $k=>$c){
   include($OBJECTS_PATH . 'nbr.obj.cms.php');
   include($OBJECTS_PATH . 'nbr.obj.router.php');
   include($OBJECTS_PATH . 'nbr.obj.page.php');
-  include($OBJECTS_PATH . 'nbr.obj.tablepost.php');    
-  include($OBJECTS_PATH . 'nbr.obj.admin.logs.php'); 
-  include($OBJECTS_PATH . 'nbr.obj.admin.dataset.php');  
+  include($OBJECTS_PATH . 'nbr.obj.tablepost.php');
   include($OBJECTS_PATH . 'nbr.obj.report.pdf.php');  
   include($OBJECTS_PATH . 'nbr.obj.msg.php');
   include($OBJECTS_PATH . 'nbr.obj.langs.php');
@@ -78,7 +76,6 @@ foreach($configs as $k=>$c){
   /** Carrega objetos utilizados no framework... */
   $db       = new nbrDB($DB_HOST, $DB_DATABASE, $DB_USER, $DB_PASS, $DB_PERSISTENT);
   $cms      = new nbrCMS();
-  $dataSet  = new nbrDataSet();
   $security = new nbrAdminSecurity();
   $msg      = new nbrMSG();
   $cache    = new nbrCache();  

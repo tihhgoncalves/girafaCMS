@@ -71,7 +71,7 @@ class nbrAdminSecurity{
    * @return boolean
    */
   public function Login($user, $pass) {
-    global $db;
+    global $db, $logs;
     
     //Proteje de SQL inject
     $user = addslashes($user);

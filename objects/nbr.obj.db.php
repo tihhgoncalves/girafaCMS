@@ -18,8 +18,8 @@ class nbrDB
 
     private function _setErrorMsg()
     {
-        $this->errorMsg = mysql_error($this->connection);
-        $this->errorNumber = mysql_errno($this->connection);
+        $this->errorMsg = mysqli_error($this->connection);
+        $this->errorNumber = mysqli_errno($this->connection);
     }
 
     private function _connect(){

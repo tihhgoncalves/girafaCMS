@@ -38,8 +38,6 @@ class nbrTablePost{
       $sql .= ' VALUES(' . implode(', ', $values) . ')';
     }
     
-    $sql = utf8_decode($sql);
-    
     return $sql;
   }
    /**

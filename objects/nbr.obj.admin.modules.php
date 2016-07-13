@@ -73,7 +73,7 @@ class nbrModule{
   public $MultiLanguages;
 
   function __construct($reg){
-    global $MODULES_URL, $MODULES_PATH, $db, $hub, $ROOT_URL;
+    global $MODULES_URL, $MODULES_PATH, $db, $hub, $ROOT_URL, $CMS_URL;
     
     //Seleciona a Primeira Pasta..
     $sql  = 'SELECT sysModuleFolders.*, sysModules.Path, sysModuleFolders.ID folderID, sysModuleFolders.Name folderName, sysModuleFolders.MultiLanguages MultiLanguages FROM sysModuleFolders';
@@ -95,7 +95,7 @@ class nbrModule{
     $this->file        			= $link;
     $this->path        			= $MODULES_PATH . $reg->Path . '/';
     $this->url         			= $MODULES_URL . $reg->Path . '/';
-    $this->iconPath    			= $ROOT_URL . 'cms/icons/' . $reg->Icon;
+    $this->iconPath    			= $CMS_URL . 'icons/' . $reg->Icon;
     $this->folderID    			= $pasta->folderID;
     $this->folderName  			= $pasta->folderName;
     $this->MultiLanguages  		= $pasta->MultiLanguages;
