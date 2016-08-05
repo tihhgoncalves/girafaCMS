@@ -549,5 +549,5 @@ ALTER TABLE `sysTableFields`
 
 
 ALTER TABLE `sysModulesLanguages`
-  ADD CONSTRAINT `fk_sysmoduleslanguages_idioma` FOREIGN KEY (`Idioma`) REFERENCES `syslanguages` (`ID`),
-  ADD CONSTRAINT `fk_sysmoduleslanguages_modulo` FOREIGN KEY (`Modulo`) REFERENCES `sysmodules` (`ID`);
+  ADD CONSTRAINT `fk_sysmoduleslanguages_idioma` FOREIGN KEY (`Idioma`) REFERENCES `sysLanguages` (`ID`),
+  ADD CONSTRAINT `fk_sysmoduleslanguages_modulo` FOREIGN KEY (`Modulo`) REFERENCES `sysModules` (`ID`);
