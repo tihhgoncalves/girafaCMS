@@ -16,9 +16,9 @@ $config_d["LINK_PREFIX"]             = ""; //index.php?url=
 
 /** Configurações de Administração **/
 $config_d["MODULES_PATH"]            = "{CMS_PATH}modules/";
-$config_d["MODULES_URL"]             = "{ROOT_URL}modules/";
+$config_d["MODULES_URL"]             = "{CMS_URL}modules/";
 $config_d["PLUGINS_PATH"]            = "{CMS_PATH}plugins/";
-$config_d["PLUGINS_URL"]             = "{ROOT_URL}plugins/";
+$config_d["PLUGINS_URL"]             = "{CMS_URL}plugins/";
 $config_d["OBJECTS_PATH"]            = "{CMS_PATH}objects/";
 $config_d["FUNCTIONS_PATH"]          = "{CMS_PATH}functions/";
 
