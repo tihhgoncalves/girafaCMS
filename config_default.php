@@ -52,8 +52,8 @@ $config_d["ADMIN_JAVASCRIPT_PATH"]   = "{ADMIN_PATH}javascripts/";
 $config_d["ADMIN_IMAGES_PATH"]       = "{ADMIN_PATH}images/";
 $config_d["ADMIN_IMAGES_URL"]        = "{ADMIN_THEME_URL}images/";
 $config_d["ADMIN_FUNCTIONS_PATH"]    = "{ADMIN_PATH}functions/";
-$config_d["ADMIN_UPLOAD_PATH"]       = "{ROOT_PATH}site/uploads/";
-$config_d["ADMIN_UPLOAD_URL"]        = "{ROOT_URL}site/uploads/";
+$config_d["ADMIN_UPLOAD_PATH"]       = "{ROOT_PATH}uploads/";
+$config_d["ADMIN_UPLOAD_URL"]        = "{ROOT_URL}uploads/";
 $config_d["ADMIN_LANGS_PATH"]        = "{ROOT_PATH}site/langs/";
 
 /** Configurações de Banco de dados **/
