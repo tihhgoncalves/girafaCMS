@@ -566,7 +566,7 @@ class nbrAdminForms {
     $this->links[] = $html;
   }
   
-  public function AddLkpMultselect($name, $title, $description, $tableName, $fieldPrimary, $tableSecondary, $fieldSecondary, $fieldSecondatyLegend, $wheres = null, $order = null, $columns = 2, $required = true, $readOnly = false, $fieldOrder = null, $orderValueVariation = 10){
+  public function AddLkpMultselect($name, $title, $description, $tableName, $fieldPrimary, $tableSecondary, $fieldSecondary, $fieldSecondatyLegend, $wheres = null, $order = null, $columns = 2, $required = true, $readOnly = false, $fieldSecondatyOrder = null, $orderValueVariation = 10, $nroOrder = false){
     
     global $db;
     
@@ -597,9 +597,9 @@ class nbrAdminForms {
         $sql .= " AND (" . $wheres . ")";      
 
       //order
-      if(!empty($fieldOrder))
-        $sql .= " ORDER BY `$tableName`.`$fieldOrder` ASC";
-        
+      if(!empty($order))
+        $sql .= " ORDER BY $order";
+
       $res = $db->LoadObjects($sql);
     
       $selectedsIds = array();
@@ -632,8 +632,12 @@ class nbrAdminForms {
       $sql .= ' WHERE ';
       $sql .= implode($a_wheres, ' AND ');
     }
-      
-    $sql .= " ORDER BY `$fieldSecondatyLegend` ASC";
+
+    if(empty($fieldSecondatyOrder))
+      $fieldSecondatyOrder = $fieldSecondatyLegend;
+
+    $sql .= " ORDER BY `$fieldSecondatyOrder` ASC";
+
     $res = $db->LoadObjects($sql);
     
     foreach ($res as $reg) {
@@ -644,12 +648,17 @@ class nbrAdminForms {
       $regs[] = $item;
     }
       
-    foreach ($regs as $reg) {
+    foreach ($regs as $x=>$reg) {
       
       $selected = $reg['selected'];
       $rg = $reg['reg'];
-      
-      $html .= '  <option ' . (($selected)?'selected':null) . ' value="' . $rg->ID . '">' . $rg->$fieldSecondatyLegend . '</option>' . "\r\n";
+
+      if(!$nroOrder)
+        $legend = $rg->$fieldSecondatyLegend;
+      else {
+        $legend = ($x + 1) . ' - ' . $rg->$fieldSecondatyLegend;
+      }
+      $html .= '  <option ' . (($selected)?'selected':null) . ' value="' . $rg->ID . '">' . $legend . '</option>' . "\r\n";
     }
     $html .= '</select>' . "\r\n";       
     $html .= '</div>' . "\r\n";       
