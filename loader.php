@@ -8,7 +8,7 @@
 require_once('config_default.php');
 
 //config
-require_once('config.php');
+require_once(dirname(__FILE__) . '/../../config.php');
 
 $configs = array_merge($config_d, $config);
 

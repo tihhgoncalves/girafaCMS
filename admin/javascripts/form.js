@@ -30,9 +30,10 @@ function onlyInteger(dom){
 
 $(document).ready(function(){
 
+  //alert(root_url + 'bower_components/girafaCMS/admin/javascripts/ckeditor/upload.php');
 
 var config = {
-    filebrowserUploadUrl : 'javascripts/ckeditor/upload.php'
+    filebrowserUploadUrl : root_url + 'bower_components/girafaCMS/admin/javascripts/ckeditor/upload.php'
     };
 
 	$('div#boxForm div.html textarea').ckeditor(config);
