@@ -2,6 +2,9 @@
 $config_d["ROOT_PATH"]               = "/root/site/";
 $config_d["ROOT_URL"]                = "http://localhost/site";
 
+$config_d["BOWER_COMPONENTS_PATH"]   = "{ROOT_PATH}bower_components/";
+$config_d["BOWER_COMPONENTS_URL"]    = "{ROOT_URL}bower_components/";
+
 $config_d["ADMIN_URL"]               = "{ROOT_URL}admin/"; // equivalente a {ROOT_URL}bower_components/girafaCMS/admin/ - manipulado no .htaccess
 $config_d["ADMIN_THEME_URL"]         = "{ROOT_URL}bower_components/girafaCMS/admin/";
 $config_d["ADMIN_PATH"]              = "{ROOT_PATH}bower_components/girafaCMS/admin/";
