@@ -15,22 +15,10 @@ class nbrCMS
 
   
   function __construct($lang = 'pt-br'){
-    global $FRONT_THEME_PATH, $FRONT_THEMEMOBILE_PATH, $FRONT_THEME_URL, $FRONT_THEMEMOBILE_URL;
-    
-    //Verifica se é versão mobile...
-    if(preg_match('/(up.browser|up.link|mmp|symbian|smartphone|midp|wap|phone|mobile)/i', strtolower($_SERVER['HTTP_USER_AGENT']))){
-      $this->isMobile = true;
-    } elseif((strpos(strtolower($_SERVER['HTTP_ACCEPT']),'application/vnd.wap.xhtml+xml')>0) || ((isset($_SERVER['HTTP_X_WAP_PROFILE']) || isset($_SERVER['HTTP_PROFILE'])))){
-      $this->isMobile = true;
-    } 
-    //atualiza caminho do Tema..
-    if($this->isMobile){
-      $this->themePath = $FRONT_THEMEMOBILE_PATH;
-      $this->themeURL  = $FRONT_THEMEMOBILE_URL;
-    }else{
-      $this->themePath = $FRONT_THEME_PATH;
-      $this->themeURL  = $FRONT_THEME_URL;      
-    }
+    global $FRONT_THEME_PATH, $FRONT_THEME_URL;
+
+    $this->themePath = $FRONT_THEME_PATH;
+    $this->themeURL  = $FRONT_THEME_URL;
    
     $this->_lang = $lang;
   }
