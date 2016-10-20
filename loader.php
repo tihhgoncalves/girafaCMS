@@ -60,6 +60,7 @@ foreach($configs as $k=>$c){
   include($OBJECTS_PATH . 'nbr.obj.events.php'); 
   include($OBJECTS_PATH . 'nbr.obj.params.php'); 
   include($OBJECTS_PATH . 'nbr.obj.tableManager.php');
+  include($OBJECTS_PATH . 'nbz.obj.boxes.php');
 
   /** Includes de objetos de terceiros **/
   include($OBJECTS_PATH . 'instagram.php');
@@ -81,6 +82,7 @@ foreach($configs as $k=>$c){
   $cache    = new nbrCache();  
   $events   = new nbrEvents();
   $params   = new nbrParams();
+  $boxes    = new nbrBoxes();
 
   //Se no tema tiver arquivo functions.php carrega-o..
   if(file_exists($cms->GetThemePath() . 'functions.php'))

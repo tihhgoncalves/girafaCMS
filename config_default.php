@@ -32,6 +32,7 @@ $config_d["CACHE_PATH"]              = "{TEMP_PATH}cache/";
 $config_d["CACHE_URL"]               = "{TEMP_URL}cache/";
 $config_d["COOKIE_EXPIRE"]           = mktime(0, 0, 0,date("m"), date("d") + 7, date("Y")); //1 semana
 
+
 /** Configurações de Roteador (de links) **/
 $config_d["ROUTER_LINKMASK"]         = "";//index.php?hub=
 
@@ -42,6 +43,9 @@ $config_d["FRONT_PAGES_PATH"]        = "{ROOT_PATH}site/pages/";
 $config_d["FRONT_PAGES_URL"]         = "{ROOT_URL}site/pages/";
 $config_d["FRONT_SCRIPTS_PATH"]      = "{ROOT_PATH}site/scripts/";
 $config_d["FRONT_SCRIPTS_URL"]       = "{ROOT_URL}site/scripts/";
+
+$config_d["BOX_PATH"]                = "{FRONT_THEME_PATH}boxes/";
+$config_d["BOX_URL"]                = "{FRONT_THEME_URL}boxes/";
 
 /** Arquivos de utilizados para compor o HTML do Admin **/
 $config_d["ADMIN_PAGES_PATH"]        = "{ADMIN_PATH}pages/";
