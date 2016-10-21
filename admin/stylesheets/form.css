@@ -694,6 +694,7 @@ form#formulario .medium-editor-element blockquote{
   margin-right: 0;
   padding: 15px;
   border-left: 2px solid #CCC;
+  font-style: italic;
 }
 
 form#formulario .medium-editor-element ul{
