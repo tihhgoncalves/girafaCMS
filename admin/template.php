@@ -29,7 +29,10 @@ $security->SecurityCheck();
 <link href="<?= $cms->GetAdminJavaScriptUrl(); ?>jquery.fancybox/jquery.fancybox-1.3.4.css" rel="stylesheet" type="text/css" />
 
 <!-- Plugins Jquery -->
-<script src="<?= $cms->GetAdminJavaScriptUrl(); ?>jquery-1.8.2.min.js" type="text/javascript"></script>
+<script src="<?= get_config('BOWER_COMPONENTS_URL'); ?>jquery/dist/jquery.js" type="text/javascript"></script>
+<script src="<?= get_config('BOWER_COMPONENTS_URL'); ?>jquery-migrate-1.0.0/index.js" type="text/javascript"></script>
+
+  <script src="http://code.jquery.com/jquery-migrate-1.0.0.js"></script>
 <script src="<?= $cms->GetAdminJavaScriptUrl(); ?>ckeditor/ckeditor.js" type="text/javascript"></script>
 <script src="<?= $cms->GetAdminJavaScriptUrl(); ?>ckeditor/adapters/jquery.js" type="text/javascript"></script>
 <script src="<?= $cms->GetAdminJavaScriptUrl(); ?>jquery.ui/jquery-ui-1.10.3.custom.js" type="text/javascript"></script>
