@@ -28,12 +28,17 @@ $security->SecurityCheck();
 <link href="<?= $cms->GetAdminJavaScriptUrl(); ?>jquery-tooltip/jquery.tooltip.css" rel="stylesheet" type="text/css" />
 <link href="<?= $cms->GetAdminJavaScriptUrl(); ?>jquery.fancybox/jquery.fancybox-1.3.4.css" rel="stylesheet" type="text/css" />
 
-<!-- Plugins Jquery -->
+<!-- Plugins jQuery -->
 <script src="<?= get_config('BOWER_COMPONENTS_URL'); ?>jquery/dist/jquery.js" type="text/javascript"></script>
 <script src="<?= get_config('BOWER_COMPONENTS_URL'); ?>jquery-migrate-1.0.0/index.js" type="text/javascript"></script>
 
-<script src="<?= $cms->GetAdminJavaScriptUrl(); ?>ckeditor/ckeditor.js" type="text/javascript"></script>
-<script src="<?= $cms->GetAdminJavaScriptUrl(); ?>ckeditor/adapters/jquery.js" type="text/javascript"></script>
+  <!-- Plugins MEDIUM Editor -->
+<script src="<?= get_config('BOWER_COMPONENTS_URL'); ?>medium-editor/dist/js/medium-editor.min.js" type="text/javascript"></script>
+<link href="<?= get_config('BOWER_COMPONENTS_URL'); ?>medium-editor/dist/css/medium-editor.min.css" rel="stylesheet" type="text/css" />
+<link href="<?= get_config('BOWER_COMPONENTS_URL'); ?>medium-editor/dist/css/themes/default.min.css" rel="stylesheet" type="text/css" />
+
+<!--<script src="<?= $cms->GetAdminJavaScriptUrl(); ?>ckeditor/ckeditor.js" type="text/javascript"></script>-->
+<!--<script src="<?= $cms->GetAdminJavaScriptUrl(); ?>ckeditor/adapters/jquery.js" type="text/javascript"></script>-->
 <script src="<?= $cms->GetAdminJavaScriptUrl(); ?>jquery.ui/jquery-ui-1.10.3.custom.js" type="text/javascript"></script>
 <script src="<?= $cms->GetAdminJavaScriptUrl(); ?>jquery.multiselect/ui.multiselect.js" type="text/javascript"></script>
 <script src="<?= $cms->GetAdminJavaScriptUrl(); ?>jquery.validate/jquery.validate.js" type="text/javascript"></script>

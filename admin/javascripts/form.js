@@ -31,12 +31,38 @@ function onlyInteger(dom){
 $(document).ready(function(){
 
   //alert(root_url + 'bower_components/girafaCMS/admin/javascripts/ckeditor/upload.php');
-
+/*
 var config = {
     filebrowserUploadUrl : root_url + 'bower_components/girafaCMS/admin/javascripts/ckeditor/upload.php'
     };
 
 	$('div#boxForm div.html textarea').ckeditor(config);
+	*/
+
+
+  var editor = new MediumEditor('div#boxForm div.html textarea', {
+    toolbar: {
+      /* These are the default options for the toolbar,
+       if nothing is passed this is what is used */
+      allowMultiParagraphSelection: true,
+      buttons: ['bold', 'italic', 'underline', 'anchor', 'a', 'h1', 'h2', 'h3', 'quote'],
+      diffLeft: 0,
+      diffTop: -10,
+      firstButtonClass: 'medium-editor-button-first',
+      lastButtonClass: 'medium-editor-button-last',
+      relativeContainer: null,
+      standardizeSelectionStart: false,
+      static: false,
+      /* options which only apply when static is true */
+      align: 'center',
+      sticky: false,
+      updateOnEmptySelection: true
+    }
+  });
+
+
+
+
 });
 
 

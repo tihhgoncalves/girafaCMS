@@ -652,3 +652,46 @@ div#formToolbar ul>li{
   position: absolute;
   margin-left: 19px;
 }
+
+
+/* MEDIUM Editor */
+form#formulario .medium-editor-element{
+  padding: 15px;
+  background-color: #FFF;
+  margin-left: 115px;
+  overflow: auto;
+}
+form#formulario .medium-editor-element p{
+  margin-bottom: 10px;
+  line-height: 22px;
+  font-size: 12px;
+}
+
+form#formulario .medium-editor-element a{
+  color: #c93438;
+  text-decoration: underline;
+}
+form#formulario .medium-editor-element h1, h2, h3{
+  color: #c93438;
+  text-transform: none;
+  margin: 5px 0;
+}
+
+form#formulario .medium-editor-element h1 {
+  font-size: 24px;
+  font-weight: 600;
+}
+form#formulario .medium-editor-element h2 {
+  font-size: 16px;
+  font-weight: 600;
+}
+form#formulario .medium-editor-element h3 {
+  font-size: 16px;
+  font-weight: 400;
+}
+form#formulario .medium-editor-element blockquote{
+  margin: 15px;
+  margin-right: 0;
+  padding: 15px;
+  border-left: 2px solid #CCC;
+}
