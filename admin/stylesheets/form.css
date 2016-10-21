@@ -695,3 +695,20 @@ form#formulario .medium-editor-element blockquote{
   padding: 15px;
   border-left: 2px solid #CCC;
 }
+
+form#formulario .medium-editor-element ul{
+  margin: 25px;
+
+}
+form#formulario .medium-editor-element ul li{
+  list-style: initial;
+  margin-bottom: 5px;
+
+}
+form#formulario .medium-editor-element ol{
+  margin: 25px;
+}
+form#formulario .medium-editor-element ol li{
+  list-style-type: number;
+  margin-bottom: 5px;
+}

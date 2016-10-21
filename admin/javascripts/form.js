@@ -45,7 +45,7 @@ var config = {
       /* These are the default options for the toolbar,
        if nothing is passed this is what is used */
       allowMultiParagraphSelection: true,
-      buttons: ['bold', 'italic', 'underline', 'anchor', 'a', 'h1', 'h2', 'h3', 'quote'],
+      buttons: ['bold', 'italic', 'underline', 'anchor', 'a', 'h1', 'h2', 'h3', 'quote','unorderedlist','orderedlist'],
       diffLeft: 0,
       diffTop: -10,
       firstButtonClass: 'medium-editor-button-first',
