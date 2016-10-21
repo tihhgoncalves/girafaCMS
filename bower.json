@@ -1,0 +1,26 @@
+{
+  "name": "girafaCMS",
+  "homepage": "https://github.com/zbraestudio/girafaCMS",
+  "authors": [
+    "Z.BRA Estúdio <contato@zbraestudio.com.br>"
+  ],
+  "description": "CMS d Z.BRA Estúdio",
+  "main": "init.php",
+  "keywords": [
+    "CMS",
+    "Site",
+    "Hotsite",
+    "Blog"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^3.1.1"
+  }
+}
