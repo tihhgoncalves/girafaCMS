@@ -27,6 +27,7 @@
     "medium-editor-insert-plugin": "^2.4.0",
     "font-awesome-min": "^4.6.1",
     "fancybox": "^2.1.5",
-    "jquery.maskedinput": "jquery-maskedinput#^1.4.1"
+    "jquery.maskedinput": "jquery-maskedinput#^1.4.1",
+    "tooltipster": "^4.1.5"
   }
 }
