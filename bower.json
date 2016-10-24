@@ -25,6 +25,8 @@
     "jquery-migrate-1.0.0": "http://code.jquery.com/jquery-migrate-1.0.0.js",
     "medium-editor": "^5.22.1",
     "medium-editor-insert-plugin": "^2.4.0",
-    "font-awesome-min": "^4.6.1"
+    "font-awesome-min": "^4.6.1",
+    "fancybox": "^2.1.5",
+    "jquery.maskedinput": "jquery-maskedinput#^1.4.1"
   }
 }

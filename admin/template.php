@@ -24,15 +24,26 @@ $security->SecurityCheck();
 <link href="<?= $cms->GetAdminStyleSheetUrl(); ?>master.css" rel="stylesheet" type="text/css" />
 <link href="<?= $cms->GetAdminStyleSheetUrl(); ?>ui.css" rel="stylesheet" type="text/css" />
 <link href="<?= $cms->GetAdminJavaScriptUrl(); ?>jquery.ui/blitzer/jquery-ui-1.10.3.custom.css" rel="stylesheet" type="text/css" />
-<link href="<?= $cms->GetAdminJavaScriptUrl(); ?>jquery.alert/nbr.jquery.alerts.css" rel="stylesheet" type="text/css" />
-<link href="<?= $cms->GetAdminJavaScriptUrl(); ?>jquery-tooltip/jquery.tooltip.css" rel="stylesheet" type="text/css" />
-<link href="<?= $cms->GetAdminJavaScriptUrl(); ?>jquery.fancybox/jquery.fancybox-1.3.4.css" rel="stylesheet" type="text/css" />
 
 <!-- Plugin Font Awesome -->
 <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
 
 <!-- Plugins jQuery -->
 <script src="<?= get_config('BOWER_COMPONENTS_URL'); ?>jquery/dist/jquery.js" type="text/javascript"></script>
+
+<!-- jQuery Tooltipster's -->
+<link rel="stylesheet" type="text/css" href="<?= get_config('BOWER_COMPONENTS_URL'); ?>/tooltipster/dist/css/tooltipster.bundle.min.css" />
+<script type="text/javascript" src="<?= get_config('BOWER_COMPONENTS_URL'); ?>/tooltipster/dist/js/tooltipster.bundle.min.js"></script>
+
+<!-- jQuery MaskedInput -->
+<script src="<?= get_config('BOWER_COMPONENTS_URL'); ?>jquery.maskedinput/dist/jquery.maskedinput.min.js" type="text/javascript"></script>
+
+<!-- jQuery Fancybox -->
+<script src="<?= get_config('BOWER_COMPONENTS_URL'); ?>fancybox/source/jquery.fancybox.js" type="text/javascript"></script>
+<link href="<?= get_config('BOWER_COMPONENTS_URL'); ?>fancybox/source/jquery.fancybox.css" rel="stylesheet" type="text/css" />
+
+  <link href="<?= $cms->GetAdminJavaScriptUrl(); ?>jquery.alert/nbr.jquery.alerts.css" rel="stylesheet" type="text/css" />
+  <script src="<?= $cms->GetAdminJavaScriptUrl(); ?>jquery.alert/jquery.alerts.js" type="text/javascript"></script>
 
 <!-- Plugins MEDIUM Editor -->
 <link href="<?= get_config('BOWER_COMPONENTS_URL'); ?>medium-editor/dist/css/medium-editor.min.css" rel="stylesheet" type="text/css" />
@@ -53,12 +64,9 @@ $security->SecurityCheck();
 <script src="<?= $cms->GetAdminJavaScriptUrl(); ?>jquery.ui/jquery-ui-1.10.3.custom.js" type="text/javascript"></script>
 <script src="<?= $cms->GetAdminJavaScriptUrl(); ?>jquery.multiselect/ui.multiselect.js" type="text/javascript"></script>
 <script src="<?= $cms->GetAdminJavaScriptUrl(); ?>jquery.validate/jquery.validate.js" type="text/javascript"></script>
-<script src="<?= $cms->GetAdminJavaScriptUrl(); ?>jquery.alert/jquery.alerts.js" type="text/javascript"></script>
-<script src="<?= $cms->GetAdminJavaScriptUrl(); ?>jquery-tooltip/jquery.tooltip.js" type="text/javascript"></script>
-<script src="<?= $cms->GetAdminJavaScriptUrl(); ?>jquery.maskedinput/jquery.maskedinput-1.2.2.js" type="text/javascript"></script>
 <script src="<?= $cms->GetAdminJavaScriptUrl(); ?>jquery.autonumeric/autoNumeric-1.5.4.js" type="text/javascript"></script>
 <script src="<?= $cms->GetAdminJavaScriptUrl(); ?>jquery.fileupload/jquery.fileupload.js" type="text/javascript"></script>
-<script src="<?= $cms->GetAdminJavaScriptUrl(); ?>jquery.fancybox/jquery.fancybox-1.3.4.js" type="text/javascript"></script>
+
 
 <!-- Scripts -->
 <script src="<?= $cms->GetAdminJavaScriptUrl(); ?>cms.js" type="text/javascript"></script>

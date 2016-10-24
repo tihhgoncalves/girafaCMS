@@ -3,21 +3,27 @@ Mensagens de Erro
 **/
 
 $(document).ready(function(){
-  $('div#msg_erro img#detail').tooltip({ 
+  /*$('div#msg_erro img#detail').tooltip({
       delay: 0, 
       showURL: false, 
       showBody: " - "
       
   });
+  */
+
+  $('div#msg_erro img#detail').tooltipster();
 });
 
 
 $(document).ready(function(){
-  $('*.tooltip').tooltip({ 
+  /*
+  $('*.tooltip').tooltip({
       delay: 0, 
       showURL: false, 
       showBody: " - "
   });
+  */
+  $('*.tooltip').tooltipster();
 });
 
 
