@@ -713,3 +713,11 @@ form#formulario .medium-editor-element ol li{
   list-style-type: number;
   margin-bottom: 5px;
 }
+
+
+form#formulario .medium-insert-buttons-show{
+  margin-top: -10px;
+}
+form#formulario .medium-insert-buttons-addons{
+  margin: 0!important;
+}

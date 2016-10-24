@@ -33,24 +33,33 @@ $(document).ready(function(){
 
   var editor_config = {
     toolbar: {
-      buttons: ['bold', 'italic', 'underline', 'anchor', 'a', 'h1', 'h2', 'h3', 'quote','unorderedlist','orderedlist']
-    }
+      buttons: ['bold', 'italic', 'underline', 'anchor', 'a', 'h1', 'h2', 'h3', 'quote','unorderedlist','orderedlist'],
+      disableExtraSpaces: true, //não permite espaço no começo e no final da linha
+      disableDoubleReturn: true, //bloqueia mais do que 1 quebra de linha por vez
+      targetBlank: true //links todos em target=_blank
+    },
+    buttonLabels: 'fontawesome'
   }
 
   var editor = new MediumEditor('div#boxForm div.html textarea', editor_config);
 
-  $(function () {
-    $('div#boxForm div.html textarea').mediumInsert({
-      editor: editor,
-      addons: {
-        images: {
-          fileUploadOptions: {
-            url: root_url + 'bower_components/girafaCMS/admin/medium_editor/upload.php'
-          }
-        }
+  $('div#boxForm div.html textarea').mediumInsert({
+    editor: editor,
+    addons: {
+      images: {
+        fileUploadOptions: {
+          url: root_url + 'bower_components/girafaCMS/admin/medium_editor/upload.php'
+        },
+        captionPlaceholder: 'Adicione uma legenda (opcional)'
+      },
+      embeds: {
+        placeholder: 'Cole o link do YouTube, Vimeo, Facebook, Twitter ou Instagram  e dê Enter.',
+        captionPlaceholder: 'Adicione uma legenda (opcional)'
       }
-    });
+    }
   });
+
+
 
 });
 
