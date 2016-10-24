@@ -50,8 +50,6 @@ $security->SecurityCheck();
 <script src="<?= get_config('BOWER_COMPONENTS_URL'); ?>blueimp-file-upload/js/jquery.fileupload.js"></script>
 <script src="<?= get_config('BOWER_COMPONENTS_URL'); ?>medium-editor-insert-plugin/dist/js/medium-editor-insert-plugin.min.js"></script>
 
-<!--<script src="<?= $cms->GetAdminJavaScriptUrl(); ?>ckeditor/ckeditor.js" type="text/javascript"></script>-->
-<!--<script src="<?= $cms->GetAdminJavaScriptUrl(); ?>ckeditor/adapters/jquery.js" type="text/javascript"></script>-->
 <script src="<?= $cms->GetAdminJavaScriptUrl(); ?>jquery.ui/jquery-ui-1.10.3.custom.js" type="text/javascript"></script>
 <script src="<?= $cms->GetAdminJavaScriptUrl(); ?>jquery.multiselect/ui.multiselect.js" type="text/javascript"></script>
 <script src="<?= $cms->GetAdminJavaScriptUrl(); ?>jquery.validate/jquery.validate.js" type="text/javascript"></script>
