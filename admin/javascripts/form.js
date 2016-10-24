@@ -51,7 +51,14 @@ var config = {
 
   $(function () {
     $('div#boxForm div.html textarea').mediumInsert({
-      editor: editor
+      editor: editor,
+      addons: {
+        images: {
+          fileUploadOptions: {
+            url: root_url + 'bower_components/girafaCMS/admin/medium_editor/upload.php'
+          }
+        }
+      }
     });
   });
 

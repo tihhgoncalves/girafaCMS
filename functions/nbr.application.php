@@ -74,10 +74,4 @@ function LoadRecord($tableName, $value, $field = 'ID'){
   
   return $res[0];
 }
-
-
-function get_config($key){
-  return $GLOBALS[$key];
-}
-
 ?>
