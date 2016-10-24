@@ -54,7 +54,8 @@ $(document).ready(function(){
       },
       embeds: {
         placeholder: 'Cole o link do YouTube, Vimeo, Facebook, Twitter ou Instagram  e dê Enter.',
-        captionPlaceholder: 'Adicione uma legenda (opcional)'
+        captionPlaceholder: 'Adicione uma legenda (opcional)',
+        oembedProxy: bower_url + 'girafaCMS/getiframe.php'
       }
     }
   });

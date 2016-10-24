@@ -83,14 +83,16 @@ $security->SecurityCheck();
 
 <script type="text/javascript">
   /** Variáries JavaScript usadas no Administrador **/
-  var root_url              = '<?= $GLOBALS['ROOT_URL'] ?>';
-  var root_path             = '<?= $GLOBALS['ROOT_PATH'] ?>';
-  var admin_path            = '<?= $GLOBALS['ADMIN_PATH'] ?>';
-  var admin_url             = '<?= $GLOBALS['ADMIN_URL'] ?>';
-  var admin_page_path       = '<?= $GLOBALS['ADMIN_PAGES_PATH'] ?>';
-  var admin_page_url        = '<?= $GLOBALS['ADMIN_PAGES_URL'] ?>';
-  var admin_javascript_path = '<?= $GLOBALS['ADMIN_JAVASCRIPT_PATH'] ?>';
-  var admin_javascript_url  = '<?= $GLOBALS['ADMIN_JAVASCRIPT_URL'] ?>';
+  var root_url              = '<?= get_config('ROOT_URL'); ?>';
+  var root_path             = '<?= get_config('ROOT_PATH'); ?>';
+  var admin_path            = '<?= get_config('ADMIN_PATH'); ?>';
+  var admin_url             = '<?= get_config('ADMIN_URL');?>';
+  var admin_page_path       = '<?= get_config('ADMIN_PAGES_PATH'); ?>';
+  var admin_page_url        = '<?= get_config('ADMIN_PAGES_URL'); ?>';
+  var admin_javascript_path = '<?= get_config('ADMIN_JAVASCRIPT_PATH'); ?>';
+  var admin_javascript_url  = '<?= get_config('ADMIN_JAVASCRIPT_URL'); ?>';
+  var bower_url             = '<?= get_config('BOWER_COMPONENTS_URL'); ?>';
+  var bower_path            = '<?= get_config('BOWER_COMPONENTS_PATH'); ?>';
 </script>
 </head>
 <body>
