@@ -26,18 +26,8 @@ function onlyInteger(dom){
         dom.value=dom.value.replace(/\D/g,'');
 }
 
-//Aplica CKEditor nos Campos HTML...
-
+//Campo HTML...
 $(document).ready(function(){
-
-  //alert(root_url + 'bower_components/girafaCMS/admin/javascripts/ckeditor/upload.php');
-/*
-var config = {
-    filebrowserUploadUrl : root_url + 'bower_components/girafaCMS/admin/javascripts/ckeditor/upload.php'
-    };
-
-	$('div#boxForm div.html textarea').ckeditor(config);
-	*/
 
   /* EDITOR MEDIUM */
 
