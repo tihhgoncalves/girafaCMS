@@ -28,14 +28,27 @@ $security->SecurityCheck();
 <link href="<?= $cms->GetAdminJavaScriptUrl(); ?>jquery-tooltip/jquery.tooltip.css" rel="stylesheet" type="text/css" />
 <link href="<?= $cms->GetAdminJavaScriptUrl(); ?>jquery.fancybox/jquery.fancybox-1.3.4.css" rel="stylesheet" type="text/css" />
 
+<!-- Plugin Font Awesome -->
+<link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+
 <!-- Plugins jQuery -->
 <script src="<?= get_config('BOWER_COMPONENTS_URL'); ?>jquery/dist/jquery.js" type="text/javascript"></script>
-<script src="<?= get_config('BOWER_COMPONENTS_URL'); ?>jquery-migrate-1.0.0/index.js" type="text/javascript"></script>
 
-  <!-- Plugins MEDIUM Editor -->
-<script src="<?= get_config('BOWER_COMPONENTS_URL'); ?>medium-editor/dist/js/medium-editor.min.js" type="text/javascript"></script>
+<!-- Plugins MEDIUM Editor -->
 <link href="<?= get_config('BOWER_COMPONENTS_URL'); ?>medium-editor/dist/css/medium-editor.min.css" rel="stylesheet" type="text/css" />
 <link href="<?= get_config('BOWER_COMPONENTS_URL'); ?>medium-editor/dist/css/themes/default.min.css" rel="stylesheet" type="text/css" />
+<script src="<?= get_config('BOWER_COMPONENTS_URL'); ?>medium-editor/dist/js/medium-editor.min.js" type="text/javascript"></script>
+
+<!-- Plugins MEDIUM Editor INSERT-->
+<link rel="stylesheet" href="<?= get_config('BOWER_COMPONENTS_URL'); ?>medium-editor/dist/css/medium-editor.min.css">
+<link rel="stylesheet" href="<?= get_config('BOWER_COMPONENTS_URL'); ?>medium-editor/dist/css/themes/default.css">
+<link rel="stylesheet" href="<?= get_config('BOWER_COMPONENTS_URL'); ?>medium-editor-insert-plugin/dist/css/medium-editor-insert-plugin.min.css">
+<script src="<?= get_config('BOWER_COMPONENTS_URL'); ?>handlebars/handlebars.runtime.min.js"></script>
+<script src="<?= get_config('BOWER_COMPONENTS_URL'); ?>jquery-sortable/source/js/jquery-sortable-min.js"></script>
+<script src="<?= get_config('BOWER_COMPONENTS_URL'); ?>blueimp-file-upload/js/vendor/jquery.ui.widget.js"></script>
+<script src="<?= get_config('BOWER_COMPONENTS_URL'); ?>blueimp-file-upload/js/jquery.iframe-transport.js"></script>
+<script src="<?= get_config('BOWER_COMPONENTS_URL'); ?>blueimp-file-upload/js/jquery.fileupload.js"></script>
+<script src="<?= get_config('BOWER_COMPONENTS_URL'); ?>medium-editor-insert-plugin/dist/js/medium-editor-insert-plugin.min.js"></script>
 
 <!--<script src="<?= $cms->GetAdminJavaScriptUrl(); ?>ckeditor/ckeditor.js" type="text/javascript"></script>-->
 <!--<script src="<?= $cms->GetAdminJavaScriptUrl(); ?>ckeditor/adapters/jquery.js" type="text/javascript"></script>-->

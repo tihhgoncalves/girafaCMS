@@ -39,29 +39,21 @@ var config = {
 	$('div#boxForm div.html textarea').ckeditor(config);
 	*/
 
+  /* EDITOR MEDIUM */
 
-  var editor = new MediumEditor('div#boxForm div.html textarea', {
+  var editor_config = {
     toolbar: {
-      /* These are the default options for the toolbar,
-       if nothing is passed this is what is used */
-      allowMultiParagraphSelection: true,
-      buttons: ['bold', 'italic', 'underline', 'anchor', 'a', 'h1', 'h2', 'h3', 'quote','unorderedlist','orderedlist'],
-      diffLeft: 0,
-      diffTop: -10,
-      firstButtonClass: 'medium-editor-button-first',
-      lastButtonClass: 'medium-editor-button-last',
-      relativeContainer: null,
-      standardizeSelectionStart: false,
-      static: false,
-      /* options which only apply when static is true */
-      align: 'center',
-      sticky: false,
-      updateOnEmptySelection: true
+      buttons: ['bold', 'italic', 'underline', 'anchor', 'a', 'h1', 'h2', 'h3', 'quote','unorderedlist','orderedlist']
     }
+  }
+
+  var editor = new MediumEditor('div#boxForm div.html textarea', editor_config);
+
+  $(function () {
+    $('div#boxForm div.html textarea').mediumInsert({
+      editor: editor
+    });
   });
-
-
-
 
 });
 
