@@ -53,7 +53,7 @@ $(document).ready(function(){
         captionPlaceholder: 'Adicione uma legenda (opcional)'
       },
       embeds: {
-        placeholder: 'Cole o link do YouTube, Vimeo, Facebook, Twitter ou Instagram  e dê Enter.',
+        placeholder: 'Cole o link do YouTube e dê Enter.',
         captionPlaceholder: 'Adicione uma legenda (opcional)',
         oembedProxy: bower_url + 'girafaCMS/getiframe.php'
       }

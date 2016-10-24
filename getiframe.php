@@ -29,27 +29,37 @@ if(!isset($_GET['url'])){
 $url = $_GET['url'];
 
 // Youtube
-$re = '/http[s!]?:\/\/(?:www\.)?(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))((\w|-){11})(?:\S+)?/';
-preg_match_all($re, $url, $matches);
-$code = $matches[1][0];
-$metas = get_meta_tags($url);
+if( (strpos($url, 'youtube.com') !== false) || (strpos($url, 'youtu.be') !== false)) {
+
+  $re = '/http[s!]?:\/\/(?:www\.)?(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))((\w|-){11})(?:\S+)?/';
+  preg_match_all($re, $url, $matches);
+  $code = $matches[1][0];
+  $metas = get_meta_tags($url);
 
 
-$xml = array();
+  $xml = array();
 
-$xml['url']                 = $_GET['url'];
-$xml['type']                = 'video';
-$xml['version']             = '.1.0';
-$xml['title']               = $metas['title'];
-$xml['author']              = '';
-$xml['description']         = $metas['description'];
-$xml['thumbnail_url']       = $metas['twitter:image'];
-$xml['thumbnail_width']     = '';
-$xml['thumbnail_height']    = '';
-$xml['html']                = '<div><div style="left: 0px; width: 100%; height: 0px; position: relative; padding-bottom: 56.2493%;"><iframe src="https://www.youtube.com/embed/' . $code . '?wmode=transparent&amp;rel=0&amp;autohide=1&amp;showinfo=0&amp;enablejsapi=1" frameborder="0" allowfullscreen style="top: 0px; left: 0px; width: 100%; height: 100%; position: absolute;"></iframe></div></div>';
-$xml['provider_name']       = 'Youtube';
-$xml['code']                = $code;
+  $xml['url'] = $_GET['url'];
+  $xml['type'] = 'video';
+  $xml['version'] = '.1.0';
+  $xml['title'] = $metas['title'];
+  $xml['author'] = '';
+  $xml['description'] = $metas['description'];
+  $xml['thumbnail_url'] = $metas['twitter:image'];
+  $xml['thumbnail_width'] = '';
+  $xml['thumbnail_height'] = '';
+  $xml['html'] = '<div><div style="left: 0px; width: 100%; height: 0px; position: relative; padding-bottom: 56.2493%;"><iframe src="https://www.youtube.com/embed/' . $code . '?wmode=transparent&amp;rel=0&amp;autohide=1&amp;showinfo=0&amp;enablejsapi=1" frameborder="0" allowfullscreen style="top: 0px; left: 0px; width: 100%; height: 100%; position: absolute;"></iframe></div></div>';
+  $xml['provider_name'] = 'Youtube';
+  $xml['code'] = $code;
 
-echo(json_encode($xml));
+  die(json_encode($xml));
+}
 
+
+//URL não compreendida..
+$xml = array(
+  'status' => 403,
+  'error' => 'No referrer header presented with the request.'
+);
+die(json_encode($xml));
 ?>
