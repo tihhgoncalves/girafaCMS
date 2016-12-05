@@ -97,7 +97,48 @@ class nbrAdminForms {
 
     	case 'FIL':
     	  $file = $this->getValue($fieldName, null);
-    	  
+
+
+
+        $html  = '<div  id="campo_' . $fieldName . '" class="field file ' . $columnsStr . ' ' . ($required?'required':null) . ' ' . ($readOnly?'disabled':null) . '">' . "\r\n";
+        $html .= '<label class="legend">' . $legend . '</label>' . "\r\n";
+
+        $html .= '<div class="esquerda">' . "\r\n";
+
+
+        if(!empty($file)){
+          $fileFull = $ADMIN_UPLOAD_PATH . $file;
+
+          //Pega Tamanho do Arquivo..
+          $bytes = filesize($fileFull);
+          $bytes = number_format(($bytes / 1024 /1024), 2, ',', '.');
+
+          $txt_status = '<b>Tamanho:</b> ' . $bytes . 'mb.';
+
+          $html .= '<div class="painel">' . "\r\n";
+          $html .= '<span class="status">' . "\r\n";
+          $hub->SetParam('_script', $ADMIN_PAGES_PATH . 'form.down.php');
+          $hub->SetParam('file', $file);
+          $html .= '<a href="' . $hub->GetUrl() . '" title="Clique aqui para baixar este arquivo"><img style="' . ((!$isBlank)?null:'display: none;')  . '" class="down" src="' . $ADMIN_IMAGES_URL . 'botao_input_down.gif" title="Clique aqui para baixar este arquivo"></a>' . "\r\n";
+          $html .= '<img style="' . ((!$isBlank)?null:'display: none;')  . '" class="delete" src="' . $ADMIN_IMAGES_URL . 'icon_form_image_delete.png" title="Limpar este campo">' . "\r\n";
+          $html .= '<span class="txt">' . $txt_status . '</span>' . "\r\n";
+          $html .= '</span>' . "\r\n";
+          $html .= '</div>' . "\r\n";
+
+        }
+
+        $html .= '<input class="arquivo" ' . ($readOnly?'disabled':null) . ' type="file" name="' . $fieldName . '" id="' . $fieldName. '"></input>' . "\r\n";
+        $html .= '<div style="clear:both;"></div>';
+
+
+        $html .= '</div>' . "\r\n";
+        $html .= '</div>' . "\r\n";
+
+
+        $this->fieldsFileName[] = $fieldName;
+
+
+        /* @tihhgoncalves - Desativado (velho)
         $isBlank = empty($file);
         
         if(!$isBlank){
@@ -109,13 +150,13 @@ class nbrAdminForms {
   
           $txt_status = '<b>Tamanho:</b> ' . $bytes . 'mb.';
         }
-            	  
-    	  $html  = '<div  id="campo_' . $fieldName . '" class="field file ' . $columnsStr . ' ' . ($required?'required':null) . ' ' . ($readOnly?'disabled':null) . '">' . "\r\n";
+
+        $html  = '<div  id="campo_' . $fieldName . '" class="field file ' . $columnsStr . ' ' . ($required?'required':null) . ' ' . ($readOnly?'disabled':null) . '">' . "\r\n";
         $html .= '<label class="legend">' . $legend . '</label>' . "\r\n";
 
         $html .= '<div class="esquerda">' . "\r\n";
 
-    	  //Streaming..
+        //Streaming..
         $html .= '<div class="boxFileStreaming">' . "\r\n";
         $html .= '<input   table="' . $this->tableName . '" fieldName="' . $fieldName . '" fileTypes="' . $fileType . '" fileTypesDescription="' . $fileTypesDescription . '" class="arquivo" ' . ($readOnly?'disabled':null) . ' type="file" name="' . $fieldName . '" id="' . $fieldName. '"  />' . "\r\n";
         $html .= '<input type="hidden" name="' . $fieldName. '_status" id="' . $fieldName. '_status" value="Y">';
@@ -125,36 +166,38 @@ class nbrAdminForms {
         //Painel Editar...
         if(!$isBlank){
           $html .= '<div class="painel">' . "\r\n";
-      	  $html .= '<span class="status">' . "\r\n";
+          $html .= '<span class="status">' . "\r\n";
           $hub->SetParam('_script', $ADMIN_PAGES_PATH . 'form.down.php');
-      	  $hub->SetParam('file', $file);
-      	  $html .= '<a href="' . $hub->GetUrl() . '" title="Clique aqui para baixar este arquivo"><img style="' . ((!$isBlank)?null:'display: none;')  . '" class="down" src="' . $ADMIN_IMAGES_URL . 'botao_input_down.gif" title="Clique aqui para baixar este arquivo"></a>' . "\r\n";
-      	  $html .= '<img style="' . ((!$isBlank)?null:'display: none;')  . '" class="delete" src="' . $ADMIN_IMAGES_URL . 'icon_form_image_delete.png" title="Limpar este campo">' . "\r\n";
-      	  $html .= '<span class="txt">' . $txt_status . '</span>' . "\r\n";        
-      	  $html .= '</span>' . "\r\n";            	  
-      	  $html .= '</div>' . "\r\n";            	  
+          $hub->SetParam('file', $file);
+          $html .= '<a href="' . $hub->GetUrl() . '" title="Clique aqui para baixar este arquivo"><img style="' . ((!$isBlank)?null:'display: none;')  . '" class="down" src="' . $ADMIN_IMAGES_URL . 'botao_input_down.gif" title="Clique aqui para baixar este arquivo"></a>' . "\r\n";
+          $html .= '<img style="' . ((!$isBlank)?null:'display: none;')  . '" class="delete" src="' . $ADMIN_IMAGES_URL . 'icon_form_image_delete.png" title="Limpar este campo">' . "\r\n";
+          $html .= '<span class="txt">' . $txt_status . '</span>' . "\r\n";
+          $html .= '</span>' . "\r\n";
+          $html .= '</div>' . "\r\n";
         }
-    	  
+
         $html .= '</div>' . "\r\n";
-        
-        
+
+
         /*
-    	  $html .= '<div class="painel">' . "\r\n";
-    	  $html .= '<span class="status">' . "\r\n";
-    	  
-    	  $hub->SetParam('_page', $moduleObj->path . 'form.down.php');
-    	  $hub->SetParam('file', $img);
-    	  $html .= '<a href="' . $hub->GetUrl() . '" title="Clique aqui para baixar este arquivo"><img style="' . ((!$isBlank)?null:'display: none;')  . '" class="down" src="' . $ADMIN_IMAGES_URL . 'botao_input_down.gif" title="Clique aqui para baixar este arquivo"></a>' . "\r\n";
-    	  $html .= '<img style="' . ((!$isBlank)?null:'display: none;')  . '" class="delete" src="' . $ADMIN_IMAGES_URL . 'icon_form_image_delete.png" title="Limpar este campo">' . "\r\n";
-    	  $html .= '<span class="txt">' . $txt_status . '</span>' . "\r\n";        
-    	  $html .= '</span>' . "\r\n";        
+        $html .= '<div class="painel">' . "\r\n";
+        $html .= '<span class="status">' . "\r\n";
+
+        $hub->SetParam('_page', $moduleObj->path . 'form.down.php');
+        $hub->SetParam('file', $img);
+        $html .= '<a href="' . $hub->GetUrl() . '" title="Clique aqui para baixar este arquivo"><img style="' . ((!$isBlank)?null:'display: none;')  . '" class="down" src="' . $ADMIN_IMAGES_URL . 'botao_input_down.gif" title="Clique aqui para baixar este arquivo"></a>' . "\r\n";
+        $html .= '<img style="' . ((!$isBlank)?null:'display: none;')  . '" class="delete" src="' . $ADMIN_IMAGES_URL . 'icon_form_image_delete.png" title="Limpar este campo">' . "\r\n";
+        $html .= '<span class="txt">' . $txt_status . '</span>' . "\r\n";
+        $html .= '</span>' . "\r\n";
         $html .= '<img class="btn_upload" src="' . $ADMIN_IMAGES_URL . 'form_file_upload.gif">' . "\r\n";        
         $html .= '<input class="arquivo" ' . ($readOnly?'disabled':null) . ' type="file" name="' . $fieldName . '" id="' . $fieldName. '"></input>' . "\r\n";
         $html .= '<input ' . ($readOnly?'disabled':null) . ' class="_status ' . ($required?$required_str:null) . '" type="hidden" name="' . $fieldName . '_status" id="' . $fieldName. '_status" value="' . (($isBlank)?null:'N') . '" ></input>' . "\r\n";
         $html .= '</div>' . "\r\n";    
-        */
+        * /
         $html .= '</div>' . "\r\n";    
-        $this->fieldsFileName[] = $fieldName;	
+        $this->fieldsFileName[] = $fieldName;
+
+        */
     		break;
     		
       case 'IMG':

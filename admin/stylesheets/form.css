@@ -134,6 +134,13 @@ div#boxForm div.field input {
   padding: 0 4px;
   margin: 5px;
 }
+
+div#boxForm div.field input.arquivo{
+  background: none;
+  border: 0;
+  height: 25px;
+}
+
 div#boxForm div.field.disabled input,
 div#boxForm div.field.password input.disabled {
   background-color: #F5F5F5;
@@ -315,8 +322,9 @@ div#boxForm div.file div.painel img.down {
   cursor: pointer;
 }
 div#boxForm div.file div.painel {
-  width: 618px;
+  width: 600px;
   height: 30px;
+  margin-left: 10px;
   background-color: #CCCCCC;
   border: 1px solid #999999;
 }

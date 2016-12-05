@@ -12,4 +12,7 @@ function nbrStrToUpper($text){
   
   return $text;
 }
+
+
+
 ?>

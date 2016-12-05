@@ -389,6 +389,7 @@ $(document).ready(function() {
      var campo = $(this).attr('fieldName');
      var barra = $(this).parent().parent().find('#barra');
 
+     /*
      $(this).fileUpload({
         'uploader'    : 'javascripts/jquery.fileupload/uploader.swf',
         'width'       : 114,
@@ -435,6 +436,8 @@ $(document).ready(function() {
        $(this).parent().parent().find('img.down').hide();
        $(this).parent().parent().find('span.txt').text('Assim que você salvar este registro este campo ficará em branco.')
      })
+
+     */
    });
    
 });
