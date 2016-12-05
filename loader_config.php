@@ -34,4 +34,11 @@ foreach($configs as $k=>$c){
 function get_config($key){
   return $GLOBALS[$key];
 }
+
+//carrega registro do config
+function get_link($link){
+
+  $langs = get_config('LANGS_ADMIN');
+  return get_config('ROOT_URL') . get_config('LINK_PREFIX') . $langs['default'] . '/' .$link;
+}
 ?>
