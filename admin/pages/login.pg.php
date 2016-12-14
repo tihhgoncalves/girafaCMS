@@ -16,7 +16,22 @@
 <body>
 
 <div id="box">
-  <div id="logo"></div>
+
+    <?
+    //verifica se tem logo customizada no tema...
+    $customlogo_path = get_config('ROOT_PATH') . 'site/admin/login_logo.png';
+    $customlogo_url = get_config('ROOT_URL') . 'site/admin/login_logo.png';
+    if(file_exists($customlogo_path)){
+        ?>
+        <div id="logo" style="background-image: url('<?= $customlogo_url; ?>');"></div>
+        <?
+    } else {
+        ?>
+        <div id="logo"></div>
+        <?
+    }
+    ?>
+
   <div id="painel">
   <?
   $hub->SetParam('_script', $ADMIN_PAGES_PATH . 'login.script.login.php');

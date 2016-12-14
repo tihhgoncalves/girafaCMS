@@ -97,7 +97,21 @@ $security->SecurityCheck();
 </head>
 <body>
 <div id="topo">
-  <div id="logo"><a href="<?= $ADMIN_URL; ?>"><img src="<?= $cms->GetAdminImageUrl(); ?>logo-cms.png" width="140" height="37" alt="CMS Ministrar2" /> </a> </div>
+  <div id="logo"><a href="<?= $ADMIN_URL; ?>">
+
+      <?
+      //verifica se tem logo customizada no tema...
+      $customlogo_path = get_config('ROOT_PATH') . 'site/admin/logo-cms.png';
+      $customlogo_url = get_config('ROOT_URL') . 'site/admin/logo-cms.png';
+      if(file_exists($customlogo_path)) {
+        $logo_cms = $customlogo_url;
+      } else {
+        $logo_cms = $cms->GetAdminImageUrl() . 'logo-cms.png';
+      }
+        ?>
+        <img src="<?= $logo_cms?>" height="37" alt="CMS Ministrar2"/>
+
+    </a> </div>
 
   <div class="direita"> <a href="<?= $ROOT_URL; ?>" target="_blank" title="Ver site"> <span id="btn_site"></span> </a> 
   <?
