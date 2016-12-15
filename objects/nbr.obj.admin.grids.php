@@ -266,7 +266,7 @@ class nbrAdminGrid{
 		if(!empty($this->wheres))
 		  $this->wheres .= ' AND ';
 		
-    	$this->wheres .= '(Lang = "' . $_SESSION['lang_admin'] . '")';
+    	$this->wheres .= '(A.Lang = "' . $_SESSION['lang_admin'] . '")';
     }    
     
     //Condições..
@@ -285,7 +285,7 @@ class nbrAdminGrid{
 
     //Ordenação..
     if($this->controlOrders != array())
-      $orders = ' ORDER BY `' . $this->controlOrders['field'] . '` ASC';
+      $orders = ' ORDER BY A.`' . $this->controlOrders['field'] . '` ASC';
     elseif(!empty($this->orders))
       $orders = ' ORDER BY ' . $this->orders;
 

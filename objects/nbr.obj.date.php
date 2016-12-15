@@ -194,9 +194,9 @@ class nbrDate
         //Verifica se a data foi setada
         $this->_checkData();
         
-        $dia = $this->GetDayOfWeekLong();
+        $dia = utf8_decode($this->GetDayOfWeekLong());
         $dia = strtolower($dia);
-        $dia = substr($dia, 0, 3);
+        $dia = utf8_encode(substr($dia, 0, 3));
         return $dia;        
     }
     
