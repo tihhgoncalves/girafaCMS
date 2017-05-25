@@ -1,0 +1,729 @@
+@charset "utf-8";
+
+/** Ferramentas **/
+div#boxForm ul#toolbarXXX{
+  height: 22px;
+  margin-top: 15px;
+}
+div#boxForm ul#toolbarXXX li{
+  float: right;
+  margin-left: 10px;
+}
+div#boxForm ul#toolbarXXX li.save a{
+  display: block;
+  width: 72px;
+  height:22px;
+  background-image: url(../images/form_save.png);
+  background-repeat:no-repeat;
+  background-position: left -22px;
+}
+div#boxForm ul#toolbarXXX li.save a:hover{
+  background-position: left top;
+}
+div#boxForm ul#toolbarXXX li.save.disabled a,
+div#boxForm ul#toolbarXXX li.save.disabled a:hover{
+  background-position: left -44px;
+  cursor: no-drop;
+}
+
+div#boxForm ul#toolbarXXX li.back a{
+  display: block;
+  width: 72px;
+  height:22px;
+  background-image: url(../images/form_back.png);
+  background-repeat:no-repeat;
+  background-position: left -22px;
+}
+div#boxForm ul#toolbarXXX li.back a:hover{
+  background-position: left top;
+}
+div#boxForm ul#toolbarXXX li.back.disabled a,
+div#boxForm ul#toolbarXXX li.back.disabled a:hover{
+  background-position: left -44px;
+  cursor: no-drop;
+}
+
+
+
+
+input.hover {
+  border: 1px solid #666666 !important;
+  color: #666666 !important;
+}
+div#boxForm {
+  width: 750px;
+
+  div.clearBoth {
+    clear: both;
+  }
+  form div.separator {
+    width: 740px;
+    height: 16px;
+    color: #666666;
+    border-bottom: 1px solid #666666;
+    padding: 2px 0;
+    margin: 0 5px;
+    margin-bottom: 2px;
+    margin-top: 10px;
+    font-size: 11px;
+    font-weight: bold;
+    float: left;
+  }
+  form div.description strong,
+  form div.description b,
+  form div.description u,
+  form div.description i {
+    font-size: 9px;
+    line-height: 15px;
+  }
+  form div.description {
+    width: 740px;
+    color: #666666;
+    padding: 2px 0;
+    margin: 0 5px;
+    margin-bottom: 2px;
+    margin-top: 2px;
+    font-size: 9px;
+    line-height: 15px;
+    float: left;
+  }
+  form div.description a {
+    font-size: 9px;
+    text-decoration: underline;
+  }
+  form div.description a:hover {
+    color: #000000;
+    text-decoration: underline;
+  }
+  div.field {
+    margin: 5px;
+    padding: 5px;
+    background-color: #DFDFDF;
+    color: white;
+    float: left;
+    position: relative;
+  }
+  div.lkp_multselect {
+    display: inline-block;
+    margin: 10px;
+  }
+  div.field label.legend {
+    font-size: 10px;
+    line-height: 20px;
+    width: 100px;
+    display: block;
+    height: 20px;
+    text-align: right;
+    padding-right: 5px;
+    margin: 5px 0;
+    border-right: 5px solid #DFDFDF;
+    float: left;
+    margin: 5px 0;
+  }
+  div.field.required label.legend {
+    border-right: 5px solid #666666;
+  }
+  div.field input {
+    color: #999999;
+    border: 1px solid #999999;
+    float: left;
+    height: 18px;
+    line-height: 20px;
+    background-color: #FFFFFF;
+    font-size: 11px;
+    padding: 0 4px;
+    margin: 5px;
+
+    &[readonly]{
+      background-color: #F5F5F5;
+      border: 1px solid #9F9F9F;
+      color: #9F9F9F;
+    }
+  }
+
+  div.field input.arquivo {
+    background: none;
+    border: 0;
+    height: 25px;
+  }
+
+  div.readonly input {
+    background-color: #F3F3F3;
+    color: #999999;
+  }
+  div.field textarea {
+    color: #999999;
+    border: 1px solid #999999;
+    float: left;
+    line-height: 20px;
+    background-color: #FFFFFF;
+    font-size: 11px;
+    padding: 4px;
+    margin: 5px;
+  }
+  div.field select {
+    color: #999999;
+    border: 1px solid #999999;
+    float: left;
+    height: 18px;
+    line-height: 20px;
+    background-color: #FFFFFF;
+    font-size: 11px;
+    margin: 5px;
+  }
+  div.readonly select {
+    background-color: #F3F3F3;
+    color: #999999;
+  }
+  div.col1 {
+    width: 230px;
+  }
+  div.col2 {
+    width: 480px;
+  }
+  div.col3 {
+    width: 730px;
+  }
+  div.spaceWhite {
+    height: 30px;
+    margin: 5px;
+    padding: 5px;
+    float: left;
+    position: relative;
+  }
+
+  /** String **/
+  div.string label.legend {
+  }
+  div.string.col1 input {
+    width: 100px;
+  }
+  div.string.col2 input {
+    width: 350px;
+  }
+  div.string.col3 input {
+    width: 600px;
+  }
+
+  /** Password **/
+  div.password.col1 input {
+    width: 39px;
+  }
+  div.password.col2 input {
+    width: 165px;
+  }
+  div.password.col3 input {
+    width: 290px;
+  }
+
+  /** Number **/
+  div.number input {
+    text-align: right;
+  }
+  div.number.col1 input {
+    width: 100px;
+  }
+  div.number.col2 input {
+    width: 350px;
+  }
+  div.number.col3 input {
+    width: 600px;
+  }
+
+  /** Image **/
+  div.image div.img {
+    width: 609px;
+    height: 150px;
+    background-color: #FFFFFF;
+    border: 1px solid #CCCCCC;
+    margin-left: 114px;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  div.image img.img_zoom {
+    margin: 10px;
+    position: absolute;
+  }
+  div.image div.img img.delete {
+    float: right;
+    margin: 6px;
+    cursor: pointer;
+  }
+  div.image div.img.noimage {
+    background-image: url(../images/form_image_noimage.jpg);
+  }
+  div.image div.painel {
+    width: 609px;
+    height: 30px;
+    background-color: #CCCCCC;
+    border: 1px solid #999999;
+    margin-left: 114px;
+    margin-top: 6px;
+  }
+  div.image div.painel span.status {
+    font-size: 10px;
+    height: 30px;
+    line-height: 30px;
+    width: 465px;
+    padding: 0 10px;
+    display: block;
+    float: left;
+    overflow: hidden;
+  }
+   div.image div.painel span.status b {
+    font-size: 10px;
+  }
+   div.image div.painel span.status span.warning {
+    color: #999999;
+    font-size: 9px;
+    margin: 4px;
+  }
+   div.image div.painel img.btn_upload {
+    padding-left: 4px;
+    padding-top: 2px;
+    cursor: pointer;
+  }
+   div.image div.painel input[type=file] {
+    cursor: pointer;
+    font-size: 18px;
+    height: 28px;
+    margin-left: -376px;
+    margin-top: 1px;
+    opacity: 0;
+    position: absolute;
+    width: 403px;
+  }
+  /** File **/
+
+  XXXdiv#boxForm div.file div.img {
+    width: 609px;
+    height: 150px;
+    background-color: #FFFFFF;
+    border: 1px solid #CCCCCC;
+    margin-left: 114px;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  XXXdiv#boxForm div.file div.img.noimage {
+    background-image: url(../images/form_image_noimage.jpg);
+  }
+   div.file div.painel img.delete {
+    float: left;
+    margin: 9px;
+    cursor: pointer;
+  }
+   div.file div.painel img.down {
+    float: left;
+    margin-top: 3px;
+    margin-right: 8px;
+    cursor: pointer;
+  }
+   div.file div.painel {
+    width: 600px;
+    height: 30px;
+    margin-left: 10px;
+    background-color: #CCCCCC;
+    border: 1px solid #999999;
+  }
+   div.file label.legend {
+
+  }
+   div.file div.painel span.status {
+    height: 30px;
+    line-height: 30px;
+    width: 599px;
+    padding: 0 10px;
+    display: block;
+    float: left;
+    overflow: hidden;
+  }
+   div.file div.painel span.status span.txt {
+    font-size: 10px;
+    height: 30px;
+    line-height: 30px;
+  }
+   div.file div.painel span.status b {
+    font-size: 10px;
+  }
+   div.file div.painel span.status span.warning {
+    color: #999999;
+    font-size: 9px;
+    margin: 4px;
+  }
+   div.file div.painel img.btn_upload {
+    padding-left: 4px;
+    padding-top: 2px;
+    cursor: pointer;
+  }
+   div.file div.painel input[type=file] {
+    cursor: pointer;
+    font-size: 18px;
+    height: 28px;
+    margin-left: -120px;
+    margin-top: 1px;
+    opacity: 0;
+    position: absolute;
+    width: 123px;
+  }
+  /** DateTime **/
+   div.datetime label.legend {
+  }
+   div.datetime.col1 input {
+    width: 100px;
+  }
+   div.datetime.col2 input {
+    width: 350px;
+  }
+   div.datetime.col3 input {
+    width: 600px;
+  }
+  /** Date **/
+   div.date label.legend {
+  }
+   div.date.col1 input {
+    width: 100px;
+  }
+   div.date.col2 input {
+    width: 350px;
+  }
+   div.date.col3 input {
+    width: 600px;
+  }
+  /** Integer **/
+   div.integer label.legend {
+  }
+   div.integer.col1 input {
+    width: 100px;
+  }
+   div.integer.col2 input {
+    width: 350px;
+  }
+   div.integer.col3 input {
+    width: 600px;
+  }
+  /** TextArea **/
+   div.textarea.col1 textarea {
+    width: 100px;
+  }
+   div.textarea.col2 textarea {
+    width: 350px;
+  }
+   div.textarea.col3 textarea {
+    width: 600px;
+  }
+  /** Campo: HTML **/
+   div.html.col1 textarea {
+    width: 100px;
+  }
+   div.html.col2 textarea {
+    width: 350px;
+  }
+   div.html.col3 textarea {
+    width: 600px;
+  }
+  /** Campo: List **/
+   div.list.col1 select {
+    width: 110px;
+  }
+   div.list.col2 select {
+    width: 360px;
+  }
+   div.list.col3 select {
+    width: 610px;
+  }
+   ul#link {
+    width: 705px;
+    height: 22px;
+    background-image: url(../images/form_links_bg.jpg);
+    background-repeat: no-repeat;
+    float: left;
+    margin: 0 5px;
+    padding-left: 35px;
+  }
+   ul#link li {
+    list-style: none outside none;
+    float: left;
+    margin: 0 5px;
+  }
+   ul#link li img {
+    margin: 0 3px;
+    position: relative;
+    top: 4px;
+  }
+   ul#link li a,
+   ul#link li a:hover {
+    font-size: 10px;
+    text-decoration: none;
+  }
+   ul#link li a sup {
+    font-size: smaller;
+    line-height: 13px;
+    vertical-align: top;
+    font-size: 8px;
+    margin-left: -3px;
+    color: #999999;
+  }
+}
+span#devenv {
+  font-size: 10px;
+  color: #CCCCCC;
+  padding-left: 2px;
+  padding-top: 4px;
+  display: block;
+}
+span#devenv u {
+  font-size: 10px;
+  color: #CCCCCC;
+}
+label.error {
+  background-color: #C93438;
+  color: #FFFFFF;
+  height: 20px !important;
+  line-height: 20px;
+  position: absolute;
+  top: 12px;
+  border: 0;
+  font-size: 10px;
+	padding: 0 5px;
+}
+div.string label.error {
+  right: 10px;
+	margin-top: -2px;
+}
+div.password label.error {
+  right: 10px;
+	margin-top: -2px;	
+}
+div.number label.error {
+  right: 10px;
+	margin-top: -2px;	
+}
+div.image label.error {
+  right: 16px;
+  top: 134px;
+}
+div.datetime label.error {
+  right: 10px;
+	margin-top: -2px;	
+}
+div.date label.error {
+  right: 10px;
+	margin-top: -2px;	
+}
+div.textarea label.error {
+  right: 10px;
+	margin-top: -2px;	
+}
+
+div.html label.error {
+  right: 6px;
+	margin-top: 69px;	
+}
+div.list label.error {
+  left: 123px;
+}
+span#stack {
+  font-size: 9px;
+  color:#999999;
+  display: block;
+  margin: 5px 0;
+}
+span#stack a {
+  font-size: 9px;
+  color:#999999;
+  text-decoration:underline;
+}
+span#stack span.lastLevel {
+  font-size: 9px;
+  color:#9999999;
+}
+span#stack a:hover {
+  color: #000000;
+}
+
+/**
+Campo Arquivo
+**/
+div#boxForm div.field div.boxFileStreaming{
+  width: 610px;
+  height: 25px;
+  float: left;
+  padding: 5px;
+  position: relative;
+  background-color: #D4D4D4;
+  border: #E4E4E4;
+}
+div#boxForm div.file label.legend{
+  line-height: 25px;
+  height: 25px;
+}
+div#boxForm div.field div.esquerda{
+  width: 620px;
+  float: left;
+}
+div#boxForm div.field div.boxFileStreaming .fileUploaderBtn{
+  position: absolute;
+  right: 5px;
+}
+
+div#boxForm div.field div.boxFileStreaming div.fileUploadQueue{
+  display: none;
+}
+div#boxForm div.field div.boxFileStreaming div.fileUploadQueue .fileUploadQueueItem{
+  height: 15px;
+  padding: 5px;
+  border: 0!important;
+}
+div#boxForm div.field div.boxFileStreaming div.fileUploadQueue .fileUploadQueueItem .cancel{
+  float: left;
+}
+div#boxForm div.field div.boxFileStreaming div.fileUploadQueue .fileUploadQueueItem .fileName{
+  margin-left: 4px;
+  font-size: 10px;
+}
+div#boxForm div.field div.boxFileStreaming div.fileUploadQueue .fileUploadQueueItem .percentage{
+  font-size: 10px;
+}
+
+div#boxForm div.field div.boxFileStreaming .fileUploadProgress {
+   background-color: #FFFFFF;
+   border: 0;
+   margin-top: 10px;
+   width: 100%;
+}
+div#boxForm div.field div.boxFileStreaming .fileUploadProgressBar {
+   background-color: #890E0E;
+}
+id#ArquivoDownloadQueue{
+  display: none;
+}
+#barra{
+  background-color: #499349;
+  height: 22px;
+  line-height: 22px;  
+  width: 0;
+  margin-top: 2px;
+  text-align: center;
+  color: #FFF;
+
+-webkit-border-radius: 4px;
+-moz-border-radius: 4px;
+border-radius: 4px;
+}
+#barra.file{
+  background-color: #999;
+  width: 485px;
+}
+
+.btnGreen{
+	background-color: #8EB435;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	text-transform:uppercase;
+	text-align: center;
+	padding: 0 15px;
+	color: #FFF;
+	line-height: 27px;
+	height: 27px;
+	border: 0;
+
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;	
+}
+
+div#formToolbar{
+	min-height: 30px;
+	clear: both;
+	padding-top: 10px;
+
+}
+div#formToolbar ul{
+	display: block;
+	float: right;
+}
+div#formToolbar ul>li{
+	float: left;
+}
+
+#saveMenu{
+	position: absolute!important;
+}
+
+.cke_inner{
+  margin-left: 114px!important;
+}
+
+.geradorSenha img{
+  position: absolute;
+  margin-left: 19px;
+}
+
+
+/* MEDIUM Editor */
+form#formulario .medium-editor-element{
+  padding: 15px;
+  background-color: #FFF;
+  margin-left: 115px;
+  overflow: auto;
+}
+form#formulario .medium-editor-element p{
+  margin-bottom: 10px;
+  line-height: 22px;
+  font-size: 12px;
+}
+
+form#formulario .medium-editor-element a{
+  color: #c93438;
+  text-decoration: underline;
+}
+form#formulario .medium-editor-element h1, h2, h3{
+  color: #c93438;
+  text-transform: none;
+  margin: 5px 0;
+}
+
+form#formulario .medium-editor-element h1 {
+  font-size: 24px;
+  font-weight: 600;
+}
+form#formulario .medium-editor-element h2 {
+  font-size: 16px;
+  font-weight: 600;
+}
+form#formulario .medium-editor-element h3 {
+  font-size: 16px;
+  font-weight: 400;
+}
+form#formulario .medium-editor-element blockquote{
+  margin: 15px;
+  margin-right: 0;
+  padding: 15px;
+  border-left: 2px solid #CCC;
+  font-style: italic;
+}
+
+form#formulario .medium-editor-element ul{
+  margin: 25px;
+
+}
+form#formulario .medium-editor-element ul li{
+  list-style: initial;
+  margin-bottom: 5px;
+
+}
+form#formulario .medium-editor-element ol{
+  margin: 25px;
+}
+form#formulario .medium-editor-element ol li{
+  list-style-type: number;
+  margin-bottom: 5px;
+}
+
+
+form#formulario .medium-insert-buttons-show{
+  margin-top: -10px;
+}
+form#formulario .medium-insert-buttons-addons{
+  margin: 0!important;
+}

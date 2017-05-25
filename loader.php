@@ -37,6 +37,7 @@ require_once('loader_config.php');
   include($OBJECTS_PATH . 'nbr.obj.params.php'); 
   include($OBJECTS_PATH . 'nbr.obj.tableManager.php');
   include($OBJECTS_PATH . 'nbz.obj.boxes.php');
+  include($OBJECTS_PATH . 'girafa.tpl.php');
 
   /** Includes de objetos de terceiros **/
   include($OBJECTS_PATH . 'instagram.php');

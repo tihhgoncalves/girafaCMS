@@ -12,6 +12,9 @@ $config_d["ADMIN_PATH"]              = "{ROOT_PATH}bower_components/girafaCMS/ad
 $config_d["CMS_PATH"]                = "{ROOT_PATH}bower_components/girafaCMS/";
 $config_d["CMS_URL"]                 = "{ROOT_URL}bower_components/girafaCMS/";
 
+$config_d["TPL_PATH"]                = "{CMS_PATH}tpl/";
+$config_d["TPL_URL"]                 = "{CMS_URL}tpl/";
+
 $config_d["LANG"]                    = "pt-br";
 $config_d["SITEKEY"]                 = "13246789";
 
