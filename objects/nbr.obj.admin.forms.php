@@ -45,353 +45,12 @@ class nbrAdminForms {
           
     return $value;
   }
-  private function addField($type, $fieldName, $legend, $length, $columns, $valueDefault, $required, $readOnly, $height = -1, $options = null, $required_str = 'required', $fileType = null, $fileTypesDescription = null, $mask = null){
-    global $ADMIN_IMAGES_URL, $ADMIN_UPLOAD_PATH, $hub,$ADMIN_PAGES_PATH, $ADMIN_UPLOAD_URL;
-    
-    //Traduz colunas...
-    switch ($columns) {
-    	case 1: $columnsStr = 'oneColumn'; break;
-    	case 2: $columnsStr = 'twoColumn'; break;
-    	case 3: $columnsStr = 'threeColumn'; break;
-    }
-    
-    switch ($type) {
 
-      case 'STR':
-        $val = $this->getValue($fieldName, $valueDefault);
-        $html  = '<div id="' . $fieldName . '" class="field string ' . $columnsStr . ' ' . ($required?'required':null) . ' ' . ($readOnly?'disabled':null) . '">' . "\r\n";
-        $html .= '<label class="legend">' . $legend . '</label>' . "\r\n";
-        $html .= '<input ' . ($readOnly?'readonly':null) . ' class="' . ($required?$required_str:null) . '" ' . ($readOnly?' title="' . $val . '" ':null) . ' type="text" name="' . $fieldName. ($readOnly?'_disabled':null) . '" id="' . $fieldName. '" value="' . htmlspecialchars($val) . '" maxlength="' . $length. '" ' . (!empty($mask)?'mask="' . $mask . '"':null) . ' />' . "\r\n";
-        $html .= '</div>' . "\r\n";   
-        $this->fieldsName[] = $fieldName; 		
-    		break;
-    		
-    	case 'PSW':
-    	  
-    	  if($this->Editing()){
-      	  if(isset($_POST[$fieldName]))
-      	    $val = null;
-      	  else
-      	    $val = '[NAOATUALIZAR]';
-    	  } else 
-    	    $val = null;
-
-        $html  = '<div  id="' . $fieldName . '" class="field password ' . $columnsStr . ' ' . ($required?'required':null) . ' ' . ($readOnly?'disabled':null) . '">' . "\r\n";
-        $html .= '<label class="legend">' . $legend . '</label>' . "\r\n";
-        
-        $html .= '<input ' . ($readOnly?'disabled':null) . ' class="' . ($required?$required_str:null) . ' senha1" type="password" name="' . $fieldName. ($readOnly?'_disabled':null) . '" id="' . $fieldName. '" value="' . $val . '" maxlength="' . $length. '"></input>' . "\r\n";
-        
-        //Confirmar Senha..
-        $html .= '<input disabled class="' . ($required?$required_str:null) . ' senha2 disabled" type="password" name="' . $fieldName. ($readOnly?'_disabled':null) . '_confirmacao" id="' . $fieldName. '" value="' . $val . '" maxlength="' . $length. '"></input>' . "\r\n";
-        
-        //Botao gerador
-        $hub->SetParam('_script', $ADMIN_PAGES_PATH . 'form.password.generator.php');
-        $hub->SetParam('fieldName', $fieldName);
-        //
-        $html .= '<a href="' . $hub->GetUrl()  . '" class="geradorSenha iframe"><img title="Clique aqui para abrir o gerador de senha" src="' . $ADMIN_IMAGES_URL . 'form_field_password_generator.gif" width="48" height="31"></a>' . "\r\n";
-        
-        $html .= '</div>' . "\r\n";
-        $this->fieldsName[] = $fieldName; 
-        $this->fieldsPassword[] = $fieldName;
-    		break;    		
-
-    	case 'FIL':
-    	  $file = $this->getValue($fieldName, null);
-
-
-
-        $html  = '<div  id="campo_' . $fieldName . '" class="field file ' . $columnsStr . ' ' . ($required?'required':null) . ' ' . ($readOnly?'disabled':null) . '">' . "\r\n";
-        $html .= '<label class="legend">' . $legend . '</label>' . "\r\n";
-
-        $html .= '<div class="esquerda">' . "\r\n";
-
-
-        if(!empty($file)){
-          $fileFull = $ADMIN_UPLOAD_PATH . $file;
-
-          //Pega Tamanho do Arquivo..
-          $bytes = filesize($fileFull);
-          $bytes = number_format(($bytes / 1024 /1024), 2, ',', '.');
-
-          $txt_status = '<b>Tamanho:</b> ' . $bytes . 'mb.';
-
-          $html .= '<div class="painel">' . "\r\n";
-          $html .= '<span class="status">' . "\r\n";
-          $hub->SetParam('_script', $ADMIN_PAGES_PATH . 'form.down.php');
-          $hub->SetParam('file', $file);
-          $html .= '<a href="' . $hub->GetUrl() . '" title="Clique aqui para baixar este arquivo"><img style="' . ((!$isBlank)?null:'display: none;')  . '" class="down" src="' . $ADMIN_IMAGES_URL . 'botao_input_down.gif" title="Clique aqui para baixar este arquivo"></a>' . "\r\n";
-          $html .= '<img style="' . ((!$isBlank)?null:'display: none;')  . '" class="delete" src="' . $ADMIN_IMAGES_URL . 'icon_form_image_delete.png" title="Limpar este campo">' . "\r\n";
-          $html .= '<span class="txt">' . $txt_status . '</span>' . "\r\n";
-          $html .= '</span>' . "\r\n";
-          $html .= '</div>' . "\r\n";
-
-        }
-
-        $html .= '<input class="arquivo" ' . ($readOnly?'disabled':null) . ' type="file" name="' . $fieldName . '" id="' . $fieldName. '"></input>' . "\r\n";
-        $html .= '<div style="clear:both;"></div>';
-
-
-        $html .= '</div>' . "\r\n";
-        $html .= '</div>' . "\r\n";
-
-
-        $this->fieldsFileName[] = $fieldName;
-
-
-        /* @tihhgoncalves - Desativado (velho)
-        $isBlank = empty($file);
-        
-        if(!$isBlank){
-          $fileFull = $ADMIN_UPLOAD_PATH . $file;
-          
-          //Pega Tamanho do Arquivo..
-          $bytes = filesize($fileFull);
-          $bytes = number_format(($bytes / 1024 /1024), 2, ',', '.');
-  
-          $txt_status = '<b>Tamanho:</b> ' . $bytes . 'mb.';
-        }
-
-        $html  = '<div  id="campo_' . $fieldName . '" class="field file ' . $columnsStr . ' ' . ($required?'required':null) . ' ' . ($readOnly?'disabled':null) . '">' . "\r\n";
-        $html .= '<label class="legend">' . $legend . '</label>' . "\r\n";
-
-        $html .= '<div class="esquerda">' . "\r\n";
-
-        //Streaming..
-        $html .= '<div class="boxFileStreaming">' . "\r\n";
-        $html .= '<input   table="' . $this->tableName . '" fieldName="' . $fieldName . '" fileTypes="' . $fileType . '" fileTypesDescription="' . $fileTypesDescription . '" class="arquivo" ' . ($readOnly?'disabled':null) . ' type="file" name="' . $fieldName . '" id="' . $fieldName. '"  />' . "\r\n";
-        $html .= '<input type="hidden" name="' . $fieldName. '_status" id="' . $fieldName. '_status" value="Y">';
-        $html .= '<div id="barra" ' . ((!$isBlank)?'class="file"':null) . '>' . ((!$isBlank)?$file:null) . '</div>';
-        $html .= '</div>' . "\r\n";
-
-        //Painel Editar...
-        if(!$isBlank){
-          $html .= '<div class="painel">' . "\r\n";
-          $html .= '<span class="status">' . "\r\n";
-          $hub->SetParam('_script', $ADMIN_PAGES_PATH . 'form.down.php');
-          $hub->SetParam('file', $file);
-          $html .= '<a href="' . $hub->GetUrl() . '" title="Clique aqui para baixar este arquivo"><img style="' . ((!$isBlank)?null:'display: none;')  . '" class="down" src="' . $ADMIN_IMAGES_URL . 'botao_input_down.gif" title="Clique aqui para baixar este arquivo"></a>' . "\r\n";
-          $html .= '<img style="' . ((!$isBlank)?null:'display: none;')  . '" class="delete" src="' . $ADMIN_IMAGES_URL . 'icon_form_image_delete.png" title="Limpar este campo">' . "\r\n";
-          $html .= '<span class="txt">' . $txt_status . '</span>' . "\r\n";
-          $html .= '</span>' . "\r\n";
-          $html .= '</div>' . "\r\n";
-        }
-
-        $html .= '</div>' . "\r\n";
-
-
-        /*
-        $html .= '<div class="painel">' . "\r\n";
-        $html .= '<span class="status">' . "\r\n";
-
-        $hub->SetParam('_page', $moduleObj->path . 'form.down.php');
-        $hub->SetParam('file', $img);
-        $html .= '<a href="' . $hub->GetUrl() . '" title="Clique aqui para baixar este arquivo"><img style="' . ((!$isBlank)?null:'display: none;')  . '" class="down" src="' . $ADMIN_IMAGES_URL . 'botao_input_down.gif" title="Clique aqui para baixar este arquivo"></a>' . "\r\n";
-        $html .= '<img style="' . ((!$isBlank)?null:'display: none;')  . '" class="delete" src="' . $ADMIN_IMAGES_URL . 'icon_form_image_delete.png" title="Limpar este campo">' . "\r\n";
-        $html .= '<span class="txt">' . $txt_status . '</span>' . "\r\n";
-        $html .= '</span>' . "\r\n";
-        $html .= '<img class="btn_upload" src="' . $ADMIN_IMAGES_URL . 'form_file_upload.gif">' . "\r\n";        
-        $html .= '<input class="arquivo" ' . ($readOnly?'disabled':null) . ' type="file" name="' . $fieldName . '" id="' . $fieldName. '"></input>' . "\r\n";
-        $html .= '<input ' . ($readOnly?'disabled':null) . ' class="_status ' . ($required?$required_str:null) . '" type="hidden" name="' . $fieldName . '_status" id="' . $fieldName. '_status" value="' . (($isBlank)?null:'N') . '" ></input>' . "\r\n";
-        $html .= '</div>' . "\r\n";    
-        * /
-        $html .= '</div>' . "\r\n";    
-        $this->fieldsFileName[] = $fieldName;
-
-        */
-    		break;
-    		
-      case 'IMG':
-        $isBlank = true;
-        $img = $this->getValue($fieldName, null);
-        
-        if(empty($img)){
-          $img = $ADMIN_IMAGES_URL . 'form_image_noimage.jpg';
-          $isBlank = true;
-          $txt_status = 'Sem Imagem';
-		  $link_zoom = null;
-        } else {
-          
-          $imgFile = $ADMIN_UPLOAD_PATH . $img;
-          $imgUrl = $ADMIN_UPLOAD_URL . $img;
-
-          $img = nbrMagicImage::CreateThumbBackgroundCenter($imgFile, 600, 145);
-
-          $isBlank = false;
-          
-          //Pega Tamanho do Arquivo..
-          $bytes = filesize($imgFile);
-          $bytes = number_format(($bytes / 1024 /1024), 2, ',', '.');
-          
-          //Pega dimensão da imagem..
-          $imagesize = getimagesize($imgFile); // Pega os dados
-          $x = $imagesize[0]; // 0 será a largura.
-          $y = $imagesize[1]; // 1 será a altura.
-          
-          $txt_status = '<b>Tamanho:</b> ' . $bytes . 'mb. <b>Dimensão:</b> ' . $x . 'x' . $y . ' pixels.';
-          
-          $link_zoom  = '<a href="' . $imgUrl . '" title="Clique aqui para ampliar a imagem" class="fancybox">';
-          $link_zoom .= '<img src="' . $ADMIN_IMAGES_URL . 'icon_form_zomm.png" class="img_zoom">';
-          $link_zoom .= '</a>';
-        }
-
-        $html  = '<div  id="' . $fieldName . '" class="field image ' . $columnsStr . ' ' . ($required?'required':null) . ' ' . ($readOnly?'disabled':null) . '">' . "\r\n";
-        $html .= '<label class="legend">' . $legend . '</label>' . "\r\n";
-        $html .= '<div class="img" style="background-image:url(' . $img . ');">' . "\r\n";
-        $html .= $link_zoom;
-        
-        $html .= '<img style="' . ((!$isBlank)?null:'display: none;')  . '" class="delete" src="' . $ADMIN_IMAGES_URL . 'icon_form_image_delete.png" title="Limpar este campo">' . "\r\n";
-        
-        $html .= '</div>' . "\r\n";
-        $html .= '<div class="painel">' . "\r\n";
-
-        $html .= '<span class="status">' . $txt_status . '</span>' . "\r\n";        
-        $html .= '<img class="btn_upload" src="' . $ADMIN_IMAGES_URL . 'form_image_upload.gif">' . "\r\n";        
-        $html .= '<input ' . ($readOnly?'disabled':null) . ' type="file" name="' . $fieldName . '" id="' . $fieldName. '"></input>' . "\r\n";
-        $html .= '<input ' . ($readOnly?'disabled':null) . ' class="_status ' . ($required?$required_str:null) . '" type="hidden" name="' . $fieldName . '_status" id="' . $fieldName. '_status" value="' . (($isBlank)?null:'N') . '" ></input>' . "\r\n";
-
-        $html .= '</div>' . "\r\n";        
-        $html .= '</div>' . "\r\n";    	
-        
-        $this->fieldsImagesName[] = $fieldName;	
-    		break;
-    		
-    	case 'INT':
-    	    $html  = '<div  id="' . $fieldName . '" class="field ' . $columnsStr . ' integer ' . ($required?'required':null) . ' ' . ($readOnly?'disabled':null) . '">' . "\r\n";
-          $html .= '<label class="legend">' . $legend . '</label>' . "\r\n";
-          $html .= '<input ' . ($readOnly?'disabled':null) . ' onkeyup="onlyInteger(this);" type="text" name="' . $fieldName. ($readOnly?'_disabled':null) . '" id="' . $fieldName. '" value="' . $this->getValue($fieldName, $valueDefault) . '"  maxlength="' . $length. '"></input>' . "\r\n";
-          $html .= '</div>' . "\r\n";
-          $this->fieldsName[] = $fieldName;
-    	  break;
-    	  
-    	case 'TXT':
-          $html  = '<div class="field ' . $columnsStr . ' textarea ' . ($required?'required':null) . ' ' . ($readOnly?'disabled':null) . '" id="' . $fieldName. '" >' . "\r\n";
-          $html .= '<label class="legend">' . $legend . '</label>' . "\r\n";
-          $html .= '<textarea class="' . ($required?'required':null) . '" ' . ($readOnly?'disabled':null) . ' id="texto" id="' . $fieldName. '" name="' . $fieldName. ($readOnly?'_disabled':null) . '" style="height:' . $height . 'px">' . $this->getValue($fieldName, $valueDefault) . '</textarea>' . "\r\n";
-          $html .= '<div class="clearBoth"></div>';
-          $html .= '</div>' . "\r\n";   
-          $this->fieldsName[] = $fieldName;       
-    	  break;    	  
-    	
-    	case 'HTM':
-          $html  = '<div  id="' . $fieldName . '" class="field ' . $columnsStr . ' html ' . ($required?'required':null) . ' ' . ($readOnly?'disabled':null) . '">' . "\r\n";
-          $html .= '<label class="legend">' . $legend . '</label>' . "\r\n";
-          $html .= '<textarea class="' . ($required?'required':null) . '" ' . ($readOnly?'disabled':null) . ' id="' . $fieldName. '" name="' . $fieldName. ($readOnly?'_disabled':null) . '" style="height:' . $height . 'px">' . $this->getValue($fieldName, $valueDefault) . '</textarea>' . "\r\n";
-          $html .= '<div class="clearBoth"></div>';
-          $html .= '</div>' . "\r\n";      
-          $this->fieldsName[] = $fieldName;    
-    	  break;
-    	  
-    	case 'LST':
-    	    $value = $this->getValue($fieldName, $valueDefault);
-          $html  = '<div  id="' . $fieldName . '" class="field ' . $columnsStr . ' list ' . ($required?'required':null) . ' ' . ($readOnly?'disabled':null) . '">' . "\r\n";
-          $html .= '<label class="legend">' . $legend . '</label>' . "\r\n";
-          $html .= '<select ' . ($readOnly?'disabled':null) . ' class="' . ($required?$required_str:null) . '" name="' . $fieldName . ($readOnly?'_disabled':null) . '">' . "\r\n";
-          $html .= '<option value=""></option>' . "\r\n";
-          
-          $options_array = explode('|', $options);
-          foreach ($options_array as $option_array){
-            $option = explode('=', $option_array);
-            $html .= '<option '. ($value == $option[0]?'selected':null) . ' value="' . $option[0] . '">' . $option[1] . '</option>' . "\r\n";
-          }
-          $html .= '</select>' . "\r\n";
-          $html .= '</div>' . "\r\n";    
-          $this->fieldsName[] = $fieldName;      
-          break;
-      
-    	case 'HID':
-    	  $html = '<input type="hidden"  class="' . ($required?$required_str:null) . '" name="' . $fieldName . '" value="' . $valueDefault . '">';  
-    	  $this->fieldsName[] = $fieldName;
-    	  break;    
-    	  
-    	case 'DTT' :
-    	  $dateValue = $this->getValue($fieldName, $valueDefault);
-    	  
-    	  if(!empty($dateValue)){
-    	    $data = new nbrDate($dateValue, ENUM_DATE_FORMAT::YYYY_MM_DD_HH_II_SS);
-    	    $dateValue = $data->GetDate('d/m/Y H:i');
-    	  } else 
-    	    $dateValue = null;
-    	    
-        $html  = '<div  id="dv_' . $fieldName . '" class="field datetime ' . $columnsStr . ' ' . ($required?'required':null) . ' ' . ($readOnly?'disabled':null) . '">' . "\r\n";
-        $html .= '<label class="legend">' . $legend . '</label>' . "\r\n";
-        $html .= '<input ' . ($readOnly?'disabled':null) . ' class="" ' . ($required?$required_str:null) . ' type="text" name="' . $fieldName. ($readOnly?'_disabled':null) . '" id="' . $fieldName. '" value="' . $dateValue . '" maxlength="' . $length. '"></input>' . "\r\n";
-        $html .= '</div>' . "\r\n";   
-        
-        $this->fieldsDateName[] = $fieldName;
-        $this->fieldsName[] = $fieldName;
-
-    	  break;
-    	  
-    	case 'DAT' :
-    	  $dateValue = $this->getValue($fieldName, $valueDefault);
-    	  
-    	  if(!empty($dateValue)){
-    	    $data = new nbrDate($dateValue, ENUM_DATE_FORMAT::YYYY_MM_DD);
-    	    $dateValue = $data->GetDate('d/m/Y');
-    	  } else 
-    	    $dateValue = '';
-    	    
-        $html  = '<div  id="dv_' . $fieldName . '" class="field date ' . $columnsStr . ' ' . ($required?'required':null) . ' ' . ($readOnly?'disabled':null) . '">' . "\r\n";
-        $html .= '<label class="legend">' . $legend . '</label>' . "\r\n";
-        $html .= '<input ' . ($readOnly?'disabled':null) . ' class="" ' . ($required?$required_str:null) . ' type="text" name="' . $fieldName. ($readOnly?'_disabled':null) . '" id="' . $fieldName. '" value="' . $dateValue . '" maxlength="' . $length. '"></input>' . "\r\n";
-        $html .= '</div>' . "\r\n";    		
-        
-        $this->fieldsDateName[] = $fieldName;
-        $this->fieldsName[] = $fieldName;
-
-    	  break;
-    	  
-    	case 'NUM':
-    	  $value = $this->getValue($fieldName, $valueDefault);
-    	  $value = (!is_numeric($value))?0:$value;
-    	  $value = number_format($value, 2, ',', '');
-    	  
-        $html  = '<div  id="' . $fieldName . '" class="field number ' . $columnsStr . ' ' . ($required?'required':null) . ' ' . ($readOnly?'disabled':null) . '">' . "\r\n";
-        $html .= '<label class="legend">' . $legend . '</label>' . "\r\n";
-        $html .= '<input ' . ($readOnly?'disabled':null) . ' class="' . ($required?$required_str:null) . '" type="text" name="' . $fieldName. ($readOnly?'_disabled':null) . '" id="  ' . $fieldName. '" value="' . $value . '"></input>' . "\r\n";
-        $html .= '</div>' . "\r\n";
-        $this->fieldsName[] = $fieldName;
-        $this->fieldsNumber[] = $fieldName;
-    		break;
-
-    	case 'CUS':
-        $val = $this->getValue($fieldName, $valueDefault);
-        /*$html  = '<div class="field string ' . $columnsStr . ' ' . ($required?'required':null) . ' ' . ($readOnly?'disabled':null) . '">' . "\r\n";
-        $html .= '<label class="legend">' . $legend . '</label>' . "\r\n";
-        $html .= '<input ' . ($readOnly?'readonly':null) . ' class="' . ($required?$required_str:null) . '" ' . ($readOnly?' title="' . $val . '" ':null) . ' type="text" name="' . $fieldName. ($readOnly?'_disabled':null) . '" id="' . $fieldName. '" value="' . $val . '" maxlength="' . $length. '"></input>' . "\r\n";
-        $html .= '</div>' . "\r\n";   */
-        
-        $html = '<div>Aqui ficará o campo Customizado - ' . $fieldName . '</div>';
-        
-        $this->fieldsName[] = $fieldName; 		    	  
-    		break;    		
-    	  
-    	default:
-    		break;
-    }
-    
-    //se for "Somente Leitutra" adiciona hidden com o valor
-    if($readOnly)
-      $html .= '<input type="hidden"  class="' . ($required?$required_str:null) . '" name="' . $fieldName . '" value="' . $this->getValue($fieldName, $valueDefault) . '">';
-    
-      
-    //Verifica se existe evento macroFromFields na macro...
-    if(function_exists('macroFromFields')){
-
-      $nHTML = macroFromFields($fieldName, $this->record, $legend, $length, $columns, $valueDefault, $required, $readOnly, $height, $options, $required_str, $fileType, $fileTypesDescription);
-
-      if(!empty($nHTML))
-      $html = $nHTML;
-    }
-      
-    $this->html_fields[] = $html;
-  }
-  
   private function _loadRecords(){
     global $hub, $db;
-    
+
     if($hub->ExistParam('ID') && $hub->GetParam('ID') != -1) {
-      
+
       $sql  = 'SELECT * FROM ';
       $sql .= $this->tableName;
       $sql .= ' WHERE ID=' . $hub->GetParam('ID');
@@ -405,12 +64,23 @@ class nbrAdminForms {
       }
     }
   }
-  
-  /**
-   * Adiciona Agrupador ao formulário
-   *
-   * @param string $title
-   */
+
+  private function eventAfterField($fieldName, $html){
+
+    if(function_exists('macroFormAfterField')){
+
+      if($this->Editing())
+        $nHTML = macroFormAfterField($fieldName, $this->record);
+      else
+        $nHTML = macroFormAfterField($fieldName, null);
+
+      if(!empty($nHTML))
+        $html = $nHTML;
+    }
+
+    return $html;
+  }
+
   public function AddGroup($title, $class = null, $id = null) {
     
     $html  = '<div class="separator'. (!empty($class)?' ' . $class:null) . '" id="' . (!empty($id)?$id:null) . '">' . "\r\n";
@@ -428,12 +98,7 @@ class nbrAdminForms {
     
     $this->html_fields[] = $html;    
   }
-  
-  /**
-   * Adiciona Espaços em branco
-   *
-   * @param integer $columns
-   */
+
   public function AddSpace($columns = 1){
     
     switch ($columns) {
@@ -448,55 +113,500 @@ class nbrAdminForms {
     $this->html_fields[] = $html;
   }
   
-  /**
-   * Adiciona Campos do tipo String no formulário
-   *
-   * @param string $fieldName
-   * @param string $legend
-   * @param integer $length
-   * @param string $valueDefault
-   * @param string $columns
-   * @param boolean $required
-   * @param boolean $readOnly
-   */
   public function AddFieldString($fieldName, $legend, $length, $columns, $valueDefault = null, $required = true, $readOnly = false, $validateType = 'required', $mask = null){
-    $this->addField('STR', $fieldName, $legend, $length, $columns, $valueDefault, $required, $readOnly, -1, null, $validateType, null, null, $mask);
+
+    $val = $this->getValue($fieldName, $valueDefault);
+
+    $tpl = new girafaTpl('forms/field-string.tpl');
+    $tpl->setValue('LEGEND',      $legend);
+    $tpl->setValue('NAME',        $fieldName);
+    $tpl->setValue('COLUMNS',     'col' . $columns);
+    $tpl->setValue('MASK',        $mask);
+    $tpl->setValue('READONLY',    ($readOnly?'readonly':null));
+    $tpl->setValue('REQUIRED',    ($required?'required':null));
+    $tpl->setValue('MAX',         $length);
+    $tpl->setValue('VAL',         htmlspecialchars($val));
+    $html = $tpl->GetHtml();
+
+    $html = $this->eventAfterField($fieldName, $html);
+    $this->html_fields[] = $html;
+    $this->fieldsName[] = $fieldName;
   }
-  
-  public function AddFieldPassword($fieldName, $legend, $length, $columns = 2, $required = true, $readOnly = false, $validType = 'required'){
-    $this->addField('PSW', $fieldName, $legend, $length, $columns, '', $required, $readOnly, -1, null, $validType);
+
+  public function AddFieldList($fieldName, $legend, $options, $columns, $valueDefault = null, $required = true, $readOnly = false, $validateType = 'required', $alphabeticalOrder = true){
+
+    $value = $this->getValue($fieldName, $valueDefault);
+
+    //Ordenar em Ordem Alfabética..
+    if($alphabeticalOrder){
+      $a = array();
+      $b = array();
+      $variaveis = explode('|', $options);
+      foreach ($variaveis as $variavel) {
+        $item = explode('=', $variavel);
+
+        $a[$item[1]] = $item[0];
+        $b[] = $item[1];
+      }
+      sort($b);
+
+      $novaLista = array();
+      foreach ($b as $n_b) {
+        $chave = $a[$n_b];
+        $novaLista[] = $chave . '=' . $n_b;
+      }
+      $options = implode('|', $novaLista);
+    }
+
+
+    $option_html = null;
+    $options_array = explode('|', $options);
+    foreach ($options_array as $option_array){
+      $option = explode('=', $option_array);
+      $option_html .= '<option '. ($value == $option[0]?'selected':null) . ' value="' . $option[0] . '">' . $option[1] . '</option>' . "\r\n";
+    }
+
+    $tpl = new girafaTpl('forms/field-list.tpl');
+    $tpl->setValue('LEGEND',      $legend);
+    $tpl->setValue('NAME',        $fieldName);
+    $tpl->setValue('COLUMNS',     'col' . $columns);
+    $tpl->setValue('READONLY',    ($readOnly?'readonly':null));
+    $tpl->setValue('REQUIRED',    ($required?'required':null));
+    $tpl->setValue('OPTIONS',     $option_html);
+    $html = $tpl->GetHtml();
+
+    $html = $this->eventAfterField($fieldName, $html);
+    $this->html_fields[] = $html;
+    $this->fieldsName[] = $fieldName;
   }
-  
-  public function AddFieldNumber($fieldName, $legend, $columns, $valueDefault = null, $required = true, $readOnly = false, $validateType = 'required'){
-    $this->addField('NUM', $fieldName, $legend, -1, $columns, $valueDefault, $required, $readOnly, -1, null, $validateType);
-  }
-  
-  public function AddFieldImage($fieldName, $legend, $required = true, $readOnly = false){
-    $this->addField('IMG', $fieldName, $legend, -1, 3, null, $required, $readOnly, -1, null, 'required');
-  }
-  
-  
-  public function AddFieldFile($fieldName, $legend, $required = true, $readOnly = false, $typesFile = '*.*', $typesFileDescription = 'Todos os Arquivos'){
-    $this->addField('FIL', $fieldName, $legend, -1, 3, null, $required, $readOnly, -1, null, 'required', $typesFile, $typesFileDescription);
-  }
-  
-  
-  public function AddFieldInteger($fieldName, $legend, $columns, $valueDefault = null, $required = true, $readOnly = false, $validateType = 'required'){
-    $this->addField('INT', $fieldName, $legend, 11, $columns, $valueDefault, $required, $readOnly, -1, null, $validateType);
-  }
-  
+
   public function AddFieldText($fieldName, $legend, $columns, $height, $valueDefault = null, $required = true, $readOnly = false, $validateType = 'required'){
-    $this->addField('TXT', $fieldName, $legend, 0, $columns, $valueDefault, $required,$readOnly, $height, null,$validateType);
+
+    $val = $this->getValue($fieldName, $valueDefault);
+
+    $tpl = new girafaTpl('forms/field-text.tpl');
+    $tpl->setValue('LEGEND',      $legend);
+    $tpl->setValue('NAME',        $fieldName);
+    $tpl->setValue('COLUMNS',     'col' . $columns);
+    $tpl->setValue('READONLY',    ($readOnly?'readonly':null));
+    $tpl->setValue('REQUIRED',    ($required?'required':null));
+    $tpl->setValue('HEIGHT',      $height);
+    $tpl->setValue('VAL',         htmlspecialchars($val));
+    $html = $tpl->GetHtml();
+
+    $html = $this->eventAfterField($fieldName, $html);
+    $this->html_fields[] = $html;
+    $this->fieldsName[] = $fieldName;
   }
-  
-  /**
-   * Adiciona Coleções a este registro..
-   *
-   * @param string $title
-   * @param string $fileGrid
-   * @param string $linkTableName
-   * @param string $linkTableField
-   */
+
+  public function AddLkpMultselect($name, $title, $description, $tableName, $fieldPrimary, $tableSecondary, $fieldSecondary, $fieldSecondatyLegend, $wheres = null, $order = null, $columns = 2, $required = true, $readOnly = false, $fieldSecondatyOrder = null, $orderValueVariation = 10, $nroOrder = false){
+
+    global $db;
+
+    $this->AddGroup($title);
+    $this->AddDescriptionText($description);
+
+    /* OPTIONS */
+    $options_html = null;
+    //Seleciona já selecionados..
+
+    if($this->Editing()){
+      $sql  = "SELECT `$tableSecondary`.* FROM `$tableName` ";
+      $sql .= " JOIN `$tableSecondary` ON(`$tableSecondary`.ID = `$tableName`.`$fieldSecondary`)";
+      $sql .= " WHERE `$tableName`.`$fieldPrimary` = " . $this->record->ID;
+
+      //where do parametro
+      if(!empty($wheres))
+        $sql .= " AND (" . $wheres . ")";
+
+      //order
+      if(!empty($order))
+        $sql .= " ORDER BY $order";
+
+      $res = $db->LoadObjects($sql);
+
+      $selectedsIds = array();
+
+      foreach ($res as $reg) {
+        $item = array(
+          'reg' =>   $reg,
+          'selected' => true
+        );
+        $regs[] = $item;
+
+        $selectedsIds[] = $reg->ID;
+      }
+    } else
+      $selectedsIds = array();
+
+    //Traz demais itens..
+    $sql  = "SELECT * FROM `$tableSecondary`";
+
+
+    if(count($selectedsIds) > 0)
+      $a_wheres[] = "ID NOT IN(" . implode(',', $selectedsIds) . ")";
+
+
+    //where do parametro
+    if(!empty($wheres))
+      $a_wheres[] = "(" . $wheres . ")";
+
+    if(count($a_wheres) > 0){
+      $sql .= ' WHERE ';
+      $sql .= implode($a_wheres, ' AND ');
+    }
+
+    if(empty($fieldSecondatyOrder))
+      $fieldSecondatyOrder = $fieldSecondatyLegend;
+
+    $sql .= " ORDER BY `$fieldSecondatyOrder` ASC";
+
+    $res = $db->LoadObjects($sql);
+
+    foreach ($res as $reg) {
+      $item = array(
+                              'reg' =>   $reg,
+                              'selected' => false
+      );
+      $regs[] = $item;
+    }
+
+    foreach ($regs as $x=>$reg) {
+
+      $selected = $reg['selected'];
+      $rg = $reg['reg'];
+
+      if(!$nroOrder)
+        $legend = $rg->$fieldSecondatyLegend;
+      else {
+        $legend = ($x + 1) . ' - ' . $rg->$fieldSecondatyLegend;
+      }
+      $options_html .= '<option ' . (($selected)?'selected':null) . ' value="' . $rg->ID . '">' . $legend . '</option>' . "\r\n";
+    }
+
+    $tpl = new girafaTpl('forms/field-lkpMultselect.tpl');
+    $tpl->setValue('LEGEND',      $legend);
+    $tpl->setValue('NAME',        $name);
+    $tpl->setValue('COLUMNS',     'col' . $columns);
+    $tpl->setValue('READONLY',    ($readOnly?'readonly':null));
+    $tpl->setValue('REQUIRED',    ($required?'required':null));
+    $tpl->setValue('OPTIONS',     $options_html);
+    $tpl->setValue('ORDER',       ($nroOrder)?'true':'false');
+    $html = $tpl->GetHtml();
+
+    //Cadastro LkpMultselect no array..
+    $this->LkpMultselects[] = ($name . '|' . $tableName . '|' . $fieldPrimary . '|' . $tableSecondary . '|' . $fieldSecondary . '|' . $fieldOrder . '|' . $orderValueVariation);
+
+    $html = $this->eventAfterField($name, $html);
+    $this->html_fields[] = $html;
+    $this->fieldsName[] = $name;
+  }
+
+  public function AddFieldPassword($fieldName, $legend, $length, $columns = 2, $required = true, $readOnly = false, $validType = 'required'){
+    global $ADMIN_PAGES_PATH, $ADMIN_IMAGES_URL, $hub;
+    if($this->Editing()){
+      if(isset($_POST[$fieldName]))
+        $val = null;
+      else
+        $val = '[NAOATUALIZAR]';
+    } else
+      $val = null;
+
+    //Botao gerador
+    $hub->SetParam('_script', $ADMIN_PAGES_PATH . 'form.password.generator.php');
+    $hub->SetParam('fieldName', $fieldName);
+    $btn_gerar_url = $hub->GetUrl();
+
+
+
+    $tpl = new girafaTpl('forms/field-password.tpl');
+    $tpl->setValue('LEGEND',          $legend);
+    $tpl->setValue('NAME',            $fieldName);
+    $tpl->setValue('COLUMNS',         'col' . $columns);
+    $tpl->setValue('READONLY',        ($readOnly?'readonly':null));
+    $tpl->setValue('REQUIRED',        ($required?'required':null));
+    $tpl->setValue('MAX',             $length);
+    $tpl->setValue('VAL',             htmlspecialchars($val));
+    $tpl->setValue('BTN_GERAR_URL',   $btn_gerar_url);
+    $tpl->setValue('ADMIN_IMAGES_URL',$ADMIN_IMAGES_URL);
+    $html = $tpl->GetHtml();
+
+    $html = $this->eventAfterField($fieldName, $html);
+    $this->html_fields[] = $html;
+    $this->fieldsName[] = $fieldName;
+    $this->fieldsPassword[] = $fieldName;
+  }
+
+  public function AddFieldInteger($fieldName, $legend, $columns, $valueDefault = null, $required = true, $readOnly = false, $validateType = 'required'){
+
+    $val = $this->getValue($fieldName, $valueDefault);
+
+    $tpl = new girafaTpl('forms/field-integer.tpl');
+    $tpl->setValue('LEGEND',      $legend);
+    $tpl->setValue('NAME',        $fieldName);
+    $tpl->setValue('COLUMNS',     'col' . $columns);
+    $tpl->setValue('READONLY',    ($readOnly?'readonly':null));
+    $tpl->setValue('REQUIRED',    ($required?'required':null));
+    $tpl->setValue('VAL',         htmlspecialchars($val));
+    $html = $tpl->GetHtml();
+
+    $html = $this->eventAfterField($fieldName, $html);
+    $this->html_fields[] = $html;
+    $this->fieldsName[] = $fieldName;
+  }
+
+  public function AddFieldHidden($fieldName, $value){
+
+    $tpl = new girafaTpl('forms/field-hidden.tpl');
+    $tpl->setValue('NAME',        $fieldName);
+    $tpl->setValue('VAL',         htmlspecialchars($value));
+    $html = $tpl->GetHtml();
+
+    $html = $this->eventAfterField($fieldName, $html);
+    $this->html_fields[] = $html;
+    $this->fieldsName[] = $fieldName;
+  }
+
+  public function AddFieldNumber($fieldName, $legend, $columns, $valueDefault = null, $required = true, $readOnly = false, $validateType = 'required'){
+
+    $value = $this->getValue($fieldName, $valueDefault);
+
+    $value = (!is_numeric($value))?0:$value;
+    $value = number_format($value, 2, ',', '');
+
+    $tpl = new girafaTpl('forms/field-number.tpl');
+    $tpl->setValue('LEGEND',      $legend);
+    $tpl->setValue('NAME',        $fieldName);
+    $tpl->setValue('COLUMNS',     'col' . $columns);
+    $tpl->setValue('READONLY',    ($readOnly?'readonly':null));
+    $tpl->setValue('REQUIRED',    ($required?'required':null));
+    $tpl->setValue('VAL',         htmlspecialchars($value));
+    $html = $tpl->GetHtml();
+
+    $html = $this->eventAfterField($fieldName, $html);
+    $this->html_fields[] = $html;
+    $this->fieldsName[] = $fieldName;
+    $this->fieldsNumber[] = $fieldName;
+
+  }
+
+  public function AddFieldImage($fieldName, $legend, $required = true, $readOnly = false){
+    global $ADMIN_IMAGES_URL, $ADMIN_UPLOAD_PATH, $ADMIN_UPLOAD_URL;
+
+    $isBlank = true;
+
+    $img = $this->getValue($fieldName, null);
+
+    if(empty($img)){
+      $img = $ADMIN_IMAGES_URL . 'form_image_noimage.jpg';
+      $isBlank = true;
+      $txt_status = 'Sem Imagem';
+      $link_zoom = null;
+    } else {
+
+      $imgFile = $ADMIN_UPLOAD_PATH . $img;
+      $imgUrl = $ADMIN_UPLOAD_URL . $img;
+
+      $img = nbrMagicImage::CreateThumbBackgroundCenter($imgFile, 600, 145);
+
+      $isBlank = false;
+
+      //Pega Tamanho do Arquivo..
+      $bytes = filesize($imgFile);
+      $bytes = number_format(($bytes / 1024 /1024), 2, ',', '.');
+
+      //Pega dimensão da imagem..
+      $imagesize = getimagesize($imgFile); // Pega os dados
+      $x = $imagesize[0]; // 0 será a largura.
+      $y = $imagesize[1]; // 1 será a altura.
+
+      $txt_status = '<b>Tamanho:</b> ' . $bytes . 'mb. <b>Dimensão:</b> ' . $x . 'x' . $y . ' pixels.';
+
+      $link_zoom  = '<a href="' . $imgUrl . '" title="Clique aqui para ampliar a imagem" class="fancybox">';
+      $link_zoom .= '<img src="' . $ADMIN_IMAGES_URL . 'icon_form_zomm.png" class="img_zoom">';
+      $link_zoom .= '</a>';
+    }
+
+    $tpl = new girafaTpl('forms/field-image.tpl');
+    $tpl->setValue('LEGEND',            $legend);
+    $tpl->setValue('NAME',              $fieldName);
+    $tpl->setValue('COLUMNS',           'col3');
+    $tpl->setValue('READONLY',          ($readOnly?'readonly':null));
+    $tpl->setValue('REQUIRED',          ($required?'required':null));
+    $tpl->setValue('IMG',               $img);
+    $tpl->setValue('ISBLANK',           ((!$isBlank)?null:'display: none;'));
+    $tpl->setValue('ADMIN_IMAGES_URL',  $ADMIN_IMAGES_URL);
+    $tpl->setValue('TXT_STATUS',        $txt_status);
+    $tpl->setValue('ISBLANK_VALUE',     (($isBlank)?null:'N'));
+    $tpl->setValue('LINK_ZOOM',         $link_zoom);
+    $html = $tpl->GetHtml();
+
+    $html = $this->eventAfterField($fieldName, $html);
+    $this->fieldsImagesName[] = $fieldName;
+    $this->html_fields[] = $html;
+
+  }
+
+  public function AddFieldFile($fieldName, $legend, $required = true, $readOnly = false, $typesFile = '*.*', $typesFileDescription = 'Todos os Arquivos'){
+
+    global $ADMIN_IMAGES_URL, $ADMIN_UPLOAD_PATH, $ADMIN_PAGES_PATH, $hub;
+
+    $file = $this->getValue($fieldName, null);
+
+    if(!empty($file)){
+      $fileFull = $ADMIN_UPLOAD_PATH . $file;
+
+      //Pega Tamanho do Arquivo..
+      $bytes = filesize($fileFull);
+      $bytes = number_format(($bytes / 1024 /1024), 2, ',', '.');
+
+      $txt_status = '<b>Tamanho:</b> ' . $bytes . 'mb.';
+
+    }
+
+    //Download Link
+    $hub->SetParam('_script', $ADMIN_PAGES_PATH . 'form.down.php');
+    $hub->SetParam('file', $file);
+    $download_link = $hub->GetUrl();
+
+    $tpl = new girafaTpl('forms/field-file.tpl');
+    $tpl->setValue('LEGEND',            $legend);
+    $tpl->setValue('NAME',              $fieldName);
+    $tpl->setValue('COLUMNS',           'col3');
+    $tpl->setValue('READONLY',          ($readOnly?'readonly':null));
+    $tpl->setValue('REQUIRED',          ($required?'required':null));
+    $tpl->setValue('ADMIN_IMAGES_URL',  $ADMIN_IMAGES_URL);
+    $tpl->setValue('TXT_STATUS',        $txt_status);
+    $tpl->setValue('DOWNLOAD_LINK',     $download_link);
+    $html = $tpl->GetHtml();
+
+    $html = $this->eventAfterField($fieldName, $html);
+    $this->html_fields[] = $html;
+    $this->fieldsFileName[] = $fieldName;
+
+  }
+
+  public function AddFieldHtml($fieldName, $legend, $height, $valueDefault = null, $required = true, $readOnly = false, $validateType = 'required'){
+
+    $val = $this->getValue($fieldName, $valueDefault);
+
+    $tpl = new girafaTpl('forms/field-html.tpl');
+    $tpl->setValue('LEGEND',      $legend);
+    $tpl->setValue('NAME',        $fieldName);
+    $tpl->setValue('COLUMNS',     'col3');
+    $tpl->setValue('HEIGHT',      $height);
+    $tpl->setValue('READONLY',    ($readOnly?'readonly':null));
+    $tpl->setValue('REQUIRED',    ($required?'required':null));
+    $tpl->setValue('VAL',         htmlspecialchars($val));
+    $html = $tpl->GetHtml();
+
+    $html = $this->eventAfterField($fieldName, $html);
+    $this->html_fields[] = $html;
+    $this->fieldsName[] = $fieldName;
+
+  }
+
+  public function AddFieldBoolean($fieldName, $legend, $columns = 1, $valueDefault = null, $required = true, $readOnly = false, $validateType = 'required'){
+    $this->AddFieldList($fieldName, $legend, 'Y=Sim|N=Não', $columns, $valueDefault, $required, $readOnly, $validateType);
+  }
+
+  public function AddFieldDate($fieldName, $legend, $valueDefault = null, $required = true, $readOnly = false, $validateType = 'required'){
+
+    if($valueDefault == 'NOW'){
+      $valueDefault = date('Y-m-d');
+    }
+
+    $dateValue = $this->getValue($fieldName, $valueDefault);
+
+    if(!empty($dateValue)){
+      $data = new nbrDate($dateValue, ENUM_DATE_FORMAT::YYYY_MM_DD);
+      $dateValue = $data->GetDate('d/m/Y');
+    } else
+      $dateValue = '';
+
+    $tpl = new girafaTpl('forms/field-date.tpl');
+    $tpl->setValue('LEGEND',      $legend);
+    $tpl->setValue('NAME',        $fieldName);
+    $tpl->setValue('COLUMNS',     'col1');
+    $tpl->setValue('READONLY',    ($readOnly?'readonly':null));
+    $tpl->setValue('REQUIRED',    ($required?'required':null));
+    $tpl->setValue('VAL',         $dateValue);
+    $html = $tpl->GetHtml();
+
+    $html = $this->eventAfterField($fieldName, $html);
+    $this->html_fields[] = $html;
+    $this->fieldsDateName[] = $fieldName;
+    $this->fieldsName[] = $fieldName;
+
+  }
+
+  public function AddFieldDateTime($fieldName, $legend, $valueDefault = null, $required = true, $readOnly = false, $validateType = 'required'){
+
+    if($valueDefault == 'NOW'){
+      $valueDefault = date('Y-m-d H:i');
+    }
+
+    $dateValue = $this->getValue($fieldName, $valueDefault);
+
+    if(!empty($dateValue)){
+      $data = new nbrDate($dateValue, ENUM_DATE_FORMAT::YYYY_MM_DD_HH_II_SS);
+      $dateValue = $data->GetDate('d/m/Y H:i');
+    } else
+      $dateValue = null;
+
+    $tpl = new girafaTpl('forms/field-datetime.tpl');
+    $tpl->setValue('LEGEND',      $legend);
+    $tpl->setValue('NAME',        $fieldName);
+    $tpl->setValue('COLUMNS',     'col1');
+    $tpl->setValue('READONLY',    ($readOnly?'readonly':null));
+    $tpl->setValue('REQUIRED',    ($required?'required':null));
+    $tpl->setValue('VAL',         $dateValue);
+    $html = $tpl->GetHtml();
+
+    $html = $this->eventAfterField($fieldName, $html);
+    $this->html_fields[] = $html;
+    $this->fieldsDateName[] = $fieldName;
+    $this->fieldsName[] = $fieldName;
+  }
+
+  public function AddFieldCustom($fieldName){
+
+    $tpl = new girafaTpl('forms/field-custom.tpl');
+    $tpl->setValue('NAME', $fieldName);
+    $html = $tpl->GetHtml();
+
+    $html = $this->eventAfterField($fieldName, $html);
+    $this->html_fields[] = $html;
+    $this->fieldsName[] = $fieldName;
+
+  }
+
+  public function AddFieldLkpList($fieldName, $legend, $linkTableName, $linkTableField, $linkWhere, $columns, $required = true, $readOnly = false, $linkTableField2 = null, $valueDefault = null){
+    global $db;
+
+    $sql = 'SELECT A.ID, A.' . $linkTableField . (($linkTableField2 != null)?', A.' . $linkTableField2:null) . ' FROM ' . $linkTableName . ' A';
+
+    if($linkWhere != null)
+      $sql .= ' WHERE ' . $linkWhere;
+
+    $sql .= ' ORDER BY A.' . $linkTableField . ' ASC';
+
+    //echo($sql);
+    $res = $db->LoadObjects($sql);
+
+    $options = null;
+
+    foreach ($res as $x=>$reg) {
+
+      if($x > 0)
+        $options .= '|';
+
+      $options .= $reg->ID . '=' . $reg->$linkTableField . (($linkTableField2 != null)?' - ' . $reg->$linkTableField2:null);
+    }
+
+    $this->AddFieldList($fieldName, $legend, $options, $columns, $valueDefault, $required, $readOnly);
+  }
+
   public function AddCollections($title, $fileGrid, $linkTableName, $linkTableField, $showCount = true){
     global $hub, $db, $moduleObj;
     
@@ -522,85 +632,7 @@ class nbrAdminForms {
       $this->AddLink($titleLink, $hub->GetUrl());
     }
   }
-  
-  public function AddFieldHtml($fieldName, $legend, $columns, $height, $valueDefault = null, $required = true, $readOnly = false, $validateType = 'required'){
-    $this->addField('HTM', $fieldName, $legend, 0, $columns, $valueDefault, $required, $readOnly, $height, null, $validateType);
-  }
-  
-  public function AddFieldList($fieldName, $legend, $options, $columns, $valueDefault = null, $required = true, $readOnly = false, $validateType = 'required', $alphabeticalOrder = true){
-    
-    //Ordenar em Ordem Alfabética..
-    if($alphabeticalOrder){
-      $a = array();
-      $b = array();
-      $variaveis = explode('|', $options);
-      foreach ($variaveis as $variavel) {
-        $item = explode('=', $variavel);
-        
-        $a[$item[1]] = $item[0];
-        $b[] = $item[1];
-      }
-      sort($b);
-      
-      $novaLista = array();
-      foreach ($b as $n_b) {
-        $chave = $a[$n_b];
-      	$novaLista[] = $chave . '=' . $n_b;
-      }
-      $options = implode('|', $novaLista);
-    }
-    
-    $this->addField('LST', $fieldName, $legend, 0, $columns, $valueDefault, $required, $readOnly, -1, $options, $validateType);
-  }
-  
-  public function AddFieldBoolean($fieldName, $legend, $columns = 1, $valueDefault = null, $required = true, $readOnly = false, $validateType = 'required'){
-    $this->AddFieldList($fieldName, $legend, 'Y=Sim|N=Não', $columns, $valueDefault, $required, $readOnly, $validateType);
-  }
-  
-  public function AddFieldLkpList($fieldName, $legend, $linkTableName, $linkTableField, $linkWhere, $columns, $required = true, $readOnly = false, $linkTableField2 = null, $valueDefault = null){
-    global $db;
-    
-    $sql = 'SELECT A.ID, A.' . $linkTableField . (($linkTableField2 != null)?', A.' . $linkTableField2:null) . ' FROM ' . $linkTableName . ' A';
-    
-    if($linkWhere != null)
-      $sql .= ' WHERE ' . $linkWhere;
-    
-    $sql .= ' ORDER BY A.' . $linkTableField . ' ASC';
-    
-    //echo($sql);
-    $res = $db->LoadObjects($sql);
-    
-    $options = null;
-    
-    foreach ($res as $x=>$reg) {
-      
-      if($x > 0)
-        $options .= '|';
-        
-    	$options .= $reg->ID . '=' . $reg->$linkTableField . (($linkTableField2 != null)?' - ' . $reg->$linkTableField2:null);
-    }
-    
-    $this->AddFieldList($fieldName, $legend, $options, $columns, $valueDefault, $required, $readOnly);
-  }
-  
-  public function AddFieldDateTime($fieldName, $legend, $columns, $valueDefault = null, $required = true, $readOnly = false, $validateType = 'required'){
-    if($valueDefault == 'NOW'){
-      $valueDefault = date('Y-m-d H:i');
-    }
-    $this->addField('DTT', $fieldName, $legend, 16,$columns, $valueDefault, $required, $readOnly, -1, null, $validateType);
-  }
-  
-  public function AddFieldDate($fieldName, $legend, $columns, $valueDefault = null, $required = true, $readOnly = false, $validateType = 'required'){
-    if($valueDefault == 'NOW'){
-      $valueDefault = date('Y-m-d');
-    }
-    $this->addField('DAT', $fieldName, $legend, 16,$columns, $valueDefault, $required, $readOnly, -1, null, $validateType);
-  }  
-  
-  public function AddFieldHidden($fieldName, $value){
-    $this->addField('HID', $fieldName, null, 0, 0, $value, true, false);
-  }
-  
+
   public function AddLink($title, $url, $target = '_self') {
     global $ADMIN_IMAGES_URL;
     
@@ -608,114 +640,7 @@ class nbrAdminForms {
     $html .= '<a href="' . $url . '" target="' . $target . '">' . $title . '</a>';
     $this->links[] = $html;
   }
-  
-  public function AddLkpMultselect($name, $title, $description, $tableName, $fieldPrimary, $tableSecondary, $fieldSecondary, $fieldSecondatyLegend, $wheres = null, $order = null, $columns = 2, $required = true, $readOnly = false, $fieldSecondatyOrder = null, $orderValueVariation = 10, $nroOrder = false){
-    
-    global $db;
-    
-    //Traduz colunas...
-    switch ($columns) {
-    	case 1: $columnsStr = 'oneColumn'; break;
-    	case 2: $columnsStr = 'twoColumn'; break;
-    	case 3: $columnsStr = 'threeColumn'; break;
-    }    
-    
-    //monta html...
-    $this->AddGroup($title);
-    $this->AddDescriptionText($description);
-    
-    $html  = '<div class="lkp_multselect">' . "\r\n";
-    
-    $html .= '<select sortable="' . (empty($fieldOrder)?'false':'true') . '"  multiple="multiple" name="' . $name . '[]" class="multiselect " ' . ($required?'required':null) . ' id="' . $name. '" >' . "\r\n";
-    
-    //Seleciona já selecionados..
-    
-    if($this->Editing()){
-      $sql  = "SELECT `$tableSecondary`.* FROM `$tableName` ";
-      $sql .= " JOIN `$tableSecondary` ON(`$tableSecondary`.ID = `$tableName`.`$fieldSecondary`)";
-      $sql .= " WHERE `$tableName`.`$fieldPrimary` = " . $this->record->ID;
 
-      //where do parametro
-      if(!empty($wheres))
-        $sql .= " AND (" . $wheres . ")";      
-
-      //order
-      if(!empty($order))
-        $sql .= " ORDER BY $order";
-
-      $res = $db->LoadObjects($sql);
-    
-      $selectedsIds = array();
-      
-      foreach ($res as $reg) {
-        $item = array(
-          'reg' =>   $reg,
-          'selected' => true
-        );
-        $regs[] = $item;
-        
-        $selectedsIds[] = $reg->ID;
-      }
-    } else 
-      $selectedsIds = array();
-      
-    //Traz demais itens..
-    $sql  = "SELECT * FROM `$tableSecondary`";
-    
-    
-    if(count($selectedsIds) > 0)
-      $a_wheres[] = "ID NOT IN(" . implode(',', $selectedsIds) . ")";
-
-
-    //where do parametro
-    if(!empty($wheres))
-      $a_wheres[] = "(" . $wheres . ")";      
-      
-    if(count($a_wheres) > 0){
-      $sql .= ' WHERE ';
-      $sql .= implode($a_wheres, ' AND ');
-    }
-
-    if(empty($fieldSecondatyOrder))
-      $fieldSecondatyOrder = $fieldSecondatyLegend;
-
-    $sql .= " ORDER BY `$fieldSecondatyOrder` ASC";
-
-    $res = $db->LoadObjects($sql);
-    
-    foreach ($res as $reg) {
-      $item = array(
-        'reg' =>   $reg,
-        'selected' => false
-      );
-      $regs[] = $item;
-    }
-      
-    foreach ($regs as $x=>$reg) {
-      
-      $selected = $reg['selected'];
-      $rg = $reg['reg'];
-
-      if(!$nroOrder)
-        $legend = $rg->$fieldSecondatyLegend;
-      else {
-        $legend = ($x + 1) . ' - ' . $rg->$fieldSecondatyLegend;
-      }
-      $html .= '  <option ' . (($selected)?'selected':null) . ' value="' . $rg->ID . '">' . $legend . '</option>' . "\r\n";
-    }
-    $html .= '</select>' . "\r\n";       
-    $html .= '</div>' . "\r\n";       
-    
-    //Cadastro LkpMultselect no array..
-    $this->LkpMultselects[] = ($name . '|' . $tableName . '|' . $fieldPrimary . '|' . $tableSecondary . '|' . $fieldSecondary . '|' . $fieldOrder . '|' . $orderValueVariation);
-
-    $this->html_fields[] = $html;
-  }
-
-  public function AddFieldCustom($fieldName, $legend, $columns, $valueDefault = null, $required = true, $readOnly = false){
-    $this->addField('CUS', $fieldName, $legend, 0, $columns, $valueDefault, $required, $readOnly, -1, null, 'required');
-  }  
-  
   public function PrintHTML(){
     global $hub, $dataSet, $cms, $ADMIN_IMAGES_URL, $ADMIN_PAGES_PATH, $SITEKEY, $cookie_save_name, $MODULES_URL, $MODULES_PATH;
     
@@ -940,11 +865,6 @@ class nbrAdminForms {
     echo($html);
   }
   
-  /**
-   * Retorna se é uma Edição ou um Formulário em Branco
-   *
-   * @return boolean
-   */
   public function Editing(){
     return $this->recordOpened;
   }
