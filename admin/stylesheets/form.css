@@ -1,45 +1,4 @@
 @charset "utf-8";
-/** Ferramentas **/
-div#boxForm ul#toolbarXXX {
-  height: 22px;
-  margin-top: 15px;
-}
-div#boxForm ul#toolbarXXX li {
-  float: right;
-  margin-left: 10px;
-}
-div#boxForm ul#toolbarXXX li.save a {
-  display: block;
-  width: 72px;
-  height: 22px;
-  background-image: url(../images/form_save.png);
-  background-repeat: no-repeat;
-  background-position: left -22px;
-}
-div#boxForm ul#toolbarXXX li.save a:hover {
-  background-position: left top;
-}
-div#boxForm ul#toolbarXXX li.save.disabled a,
-div#boxForm ul#toolbarXXX li.save.disabled a:hover {
-  background-position: left -44px;
-  cursor: no-drop;
-}
-div#boxForm ul#toolbarXXX li.back a {
-  display: block;
-  width: 72px;
-  height: 22px;
-  background-image: url(../images/form_back.png);
-  background-repeat: no-repeat;
-  background-position: left -22px;
-}
-div#boxForm ul#toolbarXXX li.back a:hover {
-  background-position: left top;
-}
-div#boxForm ul#toolbarXXX li.back.disabled a,
-div#boxForm ul#toolbarXXX li.back.disabled a:hover {
-  background-position: left -44px;
-  cursor: no-drop;
-}
 input.hover {
   border: 1px solid #666666 !important;
   color: #666666 !important;
@@ -507,7 +466,7 @@ span#stack a {
 }
 span#stack span.lastLevel {
   font-size: 9px;
-  color: #9999999;
+  color: #999999;
 }
 span#stack a:hover {
   color: #000000;
@@ -542,7 +501,7 @@ div#boxForm div.field div.boxFileStreaming div.fileUploadQueue {
 div#boxForm div.field div.boxFileStreaming div.fileUploadQueue .fileUploadQueueItem {
   height: 15px;
   padding: 5px;
-  border: 0!important;
+  border: 0 !important;
 }
 div#boxForm div.field div.boxFileStreaming div.fileUploadQueue .fileUploadQueueItem .cancel {
   float: left;
@@ -563,7 +522,7 @@ div#boxForm div.field div.boxFileStreaming .fileUploadProgress {
 div#boxForm div.field div.boxFileStreaming .fileUploadProgressBar {
   background-color: #890E0E;
 }
-id#ArquivoDownloadQueue {
+#ArquivoDownloadQueue {
   display: none;
 }
 #barra {
@@ -636,8 +595,8 @@ form#formulario .medium-editor-element a {
   text-decoration: underline;
 }
 form#formulario .medium-editor-element h1,
-h2,
-h3 {
+form#formulario .medium-editor-element h2,
+form#formulario .medium-editor-element h3 {
   color: #c93438;
   text-transform: none;
   margin: 5px 0;
@@ -679,5 +638,5 @@ form#formulario .medium-insert-buttons-show {
   margin-top: -10px;
 }
 form#formulario .medium-insert-buttons-addons {
-  margin: 0!important;
+  margin: 0 !important;
 }

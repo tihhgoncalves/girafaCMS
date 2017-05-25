@@ -1,55 +1,10 @@
 @charset "utf-8";
 
-/** Ferramentas **/
-div#boxForm ul#toolbarXXX{
-  height: 22px;
-  margin-top: 15px;
-}
-div#boxForm ul#toolbarXXX li{
-  float: right;
-  margin-left: 10px;
-}
-div#boxForm ul#toolbarXXX li.save a{
-  display: block;
-  width: 72px;
-  height:22px;
-  background-image: url(../images/form_save.png);
-  background-repeat:no-repeat;
-  background-position: left -22px;
-}
-div#boxForm ul#toolbarXXX li.save a:hover{
-  background-position: left top;
-}
-div#boxForm ul#toolbarXXX li.save.disabled a,
-div#boxForm ul#toolbarXXX li.save.disabled a:hover{
-  background-position: left -44px;
-  cursor: no-drop;
-}
-
-div#boxForm ul#toolbarXXX li.back a{
-  display: block;
-  width: 72px;
-  height:22px;
-  background-image: url(../images/form_back.png);
-  background-repeat:no-repeat;
-  background-position: left -22px;
-}
-div#boxForm ul#toolbarXXX li.back a:hover{
-  background-position: left top;
-}
-div#boxForm ul#toolbarXXX li.back.disabled a,
-div#boxForm ul#toolbarXXX li.back.disabled a:hover{
-  background-position: left -44px;
-  cursor: no-drop;
-}
-
-
-
-
 input.hover {
   border: 1px solid #666666 !important;
   color: #666666 !important;
 }
+
 div#boxForm {
   width: 750px;
 
@@ -464,17 +419,21 @@ div#boxForm {
     color: #999999;
   }
 }
+
 span#devenv {
   font-size: 10px;
   color: #CCCCCC;
   padding-left: 2px;
   padding-top: 4px;
   display: block;
+
+  u {
+    font-size: 10px;
+    color: #CCCCCC;
+  }
+
 }
-span#devenv u {
-  font-size: 10px;
-  color: #CCCCCC;
-}
+
 label.error {
   background-color: #C93438;
   color: #FFFFFF;
@@ -486,6 +445,7 @@ label.error {
   font-size: 10px;
 	padding: 0 5px;
 }
+
 div.string label.error {
   right: 10px;
 	margin-top: -2px;
@@ -524,95 +484,106 @@ div.list label.error {
 }
 span#stack {
   font-size: 9px;
-  color:#999999;
+  color: #999999;
   display: block;
   margin: 5px 0;
-}
-span#stack a {
-  font-size: 9px;
-  color:#999999;
-  text-decoration:underline;
-}
-span#stack span.lastLevel {
-  font-size: 9px;
-  color:#9999999;
-}
-span#stack a:hover {
-  color: #000000;
-}
 
+  a {
+    font-size: 9px;
+    color: #999999;
+    text-decoration: underline;
+  }
+
+  span.lastLevel {
+    font-size: 9px;
+    color: #999999;
+  }
+
+  a:hover {
+    color: #000000;
+  }
+
+}
 /**
 Campo Arquivo
 **/
-div#boxForm div.field div.boxFileStreaming{
-  width: 610px;
-  height: 25px;
-  float: left;
-  padding: 5px;
-  position: relative;
-  background-color: #D4D4D4;
-  border: #E4E4E4;
-}
-div#boxForm div.file label.legend{
-  line-height: 25px;
-  height: 25px;
-}
-div#boxForm div.field div.esquerda{
-  width: 620px;
-  float: left;
-}
-div#boxForm div.field div.boxFileStreaming .fileUploaderBtn{
-  position: absolute;
-  right: 5px;
+
+div#boxForm {
+  div.field div.boxFileStreaming {
+    width: 610px;
+    height: 25px;
+    float: left;
+    padding: 5px;
+    position: relative;
+    background-color: #D4D4D4;
+    border: #E4E4E4;
+  }
+  div.file label.legend {
+    line-height: 25px;
+    height: 25px;
+  }
+  div.field div.esquerda {
+    width: 620px;
+    float: left;
+  }
+  div.field div.boxFileStreaming .fileUploaderBtn {
+    position: absolute;
+    right: 5px;
+  }
+
+  div.field div.boxFileStreaming div.fileUploadQueue {
+    display: none;
+  }
+  div.field div.boxFileStreaming div.fileUploadQueue .fileUploadQueueItem {
+    height: 15px;
+    padding: 5px;
+    border: 0 !important;
+  }
+  div.field div.boxFileStreaming div.fileUploadQueue .fileUploadQueueItem .cancel {
+    float: left;
+  }
+  div.field div.boxFileStreaming div.fileUploadQueue .fileUploadQueueItem .fileName {
+    margin-left: 4px;
+    font-size: 10px;
+  }
+  div.field div.boxFileStreaming div.fileUploadQueue .fileUploadQueueItem .percentage {
+    font-size: 10px;
+  }
+
+  div.field div.boxFileStreaming .fileUploadProgress {
+    background-color: #FFFFFF;
+    border: 0;
+    margin-top: 10px;
+    width: 100%;
+  }
+  div.field div.boxFileStreaming .fileUploadProgressBar {
+    background-color: #890E0E;
+  }
+
 }
 
-div#boxForm div.field div.boxFileStreaming div.fileUploadQueue{
+#ArquivoDownloadQueue{
   display: none;
-}
-div#boxForm div.field div.boxFileStreaming div.fileUploadQueue .fileUploadQueueItem{
-  height: 15px;
-  padding: 5px;
-  border: 0!important;
-}
-div#boxForm div.field div.boxFileStreaming div.fileUploadQueue .fileUploadQueueItem .cancel{
-  float: left;
-}
-div#boxForm div.field div.boxFileStreaming div.fileUploadQueue .fileUploadQueueItem .fileName{
-  margin-left: 4px;
-  font-size: 10px;
-}
-div#boxForm div.field div.boxFileStreaming div.fileUploadQueue .fileUploadQueueItem .percentage{
-  font-size: 10px;
 }
 
-div#boxForm div.field div.boxFileStreaming .fileUploadProgress {
-   background-color: #FFFFFF;
-   border: 0;
-   margin-top: 10px;
-   width: 100%;
-}
-div#boxForm div.field div.boxFileStreaming .fileUploadProgressBar {
-   background-color: #890E0E;
-}
-id#ArquivoDownloadQueue{
-  display: none;
-}
-#barra{
+#barra {
   background-color: #499349;
   height: 22px;
-  line-height: 22px;  
+  line-height: 22px;
   width: 0;
   margin-top: 2px;
   text-align: center;
   color: #FFF;
 
--webkit-border-radius: 4px;
--moz-border-radius: 4px;
-border-radius: 4px;
-}
-#barra.file{
-  background-color: #999;
-  width: 485px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+
+  &.file {
+    background-color: #999;
+    width: 485px;
+  }
+
 }
 
 .btnGreen{
@@ -632,18 +603,20 @@ border-radius: 4px;
 	border-radius: 5px;	
 }
 
-div#formToolbar{
-	min-height: 30px;
-	clear: both;
-	padding-top: 10px;
+div#formToolbar {
+  min-height: 30px;
+  clear: both;
+  padding-top: 10px;
 
-}
-div#formToolbar ul{
-	display: block;
-	float: right;
-}
-div#formToolbar ul>li{
-	float: left;
+  ul {
+    display: block;
+    float: right;
+
+    & > li {
+      float: left;
+    }
+  }
+
 }
 
 #saveMenu{
@@ -661,69 +634,74 @@ div#formToolbar ul>li{
 
 
 /* MEDIUM Editor */
-form#formulario .medium-editor-element{
-  padding: 15px;
-  background-color: #FFF;
-  margin-left: 115px;
-  overflow: auto;
-}
-form#formulario .medium-editor-element p{
-  margin-bottom: 10px;
-  line-height: 22px;
-  font-size: 12px;
-}
+form#formulario {
 
-form#formulario .medium-editor-element a{
-  color: #c93438;
-  text-decoration: underline;
-}
-form#formulario .medium-editor-element h1, h2, h3{
-  color: #c93438;
-  text-transform: none;
-  margin: 5px 0;
-}
+  .medium-editor-element {
+    padding: 15px;
+    background-color: #FFF;
+    margin-left: 115px;
+    overflow: auto;
+  }
+  .medium-editor-element p {
+    margin-bottom: 10px;
+    line-height: 22px;
+    font-size: 12px;
+  }
 
-form#formulario .medium-editor-element h1 {
-  font-size: 24px;
-  font-weight: 600;
-}
-form#formulario .medium-editor-element h2 {
-  font-size: 16px;
-  font-weight: 600;
-}
-form#formulario .medium-editor-element h3 {
-  font-size: 16px;
-  font-weight: 400;
-}
-form#formulario .medium-editor-element blockquote{
-  margin: 15px;
-  margin-right: 0;
-  padding: 15px;
-  border-left: 2px solid #CCC;
-  font-style: italic;
-}
+  .medium-editor-element a {
+    color: #c93438;
+    text-decoration: underline;
+  }
+  .medium-editor-element {
+    h1, h2, h3 {
+      color: #c93438;
+      text-transform: none;
+      margin: 5px 0;
+    }
+  }
 
-form#formulario .medium-editor-element ul{
-  margin: 25px;
+  .medium-editor-element h1 {
+    font-size: 24px;
+    font-weight: 600;
+  }
+  .medium-editor-element h2 {
+    font-size: 16px;
+    font-weight: 600;
+  }
+  .medium-editor-element h3 {
+    font-size: 16px;
+    font-weight: 400;
+  }
+  .medium-editor-element blockquote {
+    margin: 15px;
+    margin-right: 0;
+    padding: 15px;
+    border-left: 2px solid #CCC;
+    font-style: italic;
+  }
 
-}
-form#formulario .medium-editor-element ul li{
-  list-style: initial;
-  margin-bottom: 5px;
+  .medium-editor-element ul {
+    margin: 25px;
 
-}
-form#formulario .medium-editor-element ol{
-  margin: 25px;
-}
-form#formulario .medium-editor-element ol li{
-  list-style-type: number;
-  margin-bottom: 5px;
-}
+  }
+  .medium-editor-element ul li {
+    list-style: initial;
+    margin-bottom: 5px;
 
+  }
+  .medium-editor-element ol {
+    margin: 25px;
+  }
+  .medium-editor-element ol li {
+    list-style-type: number;
+    margin-bottom: 5px;
+  }
 
-form#formulario .medium-insert-buttons-show{
-  margin-top: -10px;
-}
-form#formulario .medium-insert-buttons-addons{
-  margin: 0!important;
+  .medium-insert-buttons-show {
+    margin-top: -10px;
+  }
+  .medium-insert-buttons-addons {
+    margin: 0 !important;
+  }
+
 }
