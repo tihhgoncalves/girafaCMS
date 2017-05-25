@@ -85,7 +85,7 @@ class nbrPage{
   echo('<meta name="description" content="' . $this->description . '">'. "\r\n");
   echo('<meta name="keywords" content="' . $this->keywords . '">'. "\r\n");
   echo('<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">'. "\r\n");
-  echo('<meta name="CMS" content="Nova Brazil Ministrar' . $cms->GetVersion() . '">'. "\r\n");
+  echo('<meta name="CMS" content="Girafa CMS ' . $cms->GetVersion() . '">'. "\r\n");
 
   if(!$this->index)
     echo('<meta Name=”robots” content=”noindex,nofollow”>'. "\r\n");

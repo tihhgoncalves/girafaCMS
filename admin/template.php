@@ -11,7 +11,7 @@ $security->SecurityCheck();
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<title>Ministrar2 CMS</title>
+<title>Girafa CMS</title>
 <meta name="author" content="Nova Brazil Agência Interativa">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="SKYPE_TOOLBAR" content="SKYPE_TOOLBAR_PARSER_COMPATIBLE" />
@@ -109,7 +109,7 @@ $security->SecurityCheck();
         $logo_cms = $cms->GetAdminImageUrl() . 'logo-cms.png';
       }
         ?>
-        <img src="<?= $logo_cms?>" height="37" alt="CMS Ministrar2"/>
+        <img src="<?= $logo_cms?>" height="37" alt="Girafa CMS"/>
 
     </a> </div>
 
