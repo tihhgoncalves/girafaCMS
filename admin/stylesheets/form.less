@@ -1,28 +1,25 @@
-@charset "utf-8";
-
-input.hover {
-  border: 1px solid #666666 !important;
-  color: #666666 !important;
-}
+@import 'variables.less';
 
 div#boxForm {
-  width: 750px;
+  width: 1000px;
 
   div.clearBoth {
     clear: both;
   }
   form div.separator {
-    width: 740px;
-    height: 16px;
+    width: 100%;
+    height: 22px;
     color: #666666;
     border-bottom: 1px solid #666666;
     padding: 2px 0;
     margin: 0 5px;
     margin-bottom: 2px;
     margin-top: 10px;
-    font-size: 11px;
-    font-weight: bold;
+    font-weight: 600;
     float: left;
+
+    font-family: @fonte-principal;
+    font-size: 15px;
   }
   form div.description strong,
   form div.description b,
@@ -32,15 +29,19 @@ div#boxForm {
     line-height: 15px;
   }
   form div.description {
-    width: 740px;
+    width: 100%;
     color: #666666;
     padding: 2px 0;
     margin: 0 5px;
     margin-bottom: 2px;
     margin-top: 2px;
     font-size: 9px;
-    line-height: 15px;
+    line-height: 21px;
     float: left;
+
+    font-family: @fonte-principal;
+    font-size: 13px;
+    font-weight: 500;
   }
   form div.description a {
     font-size: 9px;
@@ -50,140 +51,227 @@ div#boxForm {
     color: #000000;
     text-decoration: underline;
   }
-  div.field {
-    margin: 5px;
-    padding: 5px;
-    background-color: #DFDFDF;
-    color: white;
-    float: left;
-    position: relative;
-  }
+
   div.lkp_multselect {
     display: inline-block;
     margin: 10px;
+    width: 100%;
+
+    .multiselect{
+      width: 972px;
+    }
+
+    .ui-multiselect{
+
+      .fnc-border-radius();
+
+      .ui-widget-header{
+        background: none!important;
+        background-color: @cor-vermelho!important;
+
+        &,& span, & a {
+          font-family: @fonte-principal;
+          font-weight: 400;
+          font-size: 12px;
+        }
+      }
+
+      .ui-element{
+        background: none!important;
+        background-color: @cor-cinza-claro!important;
+
+        font-family: @fonte-principal;
+        font-weight: 400;
+        font-size: 12px;
+      }
+
+      input.search{
+        width: 300px;
+
+        .fnc-border-radius();
+      }
+
+    }
   }
   div.field label.legend {
-    font-size: 10px;
+    font-family: @fonte-principal;
+    font-size: 12px;
     line-height: 20px;
     width: 100px;
     display: block;
     height: 20px;
     text-align: right;
     padding-right: 5px;
-    margin: 5px 0;
+    margin: 10px 0;
     border-right: 5px solid #DFDFDF;
     float: left;
-    margin: 5px 0;
   }
+
   div.field.required label.legend {
     border-right: 5px solid #666666;
-  }
-  div.field input {
-    color: #999999;
-    border: 1px solid #999999;
-    float: left;
-    height: 18px;
-    line-height: 20px;
-    background-color: #FFFFFF;
-    font-size: 11px;
-    padding: 0 4px;
-    margin: 5px;
-
-    &[readonly]{
-      background-color: #F5F5F5;
-      border: 1px solid #9F9F9F;
-      color: #9F9F9F;
-    }
-  }
-
-  div.field input.arquivo {
-    background: none;
-    border: 0;
-    height: 25px;
   }
 
   div.readonly input {
     background-color: #F3F3F3;
     color: #999999;
   }
-  div.field textarea {
-    color: #999999;
-    border: 1px solid #999999;
-    float: left;
-    line-height: 20px;
-    background-color: #FFFFFF;
-    font-size: 11px;
-    padding: 4px;
-    margin: 5px;
-  }
-  div.field select {
-    color: #999999;
-    border: 1px solid #999999;
-    float: left;
-    height: 18px;
-    line-height: 20px;
-    background-color: #FFFFFF;
-    font-size: 11px;
-    margin: 5px;
+  div.field {
+    input, textarea,select{
+
+      border: 1px solid @cor-cinza-claro-sup;
+
+      .fnc-border-radius();
+
+      &[readonly]{
+        background-color: @cor-cinza-claro-sup;
+        border: 1px solid @cor-cinza-claro-sup;
+        color: @cor-cinza;
+      }
+
+      &:focus{
+        border-color: @cor-cinza;
+      }
+
+    }
+
+    input {
+      color: #999999;
+
+      float: left;
+      height: 20px;
+      line-height: 20px;
+      background-color: #FFFFFF;
+      font-size: 11px;
+      padding: 4px 12px;
+      margin: 5px;
+
+      font-family: @fonte-principal;
+      font-size: 13px;
+
+      &.arquivo {
+        background: none;
+        border: 0;
+        height: 25px;
+      }
+
+    }
+
+    textarea {
+      color: #999999;
+      float: left;
+      line-height: 20px;
+      background-color: #FFFFFF;
+      font-size: 11px;
+      padding: 4px;
+      margin: 5px;
+
+      font-family: @fonte-principal;
+      font-size: 13px;
+    }
+
+    select {
+      color: #999999;
+      float: left;
+      height: 24px;
+      line-height: 20px;
+      background-color: #FFFFFF;
+      font-size: 11px;
+      margin: 8px 5px;
+
+      font-family: @fonte-principal;
+      font-size: 13px;
+
+      .fnc-border-radius();
+    }
+
   }
   div.readonly select {
     background-color: #F3F3F3;
     color: #999999;
   }
+  div.field {
+    margin: 1%;
+    padding: 1%;
+    background-color: @cor-cinza-claro;
+    color: white;
+    float: left;
+    position: relative;
+
+  }
   div.col1 {
-    width: 230px;
+    width: 21%;
+
+    input, textarea{
+      width: 56px;
+    }
+    select{
+      width:90px;
+    }
+
   }
   div.col2 {
-    width: 480px;
+    width: 46%;
+
+    input, textarea{
+      width:314px;
+    }
+    select{
+      width:324px;
+    }
+
   }
   div.col3 {
-    width: 730px;
+    width: 71%;
+
+    input, textarea{
+      width:564px;
+    }
+    select{
+      width:574px;
+    }
+  }
+  div.col4 {
+    width: 96%;
+
+    input{
+      width: 814px;
+    }
+
+    input[type=password]{
+      width: 350px;
+    }
+
+    textarea{
+      width:830px;
+    }
+    select{
+      width:840px;
+    }
   }
   div.spaceWhite {
     height: 30px;
-    margin: 5px;
-    padding: 5px;
+    margin: 1%;
+    padding: 1%;
     float: left;
     position: relative;
+  }
+
+  div.newLine{
+    clear: both;
+    height: 1px;
   }
 
   /** String **/
   div.string label.legend {
   }
-  div.string.col1 input {
-    width: 100px;
-  }
-  div.string.col2 input {
-    width: 350px;
-  }
-  div.string.col3 input {
-    width: 600px;
-  }
 
-  /** Password **/
-  div.password.col1 input {
-    width: 39px;
-  }
-  div.password.col2 input {
-    width: 165px;
-  }
-  div.password.col3 input {
-    width: 290px;
-  }
+
 
   /** Number **/
   div.number input {
     text-align: right;
   }
-  div.number.col1 input {
-    width: 100px;
-  }
-  div.number.col2 input {
-    width: 350px;
-  }
-  div.number.col3 input {
-    width: 600px;
-  }
+
 
   /** Image **/
   div.image div.img {
@@ -250,19 +338,7 @@ div#boxForm {
   }
   /** File **/
 
-  XXXdiv#boxForm div.file div.img {
-    width: 609px;
-    height: 150px;
-    background-color: #FFFFFF;
-    border: 1px solid #CCCCCC;
-    margin-left: 114px;
-    background-position: center;
-    background-repeat: no-repeat;
-  }
-  XXXdiv#boxForm div.file div.img.noimage {
-    background-image: url(../images/form_image_noimage.jpg);
-  }
-   div.file div.painel img.delete {
+  div.file div.painel img.delete {
     float: left;
     margin: 9px;
     cursor: pointer;
@@ -356,36 +432,7 @@ div#boxForm {
    div.integer.col3 input {
     width: 600px;
   }
-  /** TextArea **/
-   div.textarea.col1 textarea {
-    width: 100px;
-  }
-   div.textarea.col2 textarea {
-    width: 350px;
-  }
-   div.textarea.col3 textarea {
-    width: 600px;
-  }
-  /** Campo: HTML **/
-   div.html.col1 textarea {
-    width: 100px;
-  }
-   div.html.col2 textarea {
-    width: 350px;
-  }
-   div.html.col3 textarea {
-    width: 600px;
-  }
-  /** Campo: List **/
-   div.list.col1 select {
-    width: 110px;
-  }
-   div.list.col2 select {
-    width: 360px;
-  }
-   div.list.col3 select {
-    width: 610px;
-  }
+
    ul#link {
     width: 705px;
     height: 22px;
@@ -509,6 +556,7 @@ Campo Arquivo
 **/
 
 div#boxForm {
+
   div.field div.boxFileStreaming {
     width: 610px;
     height: 25px;

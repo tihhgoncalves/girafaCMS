@@ -1,14 +1,3 @@
-$(document).ready(function(){
-													 
-	//Ativa "focus" nos Inputs (de texto)
-  $('div.field:not(.readonly) input[type=text]').focus(function(){
-    $(this).addClass('hover');
-  }).blur(function(){
-    $(this).removeClass('hover');		
-	});
-});
-
-
 //String..
 
 $(document).ready(function(){

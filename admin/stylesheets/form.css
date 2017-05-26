@@ -1,37 +1,32 @@
-@charset "utf-8";
-input.hover {
-  border: 1px solid #666666 !important;
-  color: #666666 !important;
-}
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,400i,600,700,700i');
+/*Cores */
+/* Funções */
 div#boxForm {
-  width: 750px;
+  width: 1000px;
   /** String **/
-  /** Password **/
   /** Number **/
   /** Image **/
   /** File **/
   /** DateTime **/
   /** Date **/
   /** Integer **/
-  /** TextArea **/
-  /** Campo: HTML **/
-  /** Campo: List **/
 }
 div#boxForm div.clearBoth {
   clear: both;
 }
 div#boxForm form div.separator {
-  width: 740px;
-  height: 16px;
+  width: 100%;
+  height: 22px;
   color: #666666;
   border-bottom: 1px solid #666666;
   padding: 2px 0;
   margin: 0 5px;
   margin-bottom: 2px;
   margin-top: 10px;
-  font-size: 11px;
-  font-weight: bold;
+  font-weight: 600;
   float: left;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 15px;
 }
 div#boxForm form div.description strong,
 div#boxForm form div.description b,
@@ -41,15 +36,18 @@ div#boxForm form div.description i {
   line-height: 15px;
 }
 div#boxForm form div.description {
-  width: 740px;
+  width: 100%;
   color: #666666;
   padding: 2px 0;
   margin: 0 5px;
   margin-bottom: 2px;
   margin-top: 2px;
   font-size: 9px;
-  line-height: 15px;
+  line-height: 21px;
   float: left;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
 }
 div#boxForm form div.description a {
   font-size: 9px;
@@ -59,127 +57,195 @@ div#boxForm form div.description a:hover {
   color: #000000;
   text-decoration: underline;
 }
-div#boxForm div.field {
-  margin: 5px;
-  padding: 5px;
-  background-color: #DFDFDF;
-  color: white;
-  float: left;
-  position: relative;
-}
 div#boxForm div.lkp_multselect {
   display: inline-block;
   margin: 10px;
+  width: 100%;
+}
+div#boxForm div.lkp_multselect .multiselect {
+  width: 972px;
+}
+div#boxForm div.lkp_multselect .ui-multiselect {
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+}
+div#boxForm div.lkp_multselect .ui-multiselect .ui-widget-header {
+  background: none!important;
+  background-color: #C93438 !important;
+}
+div#boxForm div.lkp_multselect .ui-multiselect .ui-widget-header,
+div#boxForm div.lkp_multselect .ui-multiselect .ui-widget-header span,
+div#boxForm div.lkp_multselect .ui-multiselect .ui-widget-header a {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+}
+div#boxForm div.lkp_multselect .ui-multiselect .ui-element {
+  background: none!important;
+  background-color: #F4F4F4 !important;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+}
+div#boxForm div.lkp_multselect .ui-multiselect input.search {
+  width: 300px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
 }
 div#boxForm div.field label.legend {
-  font-size: 10px;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 12px;
   line-height: 20px;
   width: 100px;
   display: block;
   height: 20px;
   text-align: right;
   padding-right: 5px;
+  margin: 10px 0;
   border-right: 5px solid #DFDFDF;
   float: left;
-  margin: 5px 0;
 }
 div#boxForm div.field.required label.legend {
   border-right: 5px solid #666666;
 }
+div#boxForm div.readonly input {
+  background-color: #F3F3F3;
+  color: #999999;
+}
+div#boxForm div.field input,
+div#boxForm div.field textarea,
+div#boxForm div.field select {
+  border: 1px solid #e5e6e7;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+}
+div#boxForm div.field input[readonly],
+div#boxForm div.field textarea[readonly],
+div#boxForm div.field select[readonly] {
+  background-color: #e5e6e7;
+  border: 1px solid #e5e6e7;
+  color: #9F9F9F;
+}
+div#boxForm div.field input:focus,
+div#boxForm div.field textarea:focus,
+div#boxForm div.field select:focus {
+  border-color: #9F9F9F;
+}
 div#boxForm div.field input {
   color: #999999;
-  border: 1px solid #999999;
   float: left;
-  height: 18px;
+  height: 20px;
   line-height: 20px;
   background-color: #FFFFFF;
   font-size: 11px;
-  padding: 0 4px;
+  padding: 4px 12px;
   margin: 5px;
-}
-div#boxForm div.field input[readonly] {
-  background-color: #F5F5F5;
-  border: 1px solid #9F9F9F;
-  color: #9F9F9F;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 13px;
 }
 div#boxForm div.field input.arquivo {
   background: none;
   border: 0;
   height: 25px;
 }
-div#boxForm div.readonly input {
-  background-color: #F3F3F3;
-  color: #999999;
-}
 div#boxForm div.field textarea {
   color: #999999;
-  border: 1px solid #999999;
   float: left;
   line-height: 20px;
   background-color: #FFFFFF;
   font-size: 11px;
   padding: 4px;
   margin: 5px;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 13px;
 }
 div#boxForm div.field select {
   color: #999999;
-  border: 1px solid #999999;
   float: left;
-  height: 18px;
+  height: 24px;
   line-height: 20px;
   background-color: #FFFFFF;
   font-size: 11px;
-  margin: 5px;
+  margin: 8px 5px;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 13px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
 }
 div#boxForm div.readonly select {
   background-color: #F3F3F3;
   color: #999999;
 }
-div#boxForm div.col1 {
-  width: 230px;
-}
-div#boxForm div.col2 {
-  width: 480px;
-}
-div#boxForm div.col3 {
-  width: 730px;
-}
-div#boxForm div.spaceWhite {
-  height: 30px;
-  margin: 5px;
-  padding: 5px;
+div#boxForm div.field {
+  margin: 1%;
+  padding: 1%;
+  background-color: #F4F4F4;
+  color: white;
   float: left;
   position: relative;
 }
-div#boxForm div.string.col1 input {
-  width: 100px;
+div#boxForm div.col1 {
+  width: 21%;
 }
-div#boxForm div.string.col2 input {
+div#boxForm div.col1 input,
+div#boxForm div.col1 textarea {
+  width: 56px;
+}
+div#boxForm div.col1 select {
+  width: 90px;
+}
+div#boxForm div.col2 {
+  width: 46%;
+}
+div#boxForm div.col2 input,
+div#boxForm div.col2 textarea {
+  width: 314px;
+}
+div#boxForm div.col2 select {
+  width: 324px;
+}
+div#boxForm div.col3 {
+  width: 71%;
+}
+div#boxForm div.col3 input,
+div#boxForm div.col3 textarea {
+  width: 564px;
+}
+div#boxForm div.col3 select {
+  width: 574px;
+}
+div#boxForm div.col4 {
+  width: 96%;
+}
+div#boxForm div.col4 input {
+  width: 814px;
+}
+div#boxForm div.col4 input[type=password] {
   width: 350px;
 }
-div#boxForm div.string.col3 input {
-  width: 600px;
+div#boxForm div.col4 textarea {
+  width: 830px;
 }
-div#boxForm div.password.col1 input {
-  width: 39px;
+div#boxForm div.col4 select {
+  width: 840px;
 }
-div#boxForm div.password.col2 input {
-  width: 165px;
+div#boxForm div.spaceWhite {
+  height: 30px;
+  margin: 1%;
+  padding: 1%;
+  float: left;
+  position: relative;
 }
-div#boxForm div.password.col3 input {
-  width: 290px;
+div#boxForm div.newLine {
+  clear: both;
+  height: 1px;
 }
 div#boxForm div.number input {
   text-align: right;
-}
-div#boxForm div.number.col1 input {
-  width: 100px;
-}
-div#boxForm div.number.col2 input {
-  width: 350px;
-}
-div#boxForm div.number.col3 input {
-  width: 600px;
 }
 div#boxForm div.image div.img {
   width: 609px;
@@ -242,18 +308,6 @@ div#boxForm div.image div.painel input[type=file] {
   opacity: 0;
   position: absolute;
   width: 403px;
-}
-div#boxForm XXXdiv#boxForm div.file div.img {
-  width: 609px;
-  height: 150px;
-  background-color: #FFFFFF;
-  border: 1px solid #CCCCCC;
-  margin-left: 114px;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-div#boxForm XXXdiv#boxForm div.file div.img.noimage {
-  background-image: url(../images/form_image_noimage.jpg);
 }
 div#boxForm div.file div.painel img.delete {
   float: left;
@@ -336,33 +390,6 @@ div#boxForm div.integer.col2 input {
 }
 div#boxForm div.integer.col3 input {
   width: 600px;
-}
-div#boxForm div.textarea.col1 textarea {
-  width: 100px;
-}
-div#boxForm div.textarea.col2 textarea {
-  width: 350px;
-}
-div#boxForm div.textarea.col3 textarea {
-  width: 600px;
-}
-div#boxForm div.html.col1 textarea {
-  width: 100px;
-}
-div#boxForm div.html.col2 textarea {
-  width: 350px;
-}
-div#boxForm div.html.col3 textarea {
-  width: 600px;
-}
-div#boxForm div.list.col1 select {
-  width: 110px;
-}
-div#boxForm div.list.col2 select {
-  width: 360px;
-}
-div#boxForm div.list.col3 select {
-  width: 610px;
 }
 div#boxForm ul#link {
   width: 705px;

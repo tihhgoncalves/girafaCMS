@@ -82,8 +82,8 @@ class nbrAdminForms {
   }
 
   public function AddGroup($title, $class = null, $id = null) {
-    
-    $html  = '<div class="separator'. (!empty($class)?' ' . $class:null) . '" id="' . (!empty($id)?$id:null) . '">' . "\r\n";
+
+    $html = '<div class="separator'. (!empty($class)?' ' . $class:null) . '" id="' . (!empty($id)?$id:null) . '">' . "\r\n";
     $html .= $title . "\r\n";
     $html .= '</div>' . "\r\n";
     
@@ -101,14 +101,14 @@ class nbrAdminForms {
 
   public function AddSpace($columns = 1){
     
-    switch ($columns) {
-    	case 1: $columnsStr = 'oneColumn';break;
-    	case 2: $columnsStr = 'twoColumn';break;
-    	case 3: $columnsStr = 'threeColumn';break;
-    }
-    
-    $html  = '<div class="spaceWhite ' . $columnsStr . '">' . "\r\n";
+    $html  = '<div class="spaceWhite col' . $columns . '">' . "\r\n";
     $html .= '</div>' . "\r\n";
+
+    $this->html_fields[] = $html;
+  }
+
+  public function AddNewLine(){
+    $html  = '<br>' . "\r\n";
 
     $this->html_fields[] = $html;
   }
@@ -302,7 +302,7 @@ class nbrAdminForms {
     $this->fieldsName[] = $name;
   }
 
-  public function AddFieldPassword($fieldName, $legend, $length, $columns = 2, $required = true, $readOnly = false, $validType = 'required'){
+  public function AddFieldPassword($fieldName, $legend, $length, $required = true, $readOnly = false, $validType = 'required'){
     global $ADMIN_PAGES_PATH, $ADMIN_IMAGES_URL, $hub;
     if($this->Editing()){
       if(isset($_POST[$fieldName]))
@@ -322,7 +322,7 @@ class nbrAdminForms {
     $tpl = new girafaTpl('forms/field-password.tpl');
     $tpl->setValue('LEGEND',          $legend);
     $tpl->setValue('NAME',            $fieldName);
-    $tpl->setValue('COLUMNS',         'col' . $columns);
+    $tpl->setValue('COLUMNS',         'col4');
     $tpl->setValue('READONLY',        ($readOnly?'readonly':null));
     $tpl->setValue('REQUIRED',        ($required?'required':null));
     $tpl->setValue('MAX',             $length);
