@@ -812,8 +812,8 @@ class nbrAdminForms {
         break;        
     }
     
-    $html .= '<li><div><button type="submit" id="save" class="btn green ' . $save_btn_1_name . '" title="' . $save_btn_1_alt . '">' . $save_btn_1_title . '</button>' . "\r\n";    
-    $html .= '  <button id="save2" class="btn green">.</button></div>' . "\r\n";
+    $html .= '<li><div><button type="submit" id="save" class="btn green ' . $save_btn_1_name . '" title="' . $save_btn_1_alt . '">' . $save_btn_1_title . '</button>' . "\r\n";
+    $html .= '  <button id="save2" class="btn green" type="button">.</button></div>' . "\r\n";
     $html .= '  <ul id="saveMenu">' . "\r\n";
     $html .= '    <li><a onclick="formURLSubmit(' . $save_btn_2_url . ');" href="javascript:void(0)" class="' . $save_btn_2_name . '" title="' . $save_btn_2_alt . '">' . $save_btn_2_title . '</a></li>' . "\r\n";
     $html .= '    <li><a onclick="formURLSubmit(' . $save_btn_3_url . ');" href="javascript:void(0)" class="' . $save_btn_3_name . '" title="' . $save_btn_3_alt . '">' . $save_btn_3_title . '</a></li>' . "\r\n";
