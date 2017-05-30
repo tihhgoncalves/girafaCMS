@@ -67,7 +67,7 @@ div#boxForm {
 
       .ui-widget-header{
         background: none!important;
-        background-color: @cor-vermelho!important;
+        background-color: @cor-principal!important;
 
         &,& span, & a {
           font-family: @fonte-principal;
@@ -482,7 +482,7 @@ span#devenv {
 }
 
 label.error {
-  background-color: #C93438;
+  background-color: @cor-principal;
   color: #FFFFFF;
   height: 20px !important;
   line-height: 20px;
@@ -535,6 +535,9 @@ span#stack {
   display: block;
   margin: 5px 0;
 
+  font-family: @fonte-principal;
+  font-size: 13px;
+
   a {
     font-size: 9px;
     color: #999999;
@@ -547,7 +550,7 @@ span#stack {
   }
 
   a:hover {
-    color: #000000;
+    color: @cor-principal;
   }
 
 }
@@ -697,12 +700,12 @@ form#formulario {
   }
 
   .medium-editor-element a {
-    color: #c93438;
+    color: @cor-principal;
     text-decoration: underline;
   }
   .medium-editor-element {
     h1, h2, h3 {
-      color: #c93438;
+      color: @cor-principal;
       text-transform: none;
       margin: 5px 0;
     }

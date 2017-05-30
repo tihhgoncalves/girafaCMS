@@ -1,8 +1,10 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,400i,600,700,700i');
+/*Cores */
+/* Funções */
 div#content div.main div.grid {
   width: 100%;
   margin-bottom: 13px;
 }
-
 div#content div.main div.grid table {
   border: 0;
   margin: 10px 0;
@@ -11,7 +13,7 @@ div#content div.main div.grid table {
   border-bottom: 2px solid #F6F6F6;
 }
 div#content div.main div.grid table tr {
-  position:relative;
+  position: relative;
 }
 div#content div.main div.grid table tr td {
   padding: 0;
@@ -19,202 +21,219 @@ div#content div.main div.grid table tr td {
   font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
   font-size: 12px;
   padding: 8px;
-  vertical-align:middle;
+  vertical-align: middle;
 }
 div#content div.main div.grid table tr td.order {
   width: 7px;
 }
 div#content div.main div.grid table,
 div#content div.main div.grid table tbody,
-div#content div.main div.grid table thead{
+div#content div.main div.grid table thead {
   position: relative;
 }
+div#content div.main div.grid table thead tr td:first-child {
+  -webkit-border-top-left-radius: 3px;
+  -webkit-border-top-right-radius: 0;
+  -webkit-border-bottom-right-radius: 0;
+  -webkit-border-bottom-left-radius: 3px;
+  -moz-border-radius-topleft: 3px;
+  -moz-border-radius-topright: 0;
+  -moz-border-radius-bottomright: 0;
+  -moz-border-radius-bottomleft: 3px;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 3px;
+}
+div#content div.main div.grid table thead tr td.icons {
+  -webkit-border-top-left-radius: 0;
+  -webkit-border-top-right-radius: 3px;
+  -webkit-border-bottom-right-radius: 3px;
+  -webkit-border-bottom-left-radius: 0;
+  -moz-border-radius-topleft: 0;
+  -moz-border-radius-topright: 3px;
+  -moz-border-radius-bottomright: 3px;
+  -moz-border-radius-bottomleft: 0;
+  border-top-left-radius: 0;
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+  border-bottom-left-radius: 0;
+}
 div#content div.main div.grid table tbody tr.hover td.order {
-  background-image:url(../images/ico-drag-item.gif);
-  background-position:center center;
-  background-repeat:no-repeat;
+  background-image: url(../images/ico-drag-item.gif);
+  background-position: center center;
+  background-repeat: no-repeat;
   cursor: move;
 }
-
 div#content div.main div.grid table tr td.showDragHandle {
-	background-image: url(../images/grid_orders.png);
-	background-repeat: no-repeat;
-	background-position: center center;
-	cursor: move;
+  background-image: url(../images/grid_orders.png);
+  background-repeat: no-repeat;
+  background-position: center center;
+  cursor: move;
 }
-div#content div.main div.grid table tr td span.marcacao{
+div#content div.main div.grid table tr td span.marcacao {
   background-color: #FF6;
   color: #000;
-  display:inline-block;
-  padding:0 1px;
+  display: inline-block;
+  padding: 0 1px;
 }
 div#content div.main div.grid table tr.tDnD_whileDrag,
 div#content div.main div.grid table tr.tDnD_whileDrag.hover {
   background-color: #C8C8C8;
   border: 1px solid #C8C8C8;
   color: #707070;
-  
 }
-div#content div.main div.grid table tr td.noRegister{
+div#content div.main div.grid table tr td.noRegister {
   text-align: center;
-  background-color:#F7F7F7;
+  background-color: #F7F7F7;
   color: #646473;
 }
-div#content div.main div.grid table tr.legend  td{
- font-weight: bold;
- color: #FFFFFF;
- background-color: #C93438;
- background-image: url(../images/table_separador_legenda_coluna.gif);
- background-repeat: no-repeat;
- background-position: right center;
+div#content div.main div.grid table tr.legend td {
+  font-weight: bold;
+  color: #FFFFFF;
+  background-color: #438EB9;
+  background-image: url(../images/table_separador_legenda_coluna.gif);
+  background-repeat: no-repeat;
+  background-position: right center;
 }
-div#content div.main div.grid table tr.legend  td:last-child{
+div#content div.main div.grid table tr.legend td:last-child {
   background-image: none;
 }
-
-div#content div.main div.grid table tr  td.icons{
-  text-align: center;
-}
-div#content div.main div.grid table tr  td.icons a{
-  text-decoration: none;
-}
-div#content div.main div.grid table tr  td.icons img{
-  border: 0;
-  margin: 0 1px;
-  vertical-align:middle;
-}
-div#content div.main div.grid table tr  td span {
+div.grid table tr td span {
   font-family: Verdana, Geneva, sans-serif;
   font-size: 10px;
   color: #000000;
   display: block;
 }
-div#content div.main div.grid table tr td span.normal {
+div.grid table tr td span.normal {
   text-decoration: none;
   font-weight: normal;
   overflow: hidden;
   Xheight: 16px;
   line-height: 16px;
 }
-div#content div.main div.grid table tr td span.bold {
+div.grid table tr td span.bold {
   font-weight: bold;
 }
-
-div#content div.main div.grid table tr.contrast 	{
-  background-color: #F6F6F6;
+div.grid table tr td.icons {
+  text-align: center;
 }
-div#content div.main div.grid table tr.hover {
-  background-color: #FFFFD7;
+div.grid table tr td.icons a {
+  text-decoration: none;
 }
-div#content div.main div.grid table tr  td.agrupador {
+div.grid table tr td.icons img {
+  border: 0;
+  margin: 0 1px;
+  vertical-align: middle;
+}
+div.grid table tr td.agrupador {
   background-color: #E9E9E9;
   padding: 3px 15px;
 }
-div#content div.main div.grid table tr  td.agrupador span#legenda {
+div.grid table tr td.agrupador span#legenda {
   font-family: Verdana, Geneva, sans-serif;
   font-size: 9px;
   color: #999999;
   display: inline-block;
 }
-
-div#content div.main div.grid table tr  td.agrupador span#nome {
+div.grid table tr td.agrupador span#nome {
   font-family: Verdana, Geneva, sans-serif;
   font-size: 10px;
   color: #8D8D8D;
   font-weight: bold;
-  display: inline-block;  
+  display: inline-block;
 }
-
-div.grid_footer{
-  float:left;
+div.grid table tr td.icons a i {
+  font-size: 14px;
+  margin: 0 3px;
 }
-div.grid_footer div.grid_footer_item, 
+div.grid table tr td.icons a:hover i {
+  color: #438EB9;
+}
+div.grid table tr.contrast {
+  background-color: #F6F6F6;
+}
+div.grid table tr.hover {
+  background-color: #FFFFD7;
+}
+div.grid_footer {
+  float: left;
+}
+div.grid_footer div.grid_footer_item,
 div.grid_footer div.grid_footer_item strong,
 div.grid_footer div.grid_footer_item a {
   font-size: 9px;
   color: #999999;
 }
-div.grid_footer div.grid_footer_item{
+div.grid_footer div.grid_footer_item {
   padding-bottom: 7px;
   width: 600px;
   line-height: 17px;
 }
-
-div#bar{
+div#bar {
   height: 29px;
-  margin-top: 15px;  
+  margin-top: 15px;
 }
-
-div#bar div#filters{
+div#bar div#filters {
   float: left;
   background-color: #F6F6F6;
   padding: 3px 5px;
   display: block;
-
-	-webkit-border-radius: 4px;
-	-moz-border-radius: 4px;
-	border-radius: 4px;	
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
 }
-div#bar div#filters form label{
+div#bar div#filters form label {
   margin: 0 10px;
   font-size: 10px;
   line-height: 23px;
-
   float: left;
 }
-div#bar div#filters form  input#search{
+div#bar div#filters form input#search {
   height: 19px;
   line-height: 19px;
   width: 200px;
-  font-size: 11px;
   font-family: Tahoma;
   padding: 0 4px;
   border: 1px solid #E2E3EA;
   font-family: Tahoma, Geneva, sans-serif;
-  font-size: 11px;  
+  font-size: 11px;
   margin-top: 5px;
   margin-left: 3px;
 }
-div#bar div#filters form div#filter{
-  padding-left: 60px;
-  background-image:url(../images/grid_filters_filter.png);
-  background-position: 37px 7px;
-  background-repeat:no-repeat;
+div#bar div#filters form div#filter {
+  padding-left: 6px;
   float: left;
   padding-top: 6px;
 }
-
-div#bar div#filters form div#filter select{
+div#bar div#filters form div#filter select {
   height: 19px;
   font-family: Tahoma, Geneva, sans-serif;
   font-size: 11px;
 }
-
-div#bar div#filters form div#search input#search.branco{
+div#bar div#filters form div#search input#search.branco {
   color: #999999;
 }
-
-div#bar div#filters a span{
+div#bar div#filters a span {
   display: block;
   width: 72px;
   height: 22px;
-  background-image:url(../images/toolbar_search.png);
-  background-repeat:no-repeat;
+  background-image: url(../images/toolbar_search.png);
+  background-repeat: no-repeat;
   background-position: 0 -22px;
   margin-top: 4px;
   margin-left: 12px;
   float: left;
 }
-div#bar div#filters a:hover span{
-  background-position: 0 0;  
+div#bar div#filters a:hover span {
+  background-position: 0 0;
 }
-div#bar div#filters a#limpar img{
-    padding-left: 11px;
-    padding-right: 10px;
-    position: relative;
-    top: 2px;
+div#bar div#filters a#limpar img {
+  padding-left: 11px;
+  padding-right: 10px;
+  position: relative;
+  top: 2px;
 }
-
 /**
 Comandos
 **/
@@ -222,80 +241,102 @@ ul#commandsBar {
   padding: 0;
   margin: 0;
 }
-
-ul#commandsBar li{
+ul#commandsBar li {
   list-style: none;
   float: right;
   height: 30px;
-  background-image:url(../images/icon_grid_command.png);
-  background-repeat: no-repeat;
-  background-position:left 8px;
   padding: 0 5px;
-  padding-left: 20px;
   margin: 0 10px;
   margin-top: 6px;
 }
-ul#commandsBar li a{
- line-height: 30px;
- text-decoration: none;
- color:#333333;
- font-size: 10px;
+ul#commandsBar li i {
+  font-size: 15px;
+  top: 3px;
+  position: relative;
+  color: #393939;
+  margin-right: 3px;
 }
-ul#commandsBar li a:hover{
-  text-decoration:underline;
+ul#commandsBar li a {
+  line-height: 30px;
+  text-decoration: none;
+  color: #393939;
+  font-size: 10px;
 }
-
-
-
-
+ul#commandsBar li a:hover i {
+  color: #438EB9;
+}
 /** Ferramentas **/
-
-ul#toolbar{
+ul#toolbar {
   height: 22px;
   float: right;
   margin-top: 7px;
 }
-ul#toolbar li{
+ul#toolbar li {
   float: right;
   margin-left: 10px;
 }
-ul#toolbar li.new a{
+ul#toolbar li.new a {
   display: block;
   width: 72px;
-  height:22px;
+  height: 22px;
   background-image: url(../images/form_new.png);
-  background-repeat:no-repeat;
+  background-repeat: no-repeat;
   background-position: left -22px;
 }
-ul#toolbar li.new a:hover{
+ul#toolbar li.new a:hover {
   background-position: left top;
 }
 ul#toolbar li.new.disabled a,
-ul#toolbar li.new.disabled a:hover{
+ul#toolbar li.new.disabled a:hover {
   background-position: left -44px;
   cursor: no-drop;
 }
-
-ul#toolbar li.actions a{
+ul#toolbar li.actions a {
   display: block;
   width: 72px;
-  height:22px;
+  height: 22px;
   background-image: url(../images/toolbar_actions.png);
-  background-repeat:no-repeat;
+  background-repeat: no-repeat;
   background-position: left -22px;
 }
-ul#toolbar li.actions a:hover{
+ul#toolbar li.actions a:hover {
   background-position: left top;
 }
 ul#toolbar li.actions.disabled a,
-ul#toolbar li.actions.disabled a:hover{
+ul#toolbar li.actions.disabled a:hover {
   background-position: left -44px;
   cursor: no-drop;
 }
-
 div.main iframe#report {
-  border:1px solid #DADADA;
+  border: 1px solid #DADADA;
   width: 97%;
-  height:600px;  
+  height: 600px;
   margin-top: 10px;
+}
+#pesquisa i {
+  font-size: 14px;
+}
+#pesquisa .btn {
+  margin-top: -3px;
+  -webkit-border-top-left-radius: 3px;
+  -webkit-border-top-right-radius: 3px;
+  -webkit-border-bottom-right-radius: 3px;
+  -webkit-border-bottom-left-radius: 3px;
+  -moz-border-radius-topleft: 3px;
+  -moz-border-radius-topright: 3px;
+  -moz-border-radius-bottomright: 3px;
+  -moz-border-radius-bottomleft: 3px;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+#pesquisa .btn:hover {
+  background-color: #e6e6e6;
+}
+#pesquisa .btn i {
+  font-size: 14px;
+}
+#pesquisa label {
+  margin-top: 3px!important;
 }

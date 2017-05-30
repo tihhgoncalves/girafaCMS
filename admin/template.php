@@ -26,7 +26,7 @@ $security->SecurityCheck();
 <link href="<?= $cms->GetAdminJavaScriptUrl(); ?>jquery.ui/blitzer/jquery-ui-1.10.3.custom.css" rel="stylesheet" type="text/css" />
 
 <!-- Plugin Font Awesome -->
-<link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+<link href="<?= get_config('BOWER_COMPONENTS_URL'); ?>font-awesome/css/font-awesome.min.css" rel="stylesheet">
 
 <!-- Plugins jQuery -->
 <script src="<?= get_config('BOWER_COMPONENTS_URL'); ?>jquery/dist/jquery.js" type="text/javascript"></script>
@@ -61,6 +61,10 @@ $security->SecurityCheck();
 <script src="<?= get_config('BOWER_COMPONENTS_URL'); ?>blueimp-file-upload/js/jquery.iframe-transport.js"></script>
 <script src="<?= get_config('BOWER_COMPONENTS_URL'); ?>blueimp-file-upload/js/jquery.fileupload.js"></script>
 <script src="<?= get_config('BOWER_COMPONENTS_URL'); ?>medium-editor-insert-plugin/dist/js/medium-editor-insert-plugin.min.js"></script>
+
+<!-- Plugins Poshytip -->
+<link href="<?= get_config('BOWER_COMPONENTS_URL'); ?>poshytip/src/tip-twitter/tip-twitter.css" rel="stylesheet" type="text/css" />
+<script src="<?= get_config('BOWER_COMPONENTS_URL'); ?>poshytip/src/jquery.poshytip.min.js" type="text/javascript"></script>
 
 
 <script src="<?= $cms->GetAdminJavaScriptUrl(); ?>jquery.ui/jquery-ui-1.10.3.custom.js" type="text/javascript"></script>
@@ -113,72 +117,71 @@ $security->SecurityCheck();
 
     </a> </div>
 
-  <div class="direita"> <a href="<?= $ROOT_URL; ?>" target="_blank" title="Ver site"> <span id="btn_site"></span> </a> 
-  <?
+
+  <div class="direita"> <a href="<?= $ROOT_URL; ?>" target="_blank" title="Ver site" id="btn_site"> <i class="fa fa-globe" aria-hidden="true"></i></a>
+    <?
     $hub->SetParam('_script', $ADMIN_PAGES_PATH . 'login.script.logout.php');
-  ?>
-  <a href="<?= $hub->GetUrl(); ?>" title="Sair"> <span id="btn_sair"></span> </a> 
+    ?>
+    <a href="<?= $hub->GetUrl(); ?>" title="Sair" id="btn_sair"> <i class="fa fa-times-circle-o" aria-hidden="true"></i> </a>
   </div>
-  
+
   <div id="usuario"> <span id="nome"><?= __('Olá'); ?> <?= $security->GetUserName()?></span> <a href="#"><span style="display:none;" id="editarperfil"></span></a> </div>
-</div>
 
+  <div id="toolbar">
 
-<div id="toolbar">
+    <ul>
+      <?
+      //Pega todos os módulos da Aplicação...
+      $obj_modules = new nbrModules();
+      $modules = $obj_modules->GetModules();
 
-<ul>
-<?
-//Pega todos os módulos da Aplicação...
-$obj_modules = new nbrModules();
-$modules = $obj_modules->GetModules();
+      foreach ($modules as $module) {
 
-foreach ($modules as $module) {
+        //Verifica se este é o Módulo selecionado e insere a classe.
+        $class = ($hub->GetParam('_moduleID') == $module->ID)?' class="selected"':null;
 
-  //Verifica se este é o Módulo selecionado e insere a classe.
-  $class = ($hub->GetParam('_moduleID') == $module->ID)?' class="selected"':null;
-  
-  //Limpa Níveis do Hub..
-  $hub->ClearHistory();
+        //Limpa Níveis do Hub..
+        $hub->ClearHistory();
 
-  //Seta parametros do Módulo... 
-  $hub->SetParam('_page', $module->file);
-  $hub->SetParam('_moduleID', $module->ID);
-  $hub->SetParam('_folderID', $module->folderID);
-  $hub->SetParam('_languages', ($module->MultiLanguages != 'N'?'Y':'N'));
-  $hub->SetParam('_setLanguage', 'Y');  
-  $hub->SetParam('_title'   , $module->name);
-  $hub->SetParam('_description', 'Módulo ' . $module->name);
-  $hub->SetParam('_languages', ($module->MultiLanguages != 'N'?'Y':'N'));
-  
-  //Duplica o último nível no Hub para mais um nível para o link da Pasta..
-  $hub->levels[] = $hub->levels[count($hub->levels) -1];
-  
-  $hub->SetParam('_title', $module->folderName);  
-  $hub->SetParam('_description', 'Pasta ' . $module->folderName);  
-?>
-  <li <?= $class; ?>>
-    <a title="<?= $module->description; ?>" href="<?= $hub->GetUrl(); ?>">
-      <div class="name" style="background-image:url(<?= $module->iconPath; ?>); ">
-        <span><?= __($module->name); ?></span>
+        //Seta parametros do Módulo...
+        $hub->SetParam('_page', $module->file);
+        $hub->SetParam('_moduleID', $module->ID);
+        $hub->SetParam('_folderID', $module->folderID);
+        $hub->SetParam('_languages', ($module->MultiLanguages != 'N'?'Y':'N'));
+        $hub->SetParam('_setLanguage', 'Y');
+        $hub->SetParam('_title'   , $module->name);
+        $hub->SetParam('_description', 'Módulo ' . $module->name);
+        $hub->SetParam('_languages', ($module->MultiLanguages != 'N'?'Y':'N'));
 
-        <?
-        if($module->GetNotifications() > 0){
+        //Duplica o último nível no Hub para mais um nível para o link da Pasta..
+        $hub->levels[] = $hub->levels[count($hub->levels) -1];
+
+        $hub->SetParam('_title', $module->folderName);
+        $hub->SetParam('_description', 'Pasta ' . $module->folderName);
         ?>
-        <div id="contador"><?= $module->GetNotifications(); ?></div>
-        <?
-        }
-        ?>
-      </div>
-    </a>
-  </li>
-<?
-}
-?>  
-</ul>
+        <li <?= $class; ?>>
+          <a title="<?= __($module->name); ?>" href="<?= $hub->GetUrl(); ?>">
+            <i class="fa <?= $module->icon; ?>" aria-hidden="true"></i>
+
+            <?
+            if($module->GetNotifications() > 0){
+              ?>
+              <div id="contador"><?= $module->GetNotifications(); ?></div>
+            <?
+            }
+            ?>
+          </a>
+        </li>
+      <?
+      }
+      ?>
+    </ul>
+  </div>
+
 </div>
-<div id="escondeToolbar">
-  <div id="painel"><a href="javascript:void(0);"><?= __('mais módulos'); ?></a></div>
-</div>
+
+
+
 <!-- CONTEUDO - INICIO -->
 <div id="content">
   <div id="left">

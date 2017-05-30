@@ -523,6 +523,7 @@ class nbrAdminGrid{
 
     if(count($this->filters) > 0){
       $html .= '<div id="filter">' . "\r\n";
+      $html .= '<i class="fa fa-filter" aria-hidden="true"></i>' . "\r\n";
       $html .= '<select name="filter" id="filter">' . "\r\n";
       $html .= '  <option value="-1">' . __('Filtrar por...') . '</option>' . "\r\n";
       
@@ -555,10 +556,10 @@ class nbrAdminGrid{
       $html .= '</div>' . "\r\n";
     }
         
-    $html .= '<button class="btn btn-warning btn-mini" icon="ui-icon-search" text="false">Pesquisar</button>' . "\r\n";
+    $html .= '<button class="btn btn-warning btn-mini" text="false"><i class="fa fa-search" aria-hidden="true"></i></button>' . "\r\n";
     
     if($hub->ExistParam('filterWhere') || $hub->ExistParam('filterSearch'))
-      $html .= '<a href="javascript: void(0);" id="limpar" title="Clique aqui para Limpar os filtros desta pesquisa"><img src="' . $cms->GetAdminImageUrl() . 'cancel.png"></a>' . "\r\n";
+      $html .= '<a href="javascript: void(0);" id="limpar" title="Clique aqui para Limpar os filtros desta pesquisa"><i class="fa fa-times" aria-hidden="true"></i></a>' . "\r\n";
     
     $html .= '</form>' . "\r\n";
     $html .= '</div>' . "\r\n";
@@ -580,7 +581,7 @@ class nbrAdminGrid{
       $html .= '<ul id="commandsBar">' . "\r\n";
       
       foreach ($this->commands as $command) {  
-        $html .= '<li><a href="javascript:void(0);" question="' . $command[3] . '" link="' . $command[1] . '" title="' . $command[2] . '">' . $command[0] . '</a></li>' . "\r\n";
+        $html .= '<li><a href="javascript:void(0);" question="' . $command[3] . '" link="' . $command[1] . '" title="' . $command[2] . '"> <i class="fa fa-link" aria-hidden="true"></i>' . $command[0] . '</a></li>' . "\r\n";
       }
       
       $html .= '</ul>' . "\r\n";
@@ -676,7 +677,7 @@ class nbrAdminGrid{
 
           $html .= '<td class="icons">' . "\r\n";
           $html .= '<a href="' . $hub->GetUrl() . '">' . "\r\n";
-          $html .= '<img src="' . $ADMIN_IMAGES_URL . 'icon_grid_edit.png" width="16" height="16" alt="Editar" />' . "\r\n";
+          $html .= '<i class="fa fa-pencil" aria-hidden="true"></i>' . "\r\n";
           $html .= '</a>' . "\r\n";
         }
 
@@ -689,7 +690,7 @@ class nbrAdminGrid{
           if($this->macroFile != null)
           $hub->SetParam('fileMacro', $this->module->folderPath . $this->macroFile);
           $html .= '<a title="Clique aqui para excluir este registro" href="javascript:void(0);" onclick="deleteReg(\'' . $this->tableName . '\', \'' . $record->ID . '\', \'' . $hub->GetUrl() . '\');">';
-          $html .= '<img src="' . $ADMIN_IMAGES_URL . 'ico-delete.png" alt="Delete" />';
+          $html .= '<i class="fa fa-trash" aria-hidden="true"></i>';
           $html .= '</a></td>' . "\r\n";
         }
 

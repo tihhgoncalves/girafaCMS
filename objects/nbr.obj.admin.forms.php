@@ -299,7 +299,7 @@ class nbrAdminForms {
 
     $html = $this->eventAfterField($name, $html);
     $this->html_fields[] = $html;
-    $this->fieldsName[] = $name;
+    //$this->fieldsName[] = $name;
   }
 
   public function AddFieldPassword($fieldName, $legend, $length, $required = true, $readOnly = false, $validType = 'required'){

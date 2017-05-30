@@ -64,7 +64,7 @@ class nbrModule{
   public $ID;
   public $name;
   public $description;
-  public $iconPath;
+  public $icon;
   public $path;
   public $url;
   public $file;
@@ -95,10 +95,10 @@ class nbrModule{
     $this->file        			= $link;
     $this->path        			= $MODULES_PATH . $reg->Path . '/';
     $this->url         			= $MODULES_URL . $reg->Path . '/';
-    $this->iconPath    			= $CMS_URL . 'icons/' . $reg->Icon;
+    $this->icon    			    = $reg->Icon;
     $this->folderID    			= $pasta->folderID;
     $this->folderName  			= $pasta->folderName;
-    $this->MultiLanguages  		= $pasta->MultiLanguages;
+    $this->MultiLanguages  	= $pasta->MultiLanguages;
   }
 
   /**
