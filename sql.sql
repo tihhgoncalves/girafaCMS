@@ -516,6 +516,31 @@ INSERT INTO `sysParams` (`ID`, `LastUpdate`, `LastUserName`, `Nome`, `Tipo`, `Va
 (4,'2013-09-24 14:41:37','Instalador CMS','Endereço (exibido no Rodapé do Site)','TXT','Rua João da Silva, 123\r\nBlumenau - SC - Bairro Velha ','CNT_ENDERECO','SIT', 'pt-br'),
 (5,'2013-09-24 15:40:53','Instalador CMS','E-mail de Contato','STR','contato@meusite.com.br','CNT_EMAIL','SIT', 'pt-br');
 
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `chtVisitantes`
+--
+
+CREATE TABLE IF NOT EXISTS `chtVisitantes` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `Lang` varchar(10) DEFAULT NULL,
+  `LastUpdate` datetime DEFAULT NULL,
+  `LastUserName` varchar(50) DEFAULT NULL,
+  `IP` varchar(15) DEFAULT NULL,
+  `DataHora` datetime DEFAULT NULL,
+  `SessaoID` varchar(50) DEFAULT NULL,
+  `URL` varchar(500) DEFAULT NULL,
+  `URLReferencia` varchar(500) DEFAULT NULL,
+  `Plataforma` char(3) DEFAULT NULL,
+  `Navegador` char(3) DEFAULT NULL,
+  `Sistema` char(3) DEFAULT NULL,
+  `Touch` char(1) DEFAULT NULL,
+  `Resolucao` varchar(10) DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Atendimento Online';
+
+
 -- ------------------------------------------------------------
 -- ------------------------------------------------------------
 -- Adiciona CONSTRAINS
