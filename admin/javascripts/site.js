@@ -40,7 +40,7 @@ $(document).ready(function(){
     offsetY: 5,
     allowTipHover: false,
     fade: false,
-    slide: true
+    slide: false
   });
 
 
@@ -53,7 +53,7 @@ $(document).ready(function(){
     offsetY: 5,
     allowTipHover: false,
     fade: false,
-    slide: true
+    slide: false
   });
 
 
