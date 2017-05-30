@@ -75,7 +75,18 @@ class nbrTablePost{
     
     $this->fields[] = $field;
   }
-  
+
+  public function AddFieldDateTimeNow($fieldName){
+    $field = array($fieldName, "NOW()");
+    $this->fields[] = $field;
+  }
+
+  public function AddFieldDateToday($fieldName){
+    $field = array($fieldName, "TODAY()");
+    $this->fields[] = $field;
+  }
+
+
   public function AddFieldNumber($fieldName, $value){
     
     if($value == null)
