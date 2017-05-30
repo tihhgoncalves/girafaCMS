@@ -1,33 +1,3 @@
-/**
-Mensagens de Erro
-**/
-
-$(document).ready(function(){
-  /*$('div#msg_erro img#detail').tooltip({
-      delay: 0, 
-      showURL: false, 
-      showBody: " - "
-      
-  });
-  */
-
-  $('div#msg_erro img#detail').tooltipster();
-});
-
-
-$(document).ready(function(){
-  /*
-  $('*.tooltip').tooltip({
-      delay: 0, 
-      showURL: false, 
-      showBody: " - "
-  });
-  */
-  $('*.tooltip').tooltipster();
-});
-
-
-
 var alertOpened = false;
 
 function OpenStatus(msg){

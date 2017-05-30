@@ -51,10 +51,13 @@ div#msg_erro #msg_erro_close {
   margin: 4px;
   cursor: pointer;
 }
-div#msg_erro #msg_erro_close img#detail {
-  float: right;
-  margin-right: 14px;
-  margin-top: -2px;
+div#msg_erro i {
+  font-size: 17px;
+  margin-right: 10px;
+  margin-top: 1px;
+  color: #e37873;
+  float: left;
+  cursor: help;
 }
 div#msg_erro b,
 div#msg_erro strong {

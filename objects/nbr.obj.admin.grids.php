@@ -495,7 +495,7 @@ class nbrAdminGrid{
       if($dataSet->ExistParam('msgErrorDetail')) {
         $msgDetail = $dataSet->GetParam('msgErrorDetail');
         $dataSet->DeleteParam('msgErrorDetail');
-        $html .= '<img title="' . $msgDetail . '" src="' . $cms->GetAdminImageUrl() . 'msg_erro_info.png" id="detail" width="24" height="24"/>' . "\r\n";
+        $html .= '<i class="fa fa-info" aria-hidden="true" title="' . $msgDetail . '"id="detail"></i>' . "\r\n";
       }
       
       

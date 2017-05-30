@@ -28,9 +28,10 @@ $(document).ready(function(){
 });
 
 
-/* Tootip de Módulos */
+/* Tootips*/
 $(document).ready(function(){
 
+  //Módulos...
   $('div#toolbar ul li a').poshytip({
     className: 'tip-twitter',
     showTimeout: 1,
@@ -39,7 +40,20 @@ $(document).ready(function(){
     offsetY: 5,
     allowTipHover: false,
     fade: false,
-    slide: false
+    slide: true
+  });
+
+
+  //Mensagem de Erro no grid...
+  $('div#msg_erro i#detail').poshytip({
+    className: 'tip-twitter errodetail',
+    showTimeout: 1,
+    alignTo: 'target',
+    alignX: 'center',
+    offsetY: 5,
+    allowTipHover: false,
+    fade: false,
+    slide: true
   });
 
 
