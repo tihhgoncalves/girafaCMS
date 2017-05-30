@@ -9,7 +9,6 @@ div#boxForm {
   /** File **/
   /** DateTime **/
   /** Date **/
-  /** Integer **/
 }
 div#boxForm div.clearBoth {
   clear: both;
@@ -416,15 +415,6 @@ div#boxForm div.date.col2 input {
   width: 350px;
 }
 div#boxForm div.date.col3 input {
-  width: 600px;
-}
-div#boxForm div.integer.col1 input {
-  width: 100px;
-}
-div#boxForm div.integer.col2 input {
-  width: 350px;
-}
-div#boxForm div.integer.col3 input {
   width: 600px;
 }
 div#boxForm ul#link {
