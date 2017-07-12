@@ -91,6 +91,13 @@ class nbrRouter{
     return $this->params;
   }
 
+  public function GetParam($level){
+    if(isset($this->params[$level]))
+      return $this->params[$level];
+    else
+      return false;
+  }
+
     /**
    * Retorna Parametros da URL
    *

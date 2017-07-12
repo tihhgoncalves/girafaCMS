@@ -69,10 +69,12 @@ function LoadRecord($tableName, $value, $field = 'ID'){
   global $db;
   
   $sql = 'SELECT * FROM `' . $tableName . '` WHERE `' . $field . "` = '" . $value . "'";
-  //echo($sql);
   $res = $db->LoadObjects($sql);
-  
-  return $res[0];
+
+  if(count($res)> 0)
+    return $res[0];
+  else
+    return false;
 }
 
 ?>
