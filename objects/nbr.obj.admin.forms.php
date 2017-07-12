@@ -430,7 +430,7 @@ class nbrAdminForms {
     $tpl = new girafaTpl('forms/field-image.tpl');
     $tpl->setValue('LEGEND',            $legend);
     $tpl->setValue('NAME',              $fieldName);
-    $tpl->setValue('COLUMNS',           'col3');
+    $tpl->setValue('COLUMNS',           'col4');
     $tpl->setValue('READONLY',          ($readOnly?'readonly':null));
     $tpl->setValue('REQUIRED',          ($required?'required':null));
     $tpl->setValue('IMG',               $img);
@@ -493,7 +493,7 @@ class nbrAdminForms {
     $tpl = new girafaTpl('forms/field-html.tpl');
     $tpl->setValue('LEGEND',      $legend);
     $tpl->setValue('NAME',        $fieldName);
-    $tpl->setValue('COLUMNS',     'col3');
+    $tpl->setValue('COLUMNS',     'col4');
     $tpl->setValue('HEIGHT',      $height);
     $tpl->setValue('READONLY',    ($readOnly?'readonly':null));
     $tpl->setValue('REQUIRED',    ($required?'required':null));

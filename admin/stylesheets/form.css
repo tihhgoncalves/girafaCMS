@@ -229,7 +229,7 @@ div#boxForm div.col1 textarea {
   width: 56px;
 }
 div#boxForm div.col1 select {
-  width: 90px;
+  width: 130px;
 }
 div#boxForm div.col2 {
   width: 50%;
@@ -246,7 +246,7 @@ div#boxForm div.col3 {
 }
 div#boxForm div.col3 input,
 div#boxForm div.col3 textarea {
-  width: 564px;
+  width: 604px;
 }
 div#boxForm div.col3 select {
   width: 574px;
@@ -279,11 +279,12 @@ div#boxForm div.number input {
   text-align: right;
 }
 div#boxForm div.image div.img {
-  width: 609px;
+  width: 879px;
   height: 150px;
   background-color: #FFFFFF;
   border: 1px solid #CCCCCC;
   margin-left: 114px;
+  margin-top: 5px;
   background-position: center;
   background-repeat: no-repeat;
 }
@@ -300,7 +301,7 @@ div#boxForm div.image div.img.noimage {
   background-image: url(../images/form_image_noimage.jpg);
 }
 div#boxForm div.image div.painel {
-  width: 609px;
+  width: 879px;
   height: 30px;
   background-color: #CCCCCC;
   border: 1px solid #999999;
@@ -311,7 +312,7 @@ div#boxForm div.image div.painel span.status {
   font-size: 10px;
   height: 30px;
   line-height: 30px;
-  width: 465px;
+  width: 739px;
   padding: 0 10px;
   display: block;
   float: left;
@@ -334,11 +335,11 @@ div#boxForm div.image div.painel input[type=file] {
   cursor: pointer;
   font-size: 18px;
   height: 28px;
-  margin-left: -376px;
+  margin-left: -604px;
   margin-top: 1px;
   opacity: 0;
   position: absolute;
-  width: 403px;
+  width: 857px;
 }
 div#boxForm div.file div.painel img.delete {
   float: left;
@@ -416,13 +417,23 @@ div#boxForm div.date.col3 input {
   width: 600px;
 }
 div#boxForm ul#link {
-  width: 705px;
+  width: 100%;
   height: 22px;
-  background-image: url(../images/form_links_bg.jpg);
-  background-repeat: no-repeat;
+  background-color: #e5e6e7;
   float: left;
-  margin: 0 5px;
-  padding-left: 35px;
+  margin-top: 15px;
+  -webkit-border-top-left-radius: 3px;
+  -webkit-border-top-right-radius: 3px;
+  -webkit-border-bottom-right-radius: 3px;
+  -webkit-border-bottom-left-radius: 3px;
+  -moz-border-radius-topleft: 3px;
+  -moz-border-radius-topright: 3px;
+  -moz-border-radius-bottomright: 3px;
+  -moz-border-radius-bottomleft: 3px;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+  border-bottom-left-radius: 3px;
 }
 div#boxForm ul#link li {
   list-style: none outside none;
@@ -613,7 +624,6 @@ div#formToolbar {
   min-height: 30px;
   clear: both;
   padding-top: 10px;
-  padding-right: 20px;
 }
 div#formToolbar ul {
   display: block;
@@ -637,7 +647,10 @@ form#formulario .medium-editor-element {
   padding: 15px;
   background-color: #FFF;
   margin-left: 115px;
+  margin-top: 5px;
+  margin-bottom: 5px;
   overflow: auto;
+  width: 850px;
 }
 form#formulario .medium-editor-element p {
   margin-bottom: 10px;
