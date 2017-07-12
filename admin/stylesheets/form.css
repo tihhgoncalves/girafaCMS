@@ -241,7 +241,7 @@ div#boxForm div.col2 textarea {
   width: 314px;
 }
 div#boxForm div.col2 select {
-  width: 324px;
+  width: 339px;
 }
 div#boxForm div.col3 {
   width: 71%;
@@ -409,10 +409,12 @@ div#boxForm div.datetime.col3 input {
   width: 600px;
 }
 div#boxForm div.date.col1 input {
-  width: 100px;
+  width: 76px;
+  padding-left: 6px;
+  padding-right: 6px;
 }
 div#boxForm div.date.col2 input {
-  width: 350px;
+  width: 314px;
 }
 div#boxForm div.date.col3 input {
   width: 600px;
@@ -615,6 +617,7 @@ div#formToolbar {
   min-height: 30px;
   clear: both;
   padding-top: 10px;
+  padding-right: 20px;
 }
 div#formToolbar ul {
   display: block;
