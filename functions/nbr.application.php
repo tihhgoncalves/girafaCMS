@@ -74,4 +74,9 @@ function LoadRecord($tableName, $value, $field = 'ID'){
   
   return $res[0];
 }
+
+function is_localhost(){
+  return ( $_SERVER['HTTP_HOST'] == 'localhost');
+}
+
 ?>
