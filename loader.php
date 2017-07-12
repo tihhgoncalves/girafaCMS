@@ -4,6 +4,10 @@
  * Carrega CONFIG
  */
 
+function is_localhost(){
+  return ( $_SERVER['HTTP_HOST'] == 'localhost');
+}
+
 //config_default
 require_once('loader_config.php');
 
