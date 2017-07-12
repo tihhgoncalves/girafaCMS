@@ -216,15 +216,13 @@ div#boxForm div.readonly select {
   color: #999999;
 }
 div#boxForm div.field {
-  margin: 1%;
-  padding: 1%;
   background-color: #F4F4F4;
   color: white;
   float: left;
   position: relative;
 }
 div#boxForm div.col1 {
-  width: 21%;
+  width: 25%;
 }
 div#boxForm div.col1 input,
 div#boxForm div.col1 textarea {
@@ -234,17 +232,17 @@ div#boxForm div.col1 select {
   width: 90px;
 }
 div#boxForm div.col2 {
-  width: 46%;
+  width: 50%;
 }
 div#boxForm div.col2 input,
 div#boxForm div.col2 textarea {
-  width: 314px;
+  width: 354px;
 }
 div#boxForm div.col2 select {
-  width: 339px;
+  width: 380px;
 }
 div#boxForm div.col3 {
-  width: 71%;
+  width: 75%;
 }
 div#boxForm div.col3 input,
 div#boxForm div.col3 textarea {
@@ -254,13 +252,13 @@ div#boxForm div.col3 select {
   width: 574px;
 }
 div#boxForm div.col4 {
-  width: 96%;
+  width: 100%;
 }
 div#boxForm div.col4 input {
-  width: 814px;
+  width: 854px;
 }
 div#boxForm div.col4 input[type=password] {
-  width: 350px;
+  width: 376px;
 }
 div#boxForm div.col4 textarea {
   width: 830px;
@@ -270,8 +268,6 @@ div#boxForm div.col4 select {
 }
 div#boxForm div.spaceWhite {
   height: 30px;
-  margin: 1%;
-  padding: 1%;
   float: left;
   position: relative;
 }
