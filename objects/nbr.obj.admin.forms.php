@@ -512,7 +512,7 @@ class nbrAdminForms {
 
   public function AddFieldDate($fieldName, $legend, $valueDefault = null, $required = true, $readOnly = false, $validateType = 'required'){
 
-    if($valueDefault == 'NOW'){
+    if($valueDefault == 'NOW' || $valueDefault == 'TODAY'){
       $valueDefault = date('Y-m-d');
     }
 
@@ -542,7 +542,7 @@ class nbrAdminForms {
 
   public function AddFieldDateTime($fieldName, $legend, $valueDefault = null, $required = true, $readOnly = false, $validateType = 'required'){
 
-    if($valueDefault == 'NOW'){
+    if($valueDefault == 'NOW' || $valueDefault == 'TODAY'){
       $valueDefault = date('Y-m-d H:i');
     }
 
