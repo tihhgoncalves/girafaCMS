@@ -160,7 +160,7 @@ div#boxForm div.field textarea:focus,
 div#boxForm div.field select:focus {
   border-color: #9F9F9F;
 }
-div#boxForm div.field input {
+div#boxForm div.field input:not([type=file]) {
   color: #999999;
   float: left;
   height: 20px;
@@ -172,10 +172,14 @@ div#boxForm div.field input {
   font-family: 'Open Sans', sans-serif;
   font-size: 13px;
 }
-div#boxForm div.field input.arquivo {
+div#boxForm div.field input:not([type=file]).arquivo {
   background: none;
   border: 0;
   height: 25px;
+}
+div#boxForm div.field input[type=file] {
+  padding: 0 5px;
+  border: 0;
 }
 div#boxForm div.field textarea {
   color: #999999;
@@ -260,6 +264,9 @@ div#boxForm div.col4 input {
 div#boxForm div.col4 input[type=password] {
   width: 376px;
 }
+div#boxForm div.col4 input[type=file] {
+  width: 867px;
+}
 div#boxForm div.col4 textarea {
   width: 830px;
 }
@@ -303,8 +310,8 @@ div#boxForm div.image div.img.noimage {
 div#boxForm div.image div.painel {
   width: 879px;
   height: 30px;
-  background-color: #CCCCCC;
-  border: 1px solid #999999;
+  background-color: #e5e6e7;
+  border: 1px solid #F4F4F4;
   margin-left: 114px;
   margin-top: 6px;
 }
@@ -332,14 +339,7 @@ div#boxForm div.image div.painel img.btn_upload {
   cursor: pointer;
 }
 div#boxForm div.image div.painel input[type=file] {
-  cursor: pointer;
-  font-size: 18px;
-  height: 28px;
-  margin-left: -604px;
-  margin-top: 1px;
-  opacity: 0;
-  position: absolute;
-  width: 857px;
+  margin: 5px 0;
 }
 div#boxForm div.file div.painel img.delete {
   float: left;
@@ -353,11 +353,11 @@ div#boxForm div.file div.painel img.down {
   cursor: pointer;
 }
 div#boxForm div.file div.painel {
-  width: 600px;
+  width: 879px;
   height: 30px;
-  margin-left: 10px;
-  background-color: #CCCCCC;
-  border: 1px solid #999999;
+  background-color: #e5e6e7;
+  border: 1px solid #F4F4F4;
+  margin-top: 6px;
 }
 div#boxForm div.file div.painel span.status {
   height: 30px;
@@ -367,6 +367,7 @@ div#boxForm div.file div.painel span.status {
   display: block;
   float: left;
   overflow: hidden;
+  margin-bottom: 15px;
 }
 div#boxForm div.file div.painel span.status span.txt {
   font-size: 10px;
@@ -387,14 +388,7 @@ div#boxForm div.file div.painel img.btn_upload {
   cursor: pointer;
 }
 div#boxForm div.file div.painel input[type=file] {
-  cursor: pointer;
-  font-size: 18px;
-  height: 28px;
-  margin-left: -120px;
-  margin-top: 1px;
-  opacity: 0;
-  position: absolute;
-  width: 123px;
+  margin: 5px;
 }
 div#boxForm div.datetime.col1 input {
   width: 100px;

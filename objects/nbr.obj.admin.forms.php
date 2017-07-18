@@ -371,8 +371,10 @@ class nbrAdminForms {
 
     $value = $this->getValue($fieldName, $valueDefault);
 
-    $value = (!is_numeric($value))?0:$value;
-    $value = number_format($value, 2, ',', '');
+    if(!empty($value)) {
+      $value = (!is_numeric($value)) ? 0 : $value;
+      $value = number_format($value, 2, ',', '');
+    }
 
     $tpl = new girafaTpl('forms/field-number.tpl');
     $tpl->setValue('LEGEND',      $legend);
@@ -400,7 +402,7 @@ class nbrAdminForms {
     if(empty($img)){
       $img = $ADMIN_IMAGES_URL . 'form_image_noimage.jpg';
       $isBlank = true;
-      $txt_status = 'Sem Imagem';
+      $txt_status = '';
       $link_zoom = null;
     } else {
 
@@ -472,12 +474,14 @@ class nbrAdminForms {
     $tpl = new girafaTpl('forms/field-file.tpl');
     $tpl->setValue('LEGEND',            $legend);
     $tpl->setValue('NAME',              $fieldName);
-    $tpl->setValue('COLUMNS',           'col3');
+    $tpl->setValue('COLUMNS',           'col4');
     $tpl->setValue('READONLY',          ($readOnly?'readonly':null));
     $tpl->setValue('REQUIRED',          ($required?'required':null));
     $tpl->setValue('ADMIN_IMAGES_URL',  $ADMIN_IMAGES_URL);
     $tpl->setValue('TXT_STATUS',        $txt_status);
+    $tpl->setValue('TXT_STATUS',        $txt_status);
     $tpl->setValue('DOWNLOAD_LINK',     $download_link);
+    $tpl->setValue('TEM_ARQUIVO',       (empty($file))?'display:none':null);
     $html = $tpl->GetHtml();
 
     $html = $this->eventAfterField($fieldName, $html);

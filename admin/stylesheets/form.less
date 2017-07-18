@@ -134,7 +134,7 @@ div#boxForm {
 
     }
 
-    input {
+    input:not([type=file]){
       color: #999999;
 
       float: left;
@@ -154,6 +154,11 @@ div#boxForm {
         height: 25px;
       }
 
+    }
+
+    input[type=file]{
+      padding: 0 5px;
+      border: 0;
     }
 
     textarea {
@@ -243,6 +248,10 @@ div#boxForm {
       width: 376px;
     }
 
+    input[type=file]{
+      width: 867px;
+    }
+
     textarea{
       width:830px;
     }
@@ -299,8 +308,8 @@ div#boxForm {
   div.image div.painel {
     width: 879px;
     height: 30px;
-    background-color: #CCCCCC;
-    border: 1px solid #999999;
+    background-color: @cor-cinza-claro-sup;
+    border: 1px solid @cor-cinza-claro;
     margin-left: 114px;
     margin-top: 6px;
   }
@@ -328,14 +337,7 @@ div#boxForm {
     cursor: pointer;
   }
    div.image div.painel input[type=file] {
-    cursor: pointer;
-    font-size: 18px;
-    height: 28px;
-    margin-left: -604px;
-    margin-top: 1px;
-    opacity: 0;
-    position: absolute;
-    width: 857px;
+    margin: 5px 0;
   }
   /** File **/
 
@@ -351,11 +353,11 @@ div#boxForm {
     cursor: pointer;
   }
    div.file div.painel {
-    width: 600px;
-    height: 30px;
-    margin-left: 10px;
-    background-color: #CCCCCC;
-    border: 1px solid #999999;
+     width: 879px;
+     height: 30px;
+     background-color: @cor-cinza-claro-sup;
+     border: 1px solid @cor-cinza-claro;
+     margin-top: 6px;
   }
    div.file label.legend {
 
@@ -368,6 +370,7 @@ div#boxForm {
     display: block;
     float: left;
     overflow: hidden;
+    margin-bottom: 15px;
   }
    div.file div.painel span.status span.txt {
     font-size: 10px;
@@ -388,14 +391,7 @@ div#boxForm {
     cursor: pointer;
   }
    div.file div.painel input[type=file] {
-    cursor: pointer;
-    font-size: 18px;
-    height: 28px;
-    margin-left: -120px;
-    margin-top: 1px;
-    opacity: 0;
-    position: absolute;
-    width: 123px;
+    margin: 5px;
   }
   /** DateTime **/
    div.datetime label.legend {

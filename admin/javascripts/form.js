@@ -341,7 +341,7 @@ $(document).ready(function(){
   $('div#boxForm div.file div.painel img.delete').click(function(){
     
     var status = $(this).parent().parent().parent().parent().find('span.status span.txt');
-    var _status = $(this).parent().parent().parent().find('input._status');
+    var _status = $(this).parent().parent().parent().parent().find('input._status');
     var _btnDown = $(this).parent().parent().parent().find('img.down');
     var _btnDelete = $(this);
 
@@ -349,7 +349,6 @@ $(document).ready(function(){
     jConfirm('Você tem certeza de deseja limpar este campo?<br>Se responder sim, quando salvar este registro o arquivo será excluído do sistema.', 'Tem certeza?', function(r){
       
       if(r){
-        
         if(_status.val() != 'Y')
           status.html('Arquivo exclúdo!' + '<span class="warning">(somente será excluído fisicamente quando salvar este registro)</span>');
         else
@@ -358,6 +357,7 @@ $(document).ready(function(){
         _status.val('');
         _btnDown.hide();
         _btnDelete.hide();
+
       }
       
     });

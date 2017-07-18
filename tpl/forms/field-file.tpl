@@ -4,7 +4,11 @@
   <div class="esquerda">
 
     <div class="painel">
-      <span class="status">
+
+      <input class="arquivo" %%READONLY%% type="file" name="%%NAME%%" id="%%NAME%%">
+      <input type="hidden" name="%%NAME%%_status" value="N" class="_status" >
+
+      <span class="status" style="%%TEM_ARQUIVO%%">
 
         <a href="%%DOWNLOAD_LINK%%" title="Clique aqui para baixar este arquivo">
           <img class="down" src="%%ADMIN_IMAGES_URL%%botao_input_down.gif" title="Clique aqui para baixar este arquivo">
@@ -16,7 +20,6 @@
 
     </div>
 
-    <input class="arquivo" %%READONLY%% type="file" name="%%NAME%%" id="%%NAME%%">
     <div style="clear:both;"></div>
 
   </div>

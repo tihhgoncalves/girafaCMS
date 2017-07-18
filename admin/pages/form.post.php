@@ -303,7 +303,7 @@ function executeImages(){
 
     $fileName = strtolower($tableName) . '_' . strtolower($fieldName) . '_' . $id . '.' . $extensao;  
     $fileNameFull = $ADMIN_UPLOAD_PATH . $fileName;
-    
+
     if($_POST[$fieldName . '_status'] == 'Y') {
       
       //verifica se está na extensão correta..
@@ -376,39 +376,62 @@ function GetFileExtension($path){
 function executeFiles(){
   global $tableName, $fieldsFile, $id, $_POST, $_FILES, $ADMIN_UPLOAD_PATH, $db, $cms, $TEMP_PATH;
 
+
+
   //Varre todos os campos de arquivos
   foreach ($fieldsFile as $fieldName) {
+
+
+    if($_POST[$fieldName . '_status'] == 'Y') {
 
     $field_file = $_FILES[$fieldName];
 
     $file_name = $field_file['name'];
     $file_tmp = $field_file['tmp_name'];
-
     $fileName = strtolower($tableName) . '_' . strtolower($fieldName) . '_' . $id . GetFileExtension($file_name);
     $fileNameFull = $ADMIN_UPLOAD_PATH . $fileName;
 
+      //Verifica se já existe arquivo neste campo e o exclue
+      $sql = "SELECT `$fieldName` FROM `$tableName` WHERE Id = $id";
+      $rs = $db->LoadObjects($sql);
+      $rg = $rs[0];
 
-    //Verifica se já existe arquivo neste campo e o exclue
-    $sql = "SELECT `$fieldName` FROM `$tableName` WHERE Id = $id";
-    $rs = $db->LoadObjects($sql);
-    $rg = $rs[0];
+      if (!empty($rg->$fieldName))
+        deleteFile($rg->$fieldName);
 
-    if(!empty($rg->$fieldName))
-      deleteFile($rg->$fieldName);
+      //Copia novo arquivo..
+      copy($file_tmp, $fileNameFull);
 
-    //Copia novo arquivo..
-    copy($file_tmp, $fileNameFull);
+      //Apaga de temp..
+      unlink($file_tmp);
 
-    //Apaga de temp..
-    unlink($file_tmp);
+      //Atualiza registro com nome do arquivo...
+      $post = new nbrTablePost();
+      $post->table = $tableName;
+      $post->id = $id;
+      $post->AddFieldString($fieldName, $fileName);
+      $post->Execute();
+
+    } else if ($_POST[$fieldName . '_status'] != 'N') {
+
+      //Verifica se já existe arquivo neste campo e o exclue
+      $sql = "SELECT `$fieldName` FROM `$tableName` WHERE Id = $id";
+      $rs = $db->LoadObjects($sql);
+      $rg = $rs[0];
+
+      if (!empty($rg->$fieldName))
+        deleteFile($rg->$fieldName);
+
+      //Atualiza registro com nome do arquivo...
+      $post = new nbrTablePost();
+      $post->table = $tableName;
+      $post->id = $id;
+      $post->AddFieldString($fieldName, null);
+      $post->Execute();
+
+    }
 
 
-    //Atualiza registro com nome da imagem..
-    $post = new nbrTablePost();
-    $post->table = $tableName;
-    $post->id = $id;
-    $post->AddFieldString($fieldName, $fileName);
-    $post->Execute();
 
 
     /*
