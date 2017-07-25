@@ -72,7 +72,15 @@ class nbrPage{
     global $cms;
     
     foreach ($this->a_image_src as $image_src) {
-      $html = '<link href="' . $image_src . '" rel="image_src">' . "\r\n";
+
+      $size = getimagesize($image_src);
+
+      $html  = '<meta property="og:image" content="' . $image_src . '">' . "\r\n";
+      $html .= '<meta property="og:image:type" content="' . $size['mime'] . '">' . "\r\n";
+      $html .= '<meta property="og:image:width" content="' . $size[0] . '">' . "\r\n";
+      $html .= '<meta property="og:image:height" content="' . $size[1] . '">' . "\r\n";
+      $html .= "\r\n";
+
       echo($html);
     }    
   }
