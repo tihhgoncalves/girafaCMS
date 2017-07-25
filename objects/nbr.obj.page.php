@@ -89,7 +89,7 @@ class nbrPage{
     global $cms, $events, $router;
 
   echo('<!-- Meta Tags -->'. "\r\n");
-  echo('<meta name="author" content="Nova Brazil Agência Interativa">'. "\r\n");
+  echo('<meta name="author" content="Tihh Gonçalves (tiago@tiago.art.br)">'. "\r\n");
   echo('<meta name="description" content="' . $this->description . '">'. "\r\n");
   echo('<meta name="keywords" content="' . $this->keywords . '">'. "\r\n");
   echo('<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">'. "\r\n");
@@ -98,10 +98,10 @@ class nbrPage{
     echo("\r\n");
   echo('<meta property="og:title" content="' . $this->title . '">'. "\r\n");
   echo('<meta property="og:description" content="' . $this->description . '">'. "\r\n");
-  echo('<meta property="og:site_name" content="' . $this->GetTitle() . '">'. "\r\n");
+  echo('<meta property="og:site_name" content="' . $this->title . '">'. "\r\n");
 
   echo('<meta name="twitter:card" content="summary">'. "\r\n");
-  echo('<meta name="twitter:title" content="' . $this->GetTitle() . '">'. "\r\n");
+  echo('<meta name="twitter:title" content="' . $this->title . '">'. "\r\n");
   echo('<meta name="twitter:description" content="' . $this->description . '">'. "\r\n");
   echo('<meta name="twitter:url" content="' . $router->GetUrl() . '">'. "\r\n");
 
