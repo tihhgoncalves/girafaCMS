@@ -49,7 +49,7 @@ class nbrPage{
 
 
   public function addFileImageSrc($url){
-    $this->a_image_src[] = $url;
+    $this->a_image_src[0] = $url;
   }
   
   private function printJS(){
@@ -70,7 +70,7 @@ class nbrPage{
   
   private function printImageSrc(){
     global $cms;
-    
+
     foreach ($this->a_image_src as $image_src) {
 
       $size = getimagesize($image_src);
@@ -86,23 +86,33 @@ class nbrPage{
   }
   
   public function printHeader(){
-    global $cms, $events;
+    global $cms, $events, $router;
 
   echo('<!-- Meta Tags -->'. "\r\n");
-  echo('<meta name="author" content="Tihh Gonçalves (tiago@tiago.art.br)">'. "\r\n");
+  echo('<meta name="author" content="Nova Brazil Agência Interativa">'. "\r\n");
   echo('<meta name="description" content="' . $this->description . '">'. "\r\n");
   echo('<meta name="keywords" content="' . $this->keywords . '">'. "\r\n");
   echo('<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">'. "\r\n");
   echo('<meta name="CMS" content="Girafa CMS ' . $cms->GetVersion() . '">'. "\r\n");
 
-  if(!$this->index)
-    echo('<meta Name=”robots” content=”noindex,nofollow”>'. "\r\n");
+    echo("\r\n");
+  echo('<meta property="og:title" content="' . $this->title . '">'. "\r\n");
+  echo('<meta property="og:description" content="' . $this->description . '">'. "\r\n");
+  echo('<meta property="og:site_name" content="' . $this->GetTitle() . '">'. "\r\n");
 
-  echo('<!-- Estilos Especiais desta Página -->'. "\r\n");
+  echo('<meta name="twitter:card" content="summary">'. "\r\n");
+  echo('<meta name="twitter:title" content="' . $this->GetTitle() . '">'. "\r\n");
+  echo('<meta name="twitter:description" content="' . $this->description . '">'. "\r\n");
+  echo('<meta name="twitter:url" content="' . $router->GetUrl() . '">'. "\r\n");
+
+  if(!$this->index)
+    echo('<meta name="robot" content="noindex,nofollow">'. "\r\n");
+
+  echo("\r\n" . '<!-- Estilos Especiais desta Página -->'. "\r\n");
   $this->printCSS();
-  echo('<!-- Scripts Especiais desta Página -->'. "\r\n");
+  echo("\r\n" . '<!-- Scripts Especiais desta Página -->'. "\r\n");
   $this->printJS();
-  echo('<!-- Imagens para Facebook e outros Shared -->'. "\r\n");
+  echo("\r\n" . '<!-- Imagens Shared -->'. "\r\n");
   $this->printImageSrc();
 
   //Dispara evento 'front_head_include'
@@ -119,6 +129,19 @@ class nbrPage{
     echo($returns);  
   }
     echo('<!-- -->');
+  }
+
+  public function GetTitle($full = true){
+
+    if($full){
+      return  $this->title . get_config('SITE_TITLE_SEPARADOR') . get_config('SITE_TITLE');
+    } else
+      return $this->title;
+
+  }
+
+  public function SetTitle($title){
+    $this->title = $title;
   }
 }
 ?>

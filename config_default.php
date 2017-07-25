@@ -76,6 +76,7 @@ $config_d["DB_DATABASE"]             = "db_name";
 $config_d["DB_PERSISTENT"]           = true;
 
 $config_d["SITE_TITLE"]              = "Seu Site";
+$config_d["SITE_TITLE_SEPARADOR"]    = "  &mdash; ";
 $config_d["SITE_DESCRIPTION"]        = "Descrição do Seu Site";
 $config_d["SITE_PAGEINDEX"]          = "home";
 
