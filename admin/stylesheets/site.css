@@ -32,7 +32,7 @@ h6 {
   color: #666;
 }
 div#msg_erro {
-  background-color: #f4cac8;
+  background-color: #e3aaae;
   border-color: #347834;
   color: #B94A48;
   margin-bottom: 5px;
@@ -55,13 +55,13 @@ div#msg_erro i {
   font-size: 17px;
   margin-right: 10px;
   margin-top: 1px;
-  color: #e37873;
+  color: #c95e66;
   float: left;
   cursor: help;
 }
 div#msg_erro b,
 div#msg_erro strong {
-  color: #9d2520;
+  color: #6b2429;
   font-weight: bold;
 }
 div#msg_sucesso {
@@ -145,7 +145,7 @@ div#msg_sucesso b {
 }
 /**/
 div#topo {
-  background-color: #438EB9;
+  background-color: #b73d46;
   width: 100%;
   height: 46px;
 }
@@ -344,7 +344,7 @@ div#toolbar ul li {
   float: left;
   list-style: none outside none;
   position: relative;
-  background-color: #438EB9;
+  background-color: #b73d46;
   text-align: center;
   -webkit-border-top-left-radius: 3px;
   -webkit-border-top-right-radius: 3px;
@@ -360,10 +360,10 @@ div#toolbar ul li {
   border-bottom-left-radius: 3px;
 }
 div#toolbar ul li.selected {
-  background-color: #357194;
+  background-color: #913037;
 }
 div#toolbar ul li:hover:not(.selected) {
-  background-color: #67a5c8;
+  background-color: #c95e66;
 }
 div#toolbar ul li a {
   text-decoration: none;
@@ -377,7 +377,7 @@ div#toolbar ul li a i {
   color: #FFFFFF;
 }
 div#toolbar ul li #contador {
-  background-color: #da4f49;
+  background-color: #5bb75b;
   width: 20px;
   height: 20px;
   line-height: 20px;
@@ -466,7 +466,7 @@ div#content div#left ul.menu li {
 div#content div#left ul.menu li .contador {
   position: absolute;
   right: 3px;
-  background-color: #438EB9;
+  background-color: #b73d46;
   color: #FFF;
   padding: 0 3px;
   line-height: 20px;
@@ -478,7 +478,7 @@ div#content div#left ul.menu li .contador {
 div#content div#left ul.menu li.selected span,
 div#content div#left ul.menu li.selected a:hover span {
   color: #FFFFFF;
-  background-color: #438EB9;
+  background-color: #b73d46;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   border-radius: 3px;
@@ -555,7 +555,7 @@ div#content div.fluid {
   color: #666666;
 }
 #rodape a:hover {
-  color: #438EB9;
+  color: #b73d46;
 }
 #rodape b {
   color: #666666;
@@ -896,7 +896,7 @@ button.btn {
   text-shadow: none !important;
 }
 button.btn .red {
-  background-color: #438EB9 !important;
+  background-color: #b73d46 !important;
 }
 /* Sobrepõe estilo do poshytip */
 .tip-twitter {

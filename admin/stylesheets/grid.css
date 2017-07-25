@@ -91,7 +91,7 @@ div#content div.main div.grid table tr td.noRegister {
 div#content div.main div.grid table tr.legend td {
   font-weight: bold;
   color: #FFFFFF;
-  background-color: #438EB9;
+  background-color: #b73d46;
   background-image: url(../images/table_separador_legenda_coluna.gif);
   background-repeat: no-repeat;
   background-position: right center;
@@ -148,7 +148,7 @@ div.grid table tr td.icons a i {
   margin: 0 3px;
 }
 div.grid table tr td.icons a:hover i {
-  color: #438EB9;
+  color: #b73d46;
 }
 div.grid table tr.contrast {
   background-color: #F6F6F6;
@@ -263,7 +263,7 @@ ul#commandsBar li a {
   font-size: 10px;
 }
 ul#commandsBar li a:hover i {
-  color: #438EB9;
+  color: #b73d46;
 }
 /** Ferramentas **/
 ul#toolbar {

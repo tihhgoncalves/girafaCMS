@@ -80,7 +80,7 @@ div#boxForm div.lkp_multselect .ui-multiselect {
 }
 div#boxForm div.lkp_multselect .ui-multiselect .ui-widget-header {
   background: none!important;
-  background-color: #438EB9 !important;
+  background-color: #b73d46 !important;
 }
 div#boxForm div.lkp_multselect .ui-multiselect .ui-widget-header,
 div#boxForm div.lkp_multselect .ui-multiselect .ui-widget-header span,
@@ -464,7 +464,7 @@ span#devenv u {
   color: #CCCCCC;
 }
 label.error {
-  background-color: #438EB9;
+  background-color: #b73d46;
   color: #FFFFFF;
   height: 20px !important;
   line-height: 20px;
@@ -527,7 +527,7 @@ span#stack span.lastLevel {
   color: #999999;
 }
 span#stack a:hover {
-  color: #438EB9;
+  color: #b73d46;
 }
 /**
 Campo Arquivo
@@ -652,13 +652,13 @@ form#formulario .medium-editor-element p {
   font-size: 12px;
 }
 form#formulario .medium-editor-element a {
-  color: #438EB9;
+  color: #b73d46;
   text-decoration: underline;
 }
 form#formulario .medium-editor-element h1,
 form#formulario .medium-editor-element h2,
 form#formulario .medium-editor-element h3 {
-  color: #438EB9;
+  color: #b73d46;
   text-transform: none;
   margin: 5px 0;
 }
