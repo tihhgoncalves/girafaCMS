@@ -31,6 +31,9 @@ $security->SecurityCheck();
 <!-- Plugins jQuery -->
 <script src="<?= get_config('BOWER_COMPONENTS_URL'); ?>jquery/dist/jquery.js" type="text/javascript"></script>
 
+<!-- rhinoJS -->
+<script src="<?= get_config('BOWER_COMPONENTS_URL'); ?>rhinoJS/dist/rhinoJS.js" type="text/javascript"></script>
+
 <!-- jQuery Tooltipster's -->
 <link rel="stylesheet" type="text/css" href="<?= get_config('BOWER_COMPONENTS_URL'); ?>/tooltipster/dist/css/tooltipster.bundle.min.css" />
 <script type="text/javascript" src="<?= get_config('BOWER_COMPONENTS_URL'); ?>/tooltipster/dist/js/tooltipster.bundle.min.js"></script>
