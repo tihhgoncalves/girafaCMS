@@ -11,7 +11,7 @@ class nbrCMS
   private $themePath;
   private $themeURL;    
   public $isMobile = false;
-  private $version = '3.0.0';
+  private $version = '3.0.1';
 
   
   function __construct($lang = 'pt-br'){
