@@ -81,7 +81,7 @@ class nbrPage{
     global $cms, $events;
 
   echo('<!-- Meta Tags -->'. "\r\n");
-  echo('<meta name="author" content="Nova Brazil Agência Interativa">'. "\r\n");
+  echo('<meta name="author" content="Tihh Gonçalves (tiago@tiago.art.br)">'. "\r\n");
   echo('<meta name="description" content="' . $this->description . '">'. "\r\n");
   echo('<meta name="keywords" content="' . $this->keywords . '">'. "\r\n");
   echo('<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">'. "\r\n");
