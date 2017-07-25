@@ -12,7 +12,7 @@ $security->SecurityCheck();
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <title>Girafa CMS</title>
-<meta name="author" content="Nova Brazil Agência Interativa">
+<meta name="author" content="Tihh Gonçalves (tiago@tiago.art.br)">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="SKYPE_TOOLBAR" content="SKYPE_TOOLBAR_PARSER_COMPATIBLE" />
 <link REL="SHORTCUT icon" HREF="<?= $cms->GetRootUrl()?>favicon.ico">
