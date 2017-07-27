@@ -27,8 +27,17 @@ $(document).ready(function(){
       disableDoubleReturn: true, //bloqueia mais do que 1 quebra de linha por vez
       targetBlank: true //links todos em target=_blank
     },
-    buttonLabels: 'fontawesome'
+    buttonLabels: 'fontawesome',
+    paste:{
+      forcePlainText: false,
+      cleanPastedHTML: true,
+      cleanAttrs: ['class', 'style', 'dir'],
+      cleanTags: ['meta', 'body', 'section', 'aside', 'article',
+        'span', 'h1', 'h2', 'font', 'button']
+    }
   }
+
+
 
   var editor = new MediumEditor('div#boxForm div.html textarea', editor_config);
 
