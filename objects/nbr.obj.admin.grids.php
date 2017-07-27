@@ -33,11 +33,15 @@ class nbrAdminGrid{
   //Filtros..
   public $filters = array();
 
-  function __construct($tableName, $title){
+  function __construct($tableName, $title = null){
     global $hub;
 
     $this->tableName = $tableName;
-    $this->title = $title;
+
+    if(empty($title))
+      $this->title = $tableName;
+    else
+      $this->title = $title;
 
     //Pega "Número de Registros por Página" do Cookie
     if(isset($_COOKIE['nbr_grid_LimitFromPage']))
