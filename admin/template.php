@@ -108,12 +108,12 @@ $security->SecurityCheck();
 
       <?
       //verifica se tem logo customizada no tema...
-      $customlogo_path = get_config('ROOT_PATH') . 'site/admin/logo-cms.png';
-      $customlogo_url = get_config('ROOT_URL') . 'site/admin/logo-cms.png';
+      $customlogo_path = get_config('ROOT_PATH') . 'site/admin/logo-header.png';
+      $customlogo_url = get_config('ROOT_URL') . 'site/admin/logo-header.png';
       if(file_exists($customlogo_path)) {
         $logo_cms = $customlogo_url;
       } else {
-        $logo_cms = $cms->GetAdminImageUrl() . 'logo-cms.png';
+        $logo_cms = $cms->GetAdminImageUrl() . 'logo-header.png';
       }
         ?>
         <img src="<?= $logo_cms?>" height="37" alt="Girafa CMS"/>

@@ -62,7 +62,7 @@ div#box {
 div#box div#logo {
   width: 255px;
   height: 255px;
-  background-image:url(../images/login_logo.png);
+  background-image:url(../images/login-logo.png);
   background-position: center;
   background-repeat: no-repeat;
   float: left;

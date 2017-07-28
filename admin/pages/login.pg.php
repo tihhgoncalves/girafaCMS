@@ -19,8 +19,8 @@
 
     <?
     //verifica se tem logo customizada no tema...
-    $customlogo_path = get_config('ROOT_PATH') . 'site/admin/login_logo.png';
-    $customlogo_url = get_config('ROOT_URL') . 'site/admin/login_logo.png';
+    $customlogo_path = get_config('ROOT_PATH') . 'site/admin/login-logo.png';
+    $customlogo_url = get_config('ROOT_URL') . 'site/admin/login-logo.png';
     if(file_exists($customlogo_path)){
         ?>
         <div id="logo" style="background-image: url('<?= $customlogo_url; ?>');"></div>
