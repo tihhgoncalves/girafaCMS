@@ -8,7 +8,7 @@ class nbrPage{
   
   private $a_css = array();
   private $a_js = array();
-  private $a_image_src = array();
+  private $image_src;
   
   function __construct(){
     global $router, $cms;
@@ -49,7 +49,7 @@ class nbrPage{
 
 
   public function addFileImageSrc($url){
-    $this->a_image_src[0] = $url;
+    $this->image_src = $url;
   }
   
   private function printJS(){
@@ -69,19 +69,19 @@ class nbrPage{
   }
   
   private function printImageSrc(){
-    global $cms;
 
-    foreach ($this->a_image_src as $image_src) {
+    if(!empty($this->image_src)){
 
-      $size = getimagesize($image_src);
+      $size = getimagesize($this->image_src);
 
-      $html  = '<meta property="og:image" content="' . $image_src . '">' . "\r\n";
+      $html  = '<meta property="og:image" content="' . $this->image_src . '">' . "\r\n";
       $html .= '<meta property="og:image:type" content="' . $size['mime'] . '">' . "\r\n";
       $html .= '<meta property="og:image:width" content="' . $size[0] . '">' . "\r\n";
       $html .= '<meta property="og:image:height" content="' . $size[1] . '">' . "\r\n";
       $html .= "\r\n";
 
       echo($html);
+
     }    
   }
   
