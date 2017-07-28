@@ -170,7 +170,7 @@ class nbrAdminForms {
     $tpl->setValue('LEGEND',      $legend);
     $tpl->setValue('NAME',        $fieldName);
     $tpl->setValue('COLUMNS',     'col' . $columns);
-    $tpl->setValue('READONLY',    ($readOnly?'readonly':null));
+    $tpl->setValue('READONLY',    ($readOnly?'disabled':null));
     $tpl->setValue('REQUIRED',    ($required?'required':null));
     $tpl->setValue('OPTIONS',     $option_html);
     $html = $tpl->GetHtml();
