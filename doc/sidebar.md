@@ -2,8 +2,8 @@
  - [Home](/index.md)
 
 #### Objetos
- - [nbrAdmin]
- - ]nbrForm]
+ - [nbrAdmin](#)
+ - ]nbrForm](#)
 
 <!--suporte do Tihh Gonçalves (início)-->
 <script type="text/javascript">
