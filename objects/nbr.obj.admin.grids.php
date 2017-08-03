@@ -1,21 +1,6 @@
 <?
 class nbrAdminGrid{
 
-  /* variáveis internas */
-  private $module;
-  private $title;
-  private $tableName;
-  private $fields = array();
-  private $fieldTitle = null;
-  private $records = array();
-  private $totalRecords;
-  private $hubParams = array();
-  private $commands = array();
-  private $controlOrders = array();
-  private $recordsLimitFromPage = 20;
-  private $recordsPage = 1;
-  private $totalPages = 1;
-
   /* propriedades */
   public $wheres;
   public $orders;
@@ -57,6 +42,8 @@ class nbrAdminGrid{
     
   }
 
+  /* Funções Privadas */
+
   private function mark($value){
     global $hub;
     
@@ -69,6 +56,7 @@ class nbrAdminGrid{
     } else 
       return $value;
   }
+
   private function addColumn($fieldName, $legend, $width, $align, $type, $lst_options = null, $tab_tableName = null, $tab_tableField = null, $bol_controlOn = false, $height = 0){
     
     $field = array();
@@ -197,6 +185,7 @@ class nbrAdminGrid{
       return null;
 
   }
+
   private function LoadRecords(){
     global $db, $hub;
 
@@ -335,6 +324,8 @@ class nbrAdminGrid{
     //Faz calculos de páginação..
     $this->totalPages = ceil($totalReg / $this->recordsLimitFromPage);
   }
+
+  /* Funções Públicas */
 
   public function AddColumnString($fieldName, $legend, $width, $align = 'left'){
     $this->addColumn($fieldName, $legend, $width, $align, 'STR');

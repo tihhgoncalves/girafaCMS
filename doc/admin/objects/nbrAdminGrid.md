@@ -6,7 +6,7 @@ Objeto responsável por construir e administrar os formulário do painel de admi
   
 ### Parâmetros
 
-* ```tableName``` - Nome da tabela.
+* ```tableName``` - Nome da tabela (no MySQL).
 * ```title``` - Título do grid.
 
 ### Exemplo
@@ -50,4 +50,15 @@ Objeto responsável por construir e administrar os formulário do painel de admi
 
 
 ## Funções
+
+### função AddColumnString($fieldName, $legend, $width, $align = 'left')
+
+Adicionar uma coluna de campo ```string```.
+
+#### Parâmetros
+
+* ```$fieldName``` - Nome do campo (no MySQL).
+* ```$legend``` - Legenda da coluna no grid.
+* ```$width``` - Tamanho da coluna no grid.
+* ```$align``` - Alinhamento da coluna no grid.
 
