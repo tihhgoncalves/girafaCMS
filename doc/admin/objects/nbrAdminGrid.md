@@ -4,6 +4,11 @@ Objeto responsável por construir e administrar os formulário do painel de admi
 
   new nbrAdminGrid($tableName, $title = null)
   
+### Parâmetros
+
+* ```tableName``` - Nome da tabela.
+* ```title``` - Título do grid.
+  
 ## Variáveis Internas
 * ```module``` - Herda o objeto ```nbrModules```.
 * ```title``` - Título do formulário.
@@ -28,3 +33,7 @@ Objeto responsável por construir e administrar os formulário do painel de admi
 * ```securityEdit = true``` - Mostra o botão de Editar.
 * ```securityDelete = true``` - Mostra o botão de Excluir.
 * ```filters = array()``` - Array que contém  a lista dos filtros do Grid.
+
+
+## Funções
+
