@@ -66,7 +66,21 @@ Adicionar uma coluna de campo ```string```.
 
     $grid->AddColumnString('Nome', 'Nome', 350, 'center');
 
+---
 
 ### AddColumnInteger($fieldName, $legend, $width, $align)
 
-    Adicionar uma coluna de campo ```integer```.
+Adicionar uma coluna de campo ```integer```.
+
+#### Parâmetros
+
+* ```$fieldName``` - Nome do campo (no MySQL).
+* ```$legend``` - Legenda da coluna no grid.
+* ```$width``` - Tamanho da coluna no grid.
+* ```$align``` - Alinhamento da coluna no grid (left, center ou right - Padrão: left).
+
+#### Exemplo
+
+    $grid->AddColumnInteger($fieldName, $legend, $width, $align);
+    
+---
