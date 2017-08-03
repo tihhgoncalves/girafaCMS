@@ -153,3 +153,21 @@ Adicionar uma coluna de campo de Data e Hora.
     $form->AddColumnDateTime('DataNascimento', 'Dt. Nascimento', 150);
     
 ---
+
+### AddColumnBoolean($fieldName, $legend, $width = 75, $align = 'center', $controlOn = true)
+
+Adicionar uma coluna de campo de Data e Hora.
+
+#### Parâmetros
+
+* ```$fieldName``` - Nome do campo (no MySQL).
+* ```$legend``` - Legenda da coluna no grid.
+* ```$width``` - Tamanho da coluna no grid (Padrão: 75).
+* ```$align``` - Alinhamento da coluna no grid (```left```, ```center``` ou ```right``` - Padrão: ```right```).
+* ```controlOn``` - Controle de valor por clique. (Padrão: ```true```).
+
+#### Exemplo
+
+    $form->AddColumnBoolean('Publicado', 'Publicado');
+    
+---
