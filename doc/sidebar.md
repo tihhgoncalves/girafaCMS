@@ -1,11 +1,6 @@
 ### Principal
  - [Home](/index.md)
 
-### Objetos
-
-#### Admin
- - [nbrAdminGrid](/admin/objects/nbrAdminGrid.md)
-
 
 <!--suporte do Tihh Gonçalves (início)-->
 <script type="text/javascript">
