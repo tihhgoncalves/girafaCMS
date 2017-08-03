@@ -154,7 +154,7 @@ Adicionar uma coluna de campo de Data e Hora.
     
 ---
 
-### AddColumnBoolean($fieldName, $legend, $width = 75, $align = 'center', $controlOn = true)
+### AddColumnBoolean($fieldName, $legend, $width, $align, $controlOn)
 
 Adicionar uma coluna de campo de Data e Hora.
 
@@ -163,11 +163,29 @@ Adicionar uma coluna de campo de Data e Hora.
 * ```$fieldName``` - Nome do campo (no MySQL).
 * ```$legend``` - Legenda da coluna no grid.
 * ```$width``` - Tamanho da coluna no grid (Padrão: 75).
-* ```$align``` - Alinhamento da coluna no grid (```left```, ```center``` ou ```right``` - Padrão: ```right```).
+* ```$align``` - Alinhamento da coluna no grid (```left```, ```center``` ou ```right``` - Padrão: ```center```).
 * ```controlOn``` - Controle de valor por clique. (Padrão: ```true```).
 
 #### Exemplo
 
     $form->AddColumnBoolean('Publicado', 'Publicado');
+    
+---
+
+### AddColumnList($fieldName, $legend, $width, $options, $align = 'left')
+
+Adicionar uma coluna de campo de Data e Hora.
+
+#### Parâmetros
+
+* ```$fieldName``` - Nome do campo (no MySQL).
+* ```$legend``` - Legenda da coluna no grid.
+* ```$width``` - Tamanho da coluna no grid (Padrão: 75).
+* ```$options``` - Texto com opções da lista.
+* ```controlOn``` - Controle de valor por clique. (Padrão: ```true```).
+
+#### Exemplo
+
+    $form->AddColumnList('Situacao', 'Situação', 200, 'CAS=Casa|APT=Apartamento');
     
 ---
