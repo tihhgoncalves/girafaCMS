@@ -1,2 +1,3 @@
-# Admin - nbrAdminGrid
-Página do objeto nbrAdminGrid
+# Objeto nbrAdminGrid
+
+Objeto responsável por construir e administrar os formulário do painel de administração.
