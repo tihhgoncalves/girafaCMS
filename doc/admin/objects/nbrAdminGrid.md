@@ -101,3 +101,21 @@ Adicionar uma coluna de campo ```integer```.
     $grid->AddColumnNumber('Valor', 'Valor', 125);
     
 ---
+
+### AddColumnImage($fieldName, $legend, $width = 100, $height = 50, $align = 'center')
+
+Adicionar uma coluna de campo imagem.
+
+#### Parâmetros
+
+* ```$fieldName``` - Nome do campo (no MySQL).
+* ```$legend``` - Legenda da coluna no grid.
+* ```$width``` - Tamanho da coluna no grid (e largura da imagem).
+* ```$height``` - Altura da imagem..
+* ```$align``` - Alinhamento da coluna no grid (```left```, ```center``` ou ```right``` - Padrão: ```right```).
+
+#### Exemplo
+
+    $form->AddFieldImage('Capa', 'Imagem');
+    
+---
