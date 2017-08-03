@@ -51,7 +51,7 @@ Objeto responsável por construir e administrar os formulário do painel de admi
 
 ## Funções
 
-### função AddColumnString($fieldName, $legend, $width, $align = 'left')
+### função AddColumnString($fieldName, $legend, $width, $align)
 
 Adicionar uma coluna de campo ```string```.
 
@@ -60,5 +60,13 @@ Adicionar uma coluna de campo ```string```.
 * ```$fieldName``` - Nome do campo (no MySQL).
 * ```$legend``` - Legenda da coluna no grid.
 * ```$width``` - Tamanho da coluna no grid.
-* ```$align``` - Alinhamento da coluna no grid.
+* ```$align``` - Alinhamento da coluna no grid (left, center ou right - Padrão: left).
 
+#### Exemplo
+
+    $grid->AddColumnString('Nome', 'Nome', 350, 'center');
+
+
+### função AddColumnInteger($fieldName, $legend, $width, $align)
+
+    Adicionar uma coluna de campo ```integer```.

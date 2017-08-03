@@ -331,12 +331,12 @@ class nbrAdminGrid{
     $this->addColumn($fieldName, $legend, $width, $align, 'STR');
   }
 
-  public function AddColumnImage($fieldName, $legend, $width = 100, $height = 50, $align = 'center'){
-    $this->addColumn($fieldName, $legend, $width, $align, 'IMG', null, null, null, false, $height);
-  }
-
   public function AddColumnInteger($fieldName, $legend, $width, $align = 'center'){
     $this->addColumn($fieldName, $legend, $width, $align, 'INT');
+  }
+
+  public function AddColumnImage($fieldName, $legend, $width = 100, $height = 50, $align = 'center'){
+    $this->addColumn($fieldName, $legend, $width, $align, 'IMG', null, null, null, false, $height);
   }
 
   public function AddColumnNumber($fieldName, $legend, $width, $align = 'right'){
