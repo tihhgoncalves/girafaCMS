@@ -15,6 +15,6 @@ Objeto responsável por construir e administrar os formulário do painel de admi
 *```hubParams```
 *```commands```
 *```controlOrders```
-*```recordsLimitFromPage = 20;
+*```recordsLimitFromPage```
 *```recordsPage```
 *```totalPages```
