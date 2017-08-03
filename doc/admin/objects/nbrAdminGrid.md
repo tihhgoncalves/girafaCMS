@@ -17,4 +17,14 @@ Objeto responsável por construir e administrar os formulário do painel de admi
 * ```controlOrders``` - Array que lista os campos que ordenarão a consulta de MySQL.
 * ```recordsLimitFromPage``` - Número de registros por página.
 * ```recordsPage``` - Número da página atual.
-* ```totalPages``` - Número de total de páginas. 
+* ```totalPages``` - Número de total de páginas.
+
+## Propriedades
+* ```wheres``` - SQL de ```WHERE```.
+* ```orders``` - SQL de ```ORDER```.
+* ```formFile``` - Nome do arquivo de formulário.
+* ```macroFile``` - Nome do arquivo de macro.
+* ```securityNew = true``` - Mostra o botão de Novo.
+* ```securityEdit = true``` - Mostra o botão de Editar.
+* ```securityDelete = true``` - Mostra o botão de Excluir.
+* ```filters = array()``` - Array que contém  a lista dos filtros do Grid.
