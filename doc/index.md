@@ -15,5 +15,5 @@ Esse projeto é uma iniciativa sem fins lucrativos.
 
 ## Suporte
 
-Caso necessite de suporte, utilize o chat nessa página ou abra um ticket escrevendo para suporte@tiago.art.br.
+Caso necessite de suporte, utilize o chat nessa página ou abra um ticket escrevendo para [suporte@tiago.art.br](mailto:suporte@tiago.art.br).
 
