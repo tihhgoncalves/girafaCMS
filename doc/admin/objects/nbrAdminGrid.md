@@ -102,7 +102,7 @@ Adicionar uma coluna de campo ```integer```.
     
 ---
 
-### AddColumnImage($fieldName, $legend, $width = 100, $height = 50, $align = 'center')
+### AddColumnImage($fieldName, $legend, $width, $height, $align)
 
 Adicionar uma coluna de campo imagem.
 
