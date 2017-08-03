@@ -4,7 +4,7 @@
 ### Objetos
 
 #### Admin
- - [nbrAdminGrid](/admin-nbrAdminGrid.md)
+ - [nbrAdminGrid](/admin/objects/admin-nbrAdminGrid.md)
 
 
 <!--suporte do Tihh Gonçalves (início)-->
