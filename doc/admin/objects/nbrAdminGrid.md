@@ -182,7 +182,7 @@ Adicionar uma coluna de campo de Data e Hora.
 * ```$legend``` - Legenda da coluna no grid.
 * ```$width``` - Tamanho da coluna no grid (Padrão: 75).
 * ```$options``` - Texto com opções da lista.
-* ```controlOn``` - Controle de valor por clique. (Padrão: ```true```).
+* ```$align``` - Alinhamento da coluna no grid (```left```, ```center``` ou ```right``` - Padrão: ```center```).
 
 #### Exemplo
 
