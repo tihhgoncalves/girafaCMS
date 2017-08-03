@@ -335,12 +335,12 @@ class nbrAdminGrid{
     $this->addColumn($fieldName, $legend, $width, $align, 'INT');
   }
 
-  public function AddColumnImage($fieldName, $legend, $width = 100, $height = 50, $align = 'center'){
-    $this->addColumn($fieldName, $legend, $width, $align, 'IMG', null, null, null, false, $height);
-  }
-
   public function AddColumnNumber($fieldName, $legend, $width, $align = 'right'){
     $this->addColumn($fieldName, $legend, $width, $align, 'NUM');
+  }
+
+  public function AddColumnImage($fieldName, $legend, $width = 100, $height = 50, $align = 'center'){
+    $this->addColumn($fieldName, $legend, $width, $align, 'IMG', null, null, null, false, $height);
   }
 
   public function AddColumnCustom($name, $legend, $width, $align = 'left'){

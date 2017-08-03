@@ -60,11 +60,11 @@ Adicionar uma coluna de campo ```string```.
 * ```$fieldName``` - Nome do campo (no MySQL).
 * ```$legend``` - Legenda da coluna no grid.
 * ```$width``` - Tamanho da coluna no grid.
-* ```$align``` - Alinhamento da coluna no grid (left, center ou right - Padrão: left).
+* ```$align``` - Alinhamento da coluna no grid (```left```, ```center``` ou ```right``` - Padrão: ```left```).
 
 #### Exemplo
 
-    $grid->AddColumnString('Nome', 'Nome', 350, 'center');
+    $grid->AddColumnString('Nome', 'Nome', 350);
 
 ---
 
@@ -77,10 +77,27 @@ Adicionar uma coluna de campo ```integer```.
 * ```$fieldName``` - Nome do campo (no MySQL).
 * ```$legend``` - Legenda da coluna no grid.
 * ```$width``` - Tamanho da coluna no grid.
-* ```$align``` - Alinhamento da coluna no grid (left, center ou right - Padrão: left).
+* ```$align``` - Alinhamento da coluna no grid (```left```, ```center``` ou ```right``` - Padrão: ```center```).
 
 #### Exemplo
 
-    $grid->AddColumnInteger($fieldName, $legend, $width, $align);
+    $grid->AddColumnInteger('Idade', 'Idade', 150);
+    
+---
+
+### AddColumnNumber($fieldName, $legend, $width, $align)
+
+Adicionar uma coluna de campo ```integer```.
+
+#### Parâmetros
+
+* ```$fieldName``` - Nome do campo (no MySQL).
+* ```$legend``` - Legenda da coluna no grid.
+* ```$width``` - Tamanho da coluna no grid.
+* ```$align``` - Alinhamento da coluna no grid (```left```, ```center``` ou ```right``` - Padrão: ```right```).
+
+#### Exemplo
+
+    $grid->AddColumnNumber('Valor', 'Valor', 125);
     
 ---
