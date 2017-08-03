@@ -215,7 +215,7 @@ if(intval($hub->GetParam('ID')) > 0){
     }
     
     $str_fields .= '`' . $field . '`';
-    if(empty($_POST[$field]))
+    if(empty($_POST[$field]) && ($_POST[$field] != 0))
       $str_values .= "NULL";
     else 
       $str_values .= "'" . addcslashes($_POST[$field], "'") . "'";
