@@ -274,6 +274,7 @@ ul#toolbar {
 ul#toolbar li {
   float: right;
   margin-left: 10px;
+  list-style: none;
 }
 ul#toolbar li.new a {
   display: block;

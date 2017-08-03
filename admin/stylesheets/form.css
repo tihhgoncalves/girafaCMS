@@ -625,6 +625,7 @@ div#formToolbar ul {
 }
 div#formToolbar ul > li {
   float: left;
+  list-style: none;
 }
 #saveMenu {
   position: absolute!important;
@@ -686,14 +687,14 @@ form#formulario .medium-editor-element ul {
 }
 form#formulario .medium-editor-element ul li {
   list-style: initial;
-  margin-bottom: 5px;
+  margin-bottom: 15px;
 }
 form#formulario .medium-editor-element ol {
   margin: 25px;
+  list-style-type: number;
 }
 form#formulario .medium-editor-element ol li {
-  list-style-type: number;
-  margin-bottom: 5px;
+  margin-bottom: 15px;
 }
 form#formulario .medium-insert-buttons-show {
   margin-top: -10px;
