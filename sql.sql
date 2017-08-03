@@ -425,7 +425,7 @@ INSERT INTO `sysTableFields` (`ID`, `Table`, `Name`, `Type`, `Length`, `TableLin
 (694, 45, 'Nome', 'STR', 100, NULL, NULL, '2013-10-21 14:14:57', 'Instalador CMS', 9999, 'pt-br'),
 (695, 45, 'Tipo', 'LST', NULL, NULL, 'STR=String|TXT=Texto|BOL=Lógico|HTM=Html', '2013-10-21 14:15:25', 'Instalador CMS', 9999, 'pt-br'),
 (696, 45, 'Valor', 'TXT', NULL, NULL, NULL, '2013-10-21 14:15:35', 'Instalador CMS', 9999, 'pt-br'),
-(697, 45, 'Identificador', 'STR', 15, NULL, NULL, '2013-10-21 14:15:49', 'Instalador CMS', 9999, 'pt-br'),
+(697, 45, 'Identificador', 'STR', 100, NULL, NULL, '2013-10-21 14:15:49', 'Instalador CMS', 9999, 'pt-br'),
 (698, 45, 'Agrupador', 'LST', NULL, NULL, 'CMS=Do CMS|SIT=Do Site', '2013-10-21 14:16:07', 'Instalador CMS', 9999, 'pt-br'),
 (699, 45, 'Nome', 'STR', 50, NULL, NULL, '2013-10-21 14:22:03', 'Instalador CMS', 9999, 'pt-br'),
 (700, 45, 'Actived', 'BOL', NULL, NULL, NULL, '2013-10-21 14:22:20', 'Instalador CMS', 9999, 'pt-br'),
