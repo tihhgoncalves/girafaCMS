@@ -6,10 +6,10 @@ Objeto responsável por construir e administrar os formulário do painel de admi
   
 ## Variáveis Internas
 * ```module```
-* ```title```
-* ```tableName```
-* ```fields```
-* ```fieldTitle```
+* ```title``` - Título do formulário.
+* ```tableName``` - Nome da tabela.
+* ```fields``` - Array com campos.
+* ```fieldTitle``` - Campo que assume o valor que identifica o registro.
 * ```records```
 * ```totalRecords```
 * ```hubParams```
