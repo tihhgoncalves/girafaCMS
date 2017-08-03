@@ -8,6 +8,20 @@ Objeto responsável por construir e administrar os formulário do painel de admi
 
 * ```tableName``` - Nome da tabela.
 * ```title``` - Título do grid.
+
+### Exemplo
+    
+    <?
+    $grid = new nbrAdminGrid('Clientes', 'Clientes');
+    $grid->orders = 'Nome ASC';
+    $grid->formFile = 'clientes.form.php';
+    
+    $grid->AddColumnString('Nome', 'Nome', 350);
+    $grid->AddColumnString('Email', 'E-mail', 250);
+    $grid->AddColumnString('Telefone', 'Telefone', 250);
+    
+    $grid->PrintHTML();
+    ?>
   
 ## Variáveis Internas
 * ```module``` - Herda o objeto ```nbrModules```.
