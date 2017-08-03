@@ -132,7 +132,7 @@ if(intval($hub->GetParam('ID')) > 0){
     if($x > 0)
       $sql .= ', ';
       
-    if(empty($_POST[$field]))
+    if(trim($_POST[$field]) == '')
       $sql .= $field . "=NULL";
     else 
       $sql .= '`' . $field . "`='" .addcslashes($_POST[$field], "'") . "'";
@@ -215,7 +215,7 @@ if(intval($hub->GetParam('ID')) > 0){
     }
     
     $str_fields .= '`' . $field . '`';
-    if(empty($_POST[$field]) && ($_POST[$field] != '0'))
+    if(trim($_POST[$field]) == '')
       $str_values .= "NULL";
     else 
       $str_values .= "'" . addcslashes($_POST[$field], "'") . "'";
