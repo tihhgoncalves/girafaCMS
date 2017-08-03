@@ -110,12 +110,29 @@ Adicionar uma coluna de campo imagem.
 
 * ```$fieldName``` - Nome do campo (no MySQL).
 * ```$legend``` - Legenda da coluna no grid.
-* ```$width``` - Tamanho da coluna no grid (e largura da imagem).
-* ```$height``` - Altura da imagem..
+* ```$width``` - Tamanho da coluna no grid e largura da imagem. (Padrão: 100).
+* ```$height``` - Altura da imagem. (Padrão: 50).
 * ```$align``` - Alinhamento da coluna no grid (```left```, ```center``` ou ```right``` - Padrão: ```right```).
 
 #### Exemplo
 
     $form->AddFieldImage('Capa', 'Imagem');
+    
+---
+
+### AddColumnDate($fieldName, $legend, $width, $align)
+
+Adicionar uma coluna de campo de Data.
+
+#### Parâmetros
+
+* ```$fieldName``` - Nome do campo (no MySQL).
+* ```$legend``` - Legenda da coluna no grid.
+* ```$width``` - Tamanho da coluna no grid.
+* ```$align``` - Alinhamento da coluna no grid (```left```, ```center``` ou ```right``` - Padrão: ```right```).
+
+#### Exemplo
+
+    $form->AddColumnDate('DataNascimento', 'Dt. Nascimento', 150);
     
 ---

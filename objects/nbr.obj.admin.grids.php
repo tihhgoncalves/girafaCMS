@@ -343,14 +343,6 @@ class nbrAdminGrid{
     $this->addColumn($fieldName, $legend, $width, $align, 'IMG', null, null, null, false, $height);
   }
 
-  public function AddColumnCustom($name, $legend, $width, $align = 'left'){
-    $this->addColumn($name, $legend, $width, $align, 'CUS' );
-  }
-
-  public function AddColumnHidden($name){
-    $this->addColumn($name, null, 0, null, 'HID');
-  }
-
   public function AddColumnDate($fieldName, $legend, $width, $align = 'left'){
     $this->addColumn($fieldName, $legend, $width, $align, 'DTA');
   }
@@ -369,6 +361,14 @@ class nbrAdminGrid{
 
   public function AddColumnTable($fieldName, $legend, $width, $linkTableName, $linkTableField, $align = 'left'){
     $this->addColumn($fieldName, $legend, $width, $align, 'TAB', null, $linkTableName, $linkTableField);
+  }
+
+  public function AddColumnCustom($name, $legend, $width, $align = 'left'){
+    $this->addColumn($name, $legend, $width, $align, 'CUS' );
+  }
+
+  public function AddColumnHidden($name){
+    $this->addColumn($name, null, 0, null, 'HID');
   }
 
   public function AddParam($key, $value){
