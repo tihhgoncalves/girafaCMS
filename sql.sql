@@ -210,8 +210,7 @@ INSERT INTO `sysModuleFolders` (`ID`, `Module`, `Name`, `Order`, `File`, `Groupe
 (7, 2, 'Usuários', 10, 'admin.usuarios.grid.php', 'Geral', 'Y', 'N', '2013-06-17 17:53:18','Instalador CMS', 'pt-br'),
 (8, 2, 'Grupos', 20, 'admin.grupos.grid.php', 'Geral', 'Y', 'N', '2013-06-17 17:53:18','Instalador CMS', 'pt-br'),
 (9,1,'Parâmetros',20,'admin.params.grid.php','Banco de Dados','Y','N', '2013-09-24 13:26:08','Instalador CMS', 'pt-br'),
-(10,3,'Do CMS',20,'admin.params.cms.grid.php','Geral','Y','N', '2013-09-24 14:26:31','Instalador CMS', 'pt-br'),
-(11,3,'Do Site',10,'admin.params.site.grid.php','Geral','Y','N', '2013-09-24 14:26:31','Instalador CMS', 'pt-br'),
+(10,3,'Do CMS',20,'admin.params.cms.php','Geral','Y','N', '2013-09-24 14:26:31','Instalador CMS', 'pt-br'),
 (12,4,'Cache',10,'index.php','Geral','Y','N', '2013-09-24 14:26:31','Instalador CMS', 'pt-br');
 
 -- ------------------------------------------------------------
@@ -505,17 +504,8 @@ CREATE TABLE `sysParams` (
   `Tipo` char(3) DEFAULT NULL,
   `Valor` text,
   `Identificador` varchar(15) DEFAULT NULL,
-  `Agrupador` char(3) DEFAULT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Cadastro de Parâmetros' AUTO_INCREMENT=5;
-
-INSERT INTO `sysParams` (`ID`, `LastUpdate`, `LastUserName`, `Nome`, `Tipo`, `Valor`, `Identificador`, `Agrupador`, `Lang`) VALUES
-(1,'2013-09-24 13:49:57','Instalador CMS','Site - Título','STR','Título do Site','SITE_TITULO','CMS', 'pt-br'),
-(2,'2013-09-24 13:50:20','Instalador CMS','Site - Descrição','STR','Descrição do Site','SITE_DESCRICAO','CMS', 'pt-br'),
-(3,'2013-09-24 13:50:09','Instalador CMS','Site - Tags','STR','tag1, tag2, tag3','SITE_TAGS','CMS', 'pt-br'),
-(4,'2013-09-24 14:41:37','Instalador CMS','Endereço (exibido no Rodapé do Site)','TXT','Rua João da Silva, 123\r\nBlumenau - SC - Bairro Velha ','CNT_ENDERECO','SIT', 'pt-br'),
-(5,'2013-09-24 15:40:53','Instalador CMS','E-mail de Contato','STR','contato@meusite.com.br','CNT_EMAIL','SIT', 'pt-br');
-
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Cadastro de Parâmetros' AUTO_INCREMENT=1;
 -- --------------------------------------------------------
 
 --
