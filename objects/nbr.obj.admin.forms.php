@@ -561,7 +561,7 @@ class nbrAdminForms {
     $tpl = new girafaTpl('forms/field-datetime.tpl');
     $tpl->setValue('LEGEND',      $legend);
     $tpl->setValue('NAME',        $fieldName);
-    $tpl->setValue('COLUMNS',     'col1');
+    $tpl->setValue('COLUMNS',     'col2');
     $tpl->setValue('READONLY',    ($readOnly?'readonly':null));
     $tpl->setValue('REQUIRED',    ($required?'required':null));
     $tpl->setValue('VAL',         $dateValue);
@@ -581,7 +581,7 @@ class nbrAdminForms {
 
     $html = $this->eventAfterField($fieldName, $html);
     $this->html_fields[] = $html;
-    $this->fieldsName[] = $fieldName;
+    //$this->fieldsName[] = $fieldName;
 
   }
 
