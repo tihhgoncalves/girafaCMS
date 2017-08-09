@@ -1,14 +1,36 @@
 <?
 class nbrAdminGrid{
+  private $module;
+  private $title;
+  private $tableName;
+  private $fields = array();
+  private $fieldTitle = null;
+  private $records = array();
+  private $totalRecords;
+  private $hubParams = array();
+  private $commands = array();
+  private $controlOrders = array();
 
-  /* propriedades */
+  //paginação..
+  private $recordsLimitFromPage = 20;
+  private $recordsPage = 1;
+  private $totalPages = 1;
+
+  /**
+   * Propriedade
+   */
+
   public $wheres;
   public $orders;
   public $formFile;
   public $macroFile;
+
+  //securança..
   public $securityNew = true;
   public $securityEdit = true;
   public $securityDelete = true;
+  
+  //Filtros..
   public $filters = array();
 
   function __construct($tableName, $title = null){
@@ -42,8 +64,6 @@ class nbrAdminGrid{
     
   }
 
-  /* Funções Privadas */
-
   private function mark($value){
     global $hub;
     
@@ -56,7 +76,6 @@ class nbrAdminGrid{
     } else 
       return $value;
   }
-
   private function addColumn($fieldName, $legend, $width, $align, $type, $lst_options = null, $tab_tableName = null, $tab_tableField = null, $bol_controlOn = false, $height = 0){
     
     $field = array();
@@ -185,7 +204,6 @@ class nbrAdminGrid{
       return null;
 
   }
-
   private function LoadRecords(){
     global $db, $hub;
 
@@ -325,12 +343,28 @@ class nbrAdminGrid{
     $this->totalPages = ceil($totalReg / $this->recordsLimitFromPage);
   }
 
-  /* Funções Públicas */
-
+  /**
+   * Adiciona Campo de Texto (string)
+   *
+   * @param string $fieldName
+   * @param string $legend
+   * @param integer $width
+   */
   public function AddColumnString($fieldName, $legend, $width, $align = 'left'){
     $this->addColumn($fieldName, $legend, $width, $align, 'STR');
   }
 
+  /**
+   * Adiciona Campo de Inteiro (integer)
+   *
+   * @param string $fieldName
+   * @param string $legend
+   * @param integer $width
+   */
+  
+  public function AddColumnImage($fieldName, $legend, $width = 100, $height = 50, $align = 'center'){
+    $this->addColumn($fieldName, $legend, $width, $align, 'IMG', null, null, null, false, $height);
+  }
   public function AddColumnInteger($fieldName, $legend, $width, $align = 'center'){
     $this->addColumn($fieldName, $legend, $width, $align, 'INT');
   }
@@ -339,36 +373,50 @@ class nbrAdminGrid{
     $this->addColumn($fieldName, $legend, $width, $align, 'NUM');
   }
 
-  public function AddColumnImage($fieldName, $legend, $width = 100, $height = 50, $align = 'center'){
-    $this->addColumn($fieldName, $legend, $width, $align, 'IMG', null, null, null, false, $height);
-  }
-
-  public function AddColumnDate($fieldName, $legend, $width, $align = 'left'){
-    $this->addColumn($fieldName, $legend, $width, $align, 'DTA');
-  }
-
-  public function AddColumnDateTime($fieldName, $legend, $width, $align = 'left'){
-    $this->addColumn($fieldName, $legend, $width, $align, 'DTT');
-  }
-
-  public function AddColumnBoolean($fieldName, $legend, $width = 35, $align = 'center', $controlOn = true){
-    $this->addColumn($fieldName, $legend, $width, $align, 'BOL', null, null, null, true);
-  }
-
-  public function AddColumnList($fieldName, $legend, $width, $options, $align = 'left'){
-    $this->addColumn($fieldName, $legend, $width, $align, 'LST', $options);
-  }
-
-  public function AddColumnTable($fieldName, $legend, $width, $linkTableName, $linkTableField, $align = 'left'){
-    $this->addColumn($fieldName, $legend, $width, $align, 'TAB', null, $linkTableName, $linkTableField);
-  }
-
   public function AddColumnCustom($name, $legend, $width, $align = 'left'){
     $this->addColumn($name, $legend, $width, $align, 'CUS' );
   }
 
   public function AddColumnHidden($name){
     $this->addColumn($name, null, 0, null, 'HID');
+  }
+
+  public function AddColumnDate($fieldName, $legend, $width, $align = 'left'){
+    $this->addColumn($fieldName, $legend, $width, $align, 'DTA');
+  }
+
+
+  public function AddColumnDateTime($fieldName, $legend, $width, $align = 'left'){
+    $this->addColumn($fieldName, $legend, $width, $align, 'DTT');
+  }
+
+  /**
+   * Adiciona Campo Lógico (boolean)
+   *
+   * @param string $fieldName
+   * @param string $legend
+   * @param integer $width
+   * @param string $align
+   */
+  public function AddColumnBoolean($fieldName, $legend, $width = 35, $align = 'center', $controlOn = true){
+    $this->addColumn($fieldName, $legend, $width, $align, 'BOL', null, null, null, true);
+  }
+
+  /**
+   * Adiciona Campo de Liste
+   *
+   * @param string $fieldName
+   * @param string $legend
+   * @param integer $width
+   * @param string $options
+   * @param string $align
+   */
+  public function AddColumnList($fieldName, $legend, $width, $options, $align = 'left'){
+    $this->addColumn($fieldName, $legend, $width, $align, 'LST', $options);
+  }
+
+  public function AddColumnTable($fieldName, $legend, $width, $linkTableName, $linkTableField, $align = 'left'){
+    $this->addColumn($fieldName, $legend, $width, $align, 'TAB', null, $linkTableName, $linkTableField);
   }
 
   public function AddParam($key, $value){
@@ -380,6 +428,11 @@ class nbrAdminGrid{
     $this->controlOrders['variation'] = $variation;
   }
 
+  /**
+   * Imprime na Tela HTML do Grid.
+   *
+   * @param string $this->formFile
+   */
   public function PrintHTML(){
     global $hub, $dataSet, $cms, $ADMIN_PAGES_PATH, $ADMIN_IMAGES_URL;
 
