@@ -353,14 +353,14 @@ if($hub->ExistParam('_moduleID')){
 
 </body>
 </html>
-<!--Start of Tawk.to Script (suporte)-->
-<script type="text/javascript">
 
+<!-- Atendimento Alô Secretária (início) -->
+<script type="text/javascript">
   var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
   (function () {
     var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
     s1.async = true;
-    s1.src = 'https://embed.tawk.to/596e2b286edc1c10b03468e2/default';
+    s1.src = 'http://work.tiago.art.br/alo/caches/suporte-girafa-cms.js';
     s1.charset = 'UTF-8';
     s1.setAttribute('crossorigin', '*');
     s0.parentNode.insertBefore(s1, s0);
@@ -373,4 +373,4 @@ if($hub->ExistParam('_moduleID')){
 
   })();
 </script>
-<!--End of Tawk.to Script-->
+<!-- Atendimento Alô Secretária (fim) -->
