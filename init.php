@@ -25,7 +25,16 @@ $site = new nbrSite();
 
 if($router->getPage() == 's'){
   $script = $router->params[1];
-  include($FRONT_SCRIPTS_PATH . $script . '.php');
+
+  $script_file = $FRONT_SCRIPTS_PATH . $script;
+
+  if(file_exists($script_file . '.php')) {
+    include($script_file . '.php');
+  } elseif(file_exists($script_file)){
+    include($script_file);
+  } else {
+    die('[Erro ao carregar script do Girafa CMS]');
+  }
 }else{
   include($FRONT_PAGES_PATH . $router->pageFile);
 }
