@@ -10,7 +10,7 @@ function GeraLinkAmigavel($texto)
   $texto = str_replace($comAcento, $semAcento, $texto);
 
   //Anula alguns acaracters
-  $texto = str_replace(array('?', '!', ':', ';', '~', '`', '´', '{', '}', '[', ']', '/', '\\', ',', '(', ')', '"', '\''), '', $texto);
+  $texto = str_replace(array('?', '!', ':', ';', '~', '`', '´', '{', '}', '[', ']', '/', '\\', ',', '(', ')', '"', '\'', '#'), '', $texto);
 
   //Substitui espaços
   $texto = str_replace(' ', '-', $texto);
