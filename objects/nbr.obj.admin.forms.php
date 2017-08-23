@@ -115,7 +115,12 @@ class nbrAdminForms {
   
   public function AddFieldString($fieldName, $legend, $length, $columns, $valueDefault = null, $required = true, $readOnly = false, $validateType = 'required', $mask = null){
 
-    $val = $this->getValue($fieldName, $valueDefault);
+    $value = $this->getValue($fieldName, $valueDefault);
+
+    if($readOnly){
+      $this->AddFieldHidden($fieldName, $value);
+      $fieldName .= '_readOnly';
+    }
 
     $tpl = new girafaTpl('forms/field-string.tpl');
     $tpl->setValue('LEGEND',      $legend);
@@ -125,17 +130,19 @@ class nbrAdminForms {
     $tpl->setValue('READONLY',    ($readOnly?'readonly':null));
     $tpl->setValue('REQUIRED',    ($required?'required':null));
     $tpl->setValue('MAX',         $length);
-    $tpl->setValue('VAL',         htmlspecialchars($val));
+    $tpl->setValue('VAL',         htmlspecialchars($value));
     $html = $tpl->GetHtml();
 
     $html = $this->eventAfterField($fieldName, $html);
     $this->html_fields[] = $html;
-    $this->fieldsName[] = $fieldName;
+
+    if(!$readOnly)
+      $this->fieldsName[] = $fieldName;
   }
 
   public function AddFieldList($fieldName, $legend, $options, $columns, $valueDefault = null, $required = true, $readOnly = false, $validateType = 'required', $alphabeticalOrder = true){
 
-    $value = $this->getValue($fieldName, $valueDefault);
+    $val = $this->getValue($fieldName, $valueDefault);
 
     //Ordenar em Ordem Alfabética..
     if($alphabeticalOrder){
@@ -158,12 +165,17 @@ class nbrAdminForms {
       $options = implode('|', $novaLista);
     }
 
+    if($readOnly){
+      $this->AddFieldHidden($fieldName, $val);
+      $fieldName .= '_readOnly';
+    }
+
 
     $option_html = null;
     $options_array = explode('|', $options);
     foreach ($options_array as $option_array){
       $option = explode('=', $option_array);
-      $option_html .= '<option '. ($value == $option[0]?'selected':null) . ' value="' . $option[0] . '">' . $option[1] . '</option>' . "\r\n";
+      $option_html .= '<option '. ($val == $option[0]?'selected':null) . ' value="' . $option[0] . '">' . $option[1] . '</option>' . "\r\n";
     }
 
     $tpl = new girafaTpl('forms/field-list.tpl');
@@ -177,12 +189,19 @@ class nbrAdminForms {
 
     $html = $this->eventAfterField($fieldName, $html);
     $this->html_fields[] = $html;
-    $this->fieldsName[] = $fieldName;
+
+    if(!$readOnly)
+      $this->fieldsName[] = $fieldName;
   }
 
   public function AddFieldText($fieldName, $legend, $columns, $height, $valueDefault = null, $required = true, $readOnly = false, $validateType = 'required'){
 
     $val = $this->getValue($fieldName, $valueDefault);
+
+    if($readOnly){
+      $this->AddFieldHidden($fieldName, $val);
+      $fieldName .= '_readOnly';
+    }
 
     $tpl = new girafaTpl('forms/field-text.tpl');
     $tpl->setValue('LEGEND',      $legend);
@@ -196,7 +215,9 @@ class nbrAdminForms {
 
     $html = $this->eventAfterField($fieldName, $html);
     $this->html_fields[] = $html;
-    $this->fieldsName[] = $fieldName;
+
+    if(!$readOnly)
+      $this->fieldsName[] = $fieldName;
   }
 
   public function AddLkpMultselect($name, $title, $description, $tableName, $fieldPrimary, $tableSecondary, $fieldSecondary, $fieldSecondatyLegend, $wheres = null, $order = null, $columns = 2, $required = true, $readOnly = false, $fieldSecondatyOrder = null, $orderValueVariation = 10, $nroOrder = false){
@@ -341,6 +362,12 @@ class nbrAdminForms {
 
     $val = $this->getValue($fieldName, $valueDefault);
 
+
+    if($readOnly){
+      $this->AddFieldHidden($fieldName, $val);
+      $fieldName .= '_readOnly';
+    }
+
     $tpl = new girafaTpl('forms/field-integer.tpl');
     $tpl->setValue('LEGEND',      $legend);
     $tpl->setValue('NAME',        $fieldName);
@@ -352,7 +379,9 @@ class nbrAdminForms {
 
     $html = $this->eventAfterField($fieldName, $html);
     $this->html_fields[] = $html;
-    $this->fieldsName[] = $fieldName;
+
+    if(!$readOnly)
+      $this->fieldsName[] = $fieldName;
   }
 
   public function AddFieldHidden($fieldName, $value){
@@ -369,11 +398,16 @@ class nbrAdminForms {
 
   public function AddFieldNumber($fieldName, $legend, $columns, $valueDefault = null, $required = true, $readOnly = false, $validateType = 'required'){
 
-    $value = $this->getValue($fieldName, $valueDefault);
+    $val = $this->getValue($fieldName, $valueDefault);
 
     if(!empty($value)) {
       $value = (!is_numeric($value)) ? 0 : $value;
       $value = number_format($value, 2, ',', '');
+    }
+
+    if($readOnly){
+      $this->AddFieldHidden($fieldName, $val);
+      $fieldName .= '_readOnly';
     }
 
     $tpl = new girafaTpl('forms/field-number.tpl');
@@ -382,12 +416,15 @@ class nbrAdminForms {
     $tpl->setValue('COLUMNS',     'col' . $columns);
     $tpl->setValue('READONLY',    ($readOnly?'readonly':null));
     $tpl->setValue('REQUIRED',    ($required?'required':null));
-    $tpl->setValue('VAL',         htmlspecialchars($value));
+    $tpl->setValue('VAL',         htmlspecialchars($val));
     $html = $tpl->GetHtml();
 
     $html = $this->eventAfterField($fieldName, $html);
     $this->html_fields[] = $html;
-    $this->fieldsName[] = $fieldName;
+
+    if(!$readOnly)
+      $this->fieldsName[] = $fieldName;
+
     $this->fieldsNumber[] = $fieldName;
 
   }
@@ -494,6 +531,12 @@ class nbrAdminForms {
 
     $val = $this->getValue($fieldName, $valueDefault);
 
+
+    if($readOnly){
+      $this->AddFieldHidden($fieldName, $val);
+      $fieldName .= '_readOnly';
+    }
+
     $tpl = new girafaTpl('forms/field-html.tpl');
     $tpl->setValue('LEGEND',      $legend);
     $tpl->setValue('NAME',        $fieldName);
@@ -506,7 +549,9 @@ class nbrAdminForms {
 
     $html = $this->eventAfterField($fieldName, $html);
     $this->html_fields[] = $html;
-    $this->fieldsName[] = $fieldName;
+
+    if(!$readOnly)
+      $this->fieldsName[] = $fieldName;
 
   }
 
@@ -528,6 +573,13 @@ class nbrAdminForms {
     } else
       $dateValue = '';
 
+
+
+    if($readOnly){
+      $this->AddFieldHidden($fieldName, $dateValue);
+      $fieldName .= '_readOnly';
+    }
+
     $tpl = new girafaTpl('forms/field-date.tpl');
     $tpl->setValue('LEGEND',      $legend);
     $tpl->setValue('NAME',        $fieldName);
@@ -540,7 +592,9 @@ class nbrAdminForms {
     $html = $this->eventAfterField($fieldName, $html);
     $this->html_fields[] = $html;
     $this->fieldsDateName[] = $fieldName;
-    $this->fieldsName[] = $fieldName;
+
+    if(!$readOnly)
+      $this->fieldsName[] = $fieldName;
 
   }
 
@@ -558,10 +612,17 @@ class nbrAdminForms {
     } else
       $dateValue = null;
 
+
+
+    if($readOnly){
+      $this->AddFieldHidden($fieldName, $dateValue);
+      $fieldName .= '_readOnly';
+    }
+
     $tpl = new girafaTpl('forms/field-datetime.tpl');
     $tpl->setValue('LEGEND',      $legend);
     $tpl->setValue('NAME',        $fieldName);
-    $tpl->setValue('COLUMNS',     'col2');
+    $tpl->setValue('COLUMNS',     'col1');
     $tpl->setValue('READONLY',    ($readOnly?'readonly':null));
     $tpl->setValue('REQUIRED',    ($required?'required':null));
     $tpl->setValue('VAL',         $dateValue);
@@ -570,7 +631,9 @@ class nbrAdminForms {
     $html = $this->eventAfterField($fieldName, $html);
     $this->html_fields[] = $html;
     $this->fieldsDateName[] = $fieldName;
-    $this->fieldsName[] = $fieldName;
+
+    if(!$readOnly)
+      $this->fieldsName[] = $fieldName;
   }
 
   public function AddFieldCustom($fieldName){
@@ -581,7 +644,7 @@ class nbrAdminForms {
 
     $html = $this->eventAfterField($fieldName, $html);
     $this->html_fields[] = $html;
-    //$this->fieldsName[] = $fieldName;
+    $this->fieldsName[] = $fieldName;
 
   }
 
