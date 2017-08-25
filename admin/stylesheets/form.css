@@ -399,16 +399,11 @@ div#boxForm div.datetime.col2 input {
 div#boxForm div.datetime.col3 input {
   width: 600px;
 }
-div#boxForm div.date.col1 input {
-  width: 76px;
+div#boxForm div.date.col1 input,
+div#boxForm div.dateReadOnly.col1 input {
+  width: 116px;
   padding-left: 6px;
   padding-right: 6px;
-}
-div#boxForm div.date.col2 input {
-  width: 314px;
-}
-div#boxForm div.date.col3 input {
-  width: 600px;
 }
 div#boxForm ul#link {
   width: 100%;
@@ -625,6 +620,7 @@ div#formToolbar ul {
 }
 div#formToolbar ul > li {
   float: left;
+  list-style: none;
 }
 #saveMenu {
   position: absolute!important;
@@ -686,14 +682,14 @@ form#formulario .medium-editor-element ul {
 }
 form#formulario .medium-editor-element ul li {
   list-style: initial;
-  margin-bottom: 5px;
+  margin-bottom: 15px;
 }
 form#formulario .medium-editor-element ol {
   margin: 25px;
+  list-style-type: number;
 }
 form#formulario .medium-editor-element ol li {
-  list-style-type: number;
-  margin-bottom: 5px;
+  margin-bottom: 15px;
 }
 form#formulario .medium-insert-buttons-show {
   margin-top: -10px;

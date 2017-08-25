@@ -577,15 +577,18 @@ class nbrAdminForms {
 
     if($readOnly){
       $this->AddFieldHidden($fieldName, $dateValue);
-      $fieldName .= '_readOnly';
+      $fieldNameHTML = $fieldName . '_readOnly';
+    } else {
+      $fieldNameHTML = $fieldName;
     }
 
     $tpl = new girafaTpl('forms/field-date.tpl');
     $tpl->setValue('LEGEND',      $legend);
-    $tpl->setValue('NAME',        $fieldName);
+    $tpl->setValue('NAME',        $fieldNameHTML);
     $tpl->setValue('COLUMNS',     'col1');
     $tpl->setValue('READONLY',    ($readOnly?'readonly':null));
     $tpl->setValue('REQUIRED',    ($required?'required':null));
+    $tpl->setValue('CLASSFIELD',  (!$readOnly?'date':'dateReadOnly'));
     $tpl->setValue('VAL',         $dateValue);
     $html = $tpl->GetHtml();
 

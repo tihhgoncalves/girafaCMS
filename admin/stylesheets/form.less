@@ -408,16 +408,15 @@ div#boxForm {
   /** Date **/
    div.date label.legend {
   }
-   div.date.col1 input {
-    width: 76px;
-    padding-left: 6px;
-    padding-right: 6px;
-  }
-   div.date.col2 input {
-    width: 314px;
-  }
-   div.date.col3 input {
-    width: 600px;
+   div.date,
+   div.dateReadOnly {
+
+     &.col1 input {
+       width: 116px;
+       padding-left: 6px;
+       padding-right: 6px;
+     }
+
   }
 
    ul#link {
@@ -652,6 +651,7 @@ div#formToolbar {
 
     & > li {
       float: left;
+      list-style: none;
     }
   }
 
@@ -727,15 +727,16 @@ form#formulario {
   }
   .medium-editor-element ul li {
     list-style: initial;
-    margin-bottom: 5px;
+    margin-bottom: 15px;
 
   }
   .medium-editor-element ol {
     margin: 25px;
+    list-style-type: number;
   }
   .medium-editor-element ol li {
-    list-style-type: number;
-    margin-bottom: 5px;
+
+    margin-bottom: 15px;
   }
 
   .medium-insert-buttons-show {
