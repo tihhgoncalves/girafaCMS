@@ -61,8 +61,5 @@ require_once('loader_config.php');
   $params   = new nbrParams();
   $boxes    = new nbrBoxes();
 
-  //Se no tema tiver arquivo functions.php carrega-o..
-  if(file_exists($cms->GetThemePath() . 'functions.php'))
-    include($cms->GetThemePath() . 'functions.php');
 
 ?>

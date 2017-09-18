@@ -30,6 +30,11 @@ include('bower_components/girafaCMS/loader.php');
 //Carrega framework Admin
 include($ADMIN_PATH . 'nbr.admin.loader.php');
 
+$isFront = false;
+//Se no tema tiver arquivo functions.php carrega-o..
+if(file_exists($cms->GetThemePath() . 'functions.php'))
+  include($cms->GetThemePath() . 'functions.php');
+
 //Carrega objeto de Idioma..
 //include($OBJECTS_PATH . 'nbr.obj.langs.php');
 $langs	= new nbrLangs('ADMIN');

@@ -23,6 +23,13 @@ $router   = new nbrRouter();
 //Carrega Site (de acordo com a URL)..
 $site = new nbrSite();
 
+
+//Se no tema tiver arquivo functions.php carrega-o..
+$isFront = true;
+if(file_exists($cms->GetThemePath() . 'functions.php'))
+  include($cms->GetThemePath() . 'functions.php');
+
+
 if($router->getPage() == 's'){
   $script = $router->params[1];
 

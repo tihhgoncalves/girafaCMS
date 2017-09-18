@@ -6,7 +6,7 @@ class nbrTablePost{
   public $table;
   public $id = -1;
   
-  private function getSql(){
+  public function getSql(){
     
     //Inserção ou Atualização..
     if($this->id > 0){
