@@ -12,13 +12,13 @@ require_once('loader_config.php');
  */
 
 /** Faz includes de projetos meus, mas independentes */
+include(get_config('BOWER_COMPONENTS_PATH') . 'tihh.php.obj.db.mysql/load.php');
 include(get_config('BOWER_COMPONENTS_PATH') . 'tihh.php.fnc.getTags/load.php');
 
 /**
  * Faz includes dos objetos
  */  
-  include($OBJECTS_PATH . 'nbr.obj.db.php');  
-  include($OBJECTS_PATH . 'nbr.obj.table.create.php');  
+  include($OBJECTS_PATH . 'nbr.obj.table.create.php');
   include($OBJECTS_PATH . 'nbr.obj.admin.security.php');
   include($OBJECTS_PATH . 'nbr.obj.string.php');
   include($OBJECTS_PATH . 'nbr.obj.date.php');  
@@ -54,7 +54,7 @@ include(get_config('BOWER_COMPONENTS_PATH') . 'tihh.php.fnc.getTags/load.php');
   include($ADMIN_FUNCTIONS_PATH . 'pages.php');
   
   /** Carrega objetos utilizados no framework... */
-  $db       = new nbrDB($DB_HOST, $DB_DATABASE, $DB_USER, $DB_PASS, $DB_PERSISTENT);
+  $db       = new tihh_db_mysql($DB_HOST, $DB_USER, $DB_PASS, $DB_DATABASE, $DB_PERSISTENT);
   $cms      = new nbrCMS();
   $security = new nbrAdminSecurity();
   $msg      = new nbrMSG();

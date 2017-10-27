@@ -2,9 +2,9 @@
   "name": "girafaCMS",
   "homepage": "https://github.com/zbraestudio/girafaCMS",
   "authors": [
-    "Z.BRA Estúdio <contato@zbraestudio.com.br>"
+    "Tihh Gonçalves <tiago@tiago.art.br>"
   ],
-  "description": "CMS d Z.BRA Estúdio",
+  "description": "Girafa CMS foi desenvolvido por Tihh Gonçalves",
   "main": "init.php",
   "keywords": [
     "CMS",
@@ -30,6 +30,7 @@
     "font-awesome": "https://github.com/FortAwesome/Font-Awesome.git#^4.7.0",
     "poshytip": "https://github.com/vadikom/poshytip.git",
     "PHPMailer": "https://github.com/PHPMailer/PHPMailer.git#^6.0.1",
-    "tihh.php.fnc.getTags": "https://github.com/tihhgoncalves/tihh.php.fnc.getTags.git"
+    "tihh.php.fnc.getTags": "https://github.com/tihhgoncalves/tihh.php.fnc.getTags.git#^1.0",
+    "tihh.php.obj.db.mysql": "https://github.com/tihhgoncalves/tihh.php.obj.db.mysql.git#^1.0"
   }
 }
