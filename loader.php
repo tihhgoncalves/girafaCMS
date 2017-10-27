@@ -11,6 +11,8 @@ require_once('loader_config.php');
  * Faz Include de Bibliotecas de terceiros
  */
 
+/** Faz includes de projetos meus, mas independentes */
+include(get_config('BOWER_COMPONENTS_PATH') . 'tihh.php.fnc.getTags/load.php');
 
 /**
  * Faz includes dos objetos

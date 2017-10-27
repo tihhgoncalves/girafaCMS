@@ -1,6 +1,11 @@
 <?
 
-include('phpmailer/class.phpmailer.php');
+include(get_config('BOWER_COMPONENTS_PATH') . 'PHPMailer/src/Exception.php');
+include(get_config('BOWER_COMPONENTS_PATH') . 'PHPMailer/src/PHPMailer.php');
+include(get_config('BOWER_COMPONENTS_PATH') . 'PHPMailer/src/SMTP.php');
+
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
 
 class nbrMail
 {
@@ -14,6 +19,7 @@ class nbrMail
   public $_SMTPPort = null;
   public $_SMTPSecure = null;
   public $_sendType = null;
+  public $ErrorInfo;
   
   function __construct()
   {
@@ -89,6 +95,8 @@ class nbrMail
     
     $this->phpMailerObj->Subject = $assunto;
     $this->phpMailerObj->Body = $html;
+
+    $this->ErrorInfo = $this->phpMailerObj->ErrorInfo;
     
     return $this->phpMailerObj->Send();
   }
@@ -116,7 +124,7 @@ class nbrMail
     $this->phpMailerObj->AddEmbeddedImage($path, $cid, $name);
   }  
   
-  public static function SendTemplate($html, $assunto, $para, $fromMail = null, $fromName = null, $cc = null, $cco = null, $replyToMail = null)
+  public function SendTemplate($html, $assunto, $para, $fromMail = null, $fromName = null, $cc = null, $cco = null, $replyToMail = null)
   {
     global $cms;
     
@@ -152,7 +160,14 @@ class nbrMail
     $mail = new nbrMail();
     $mail->AddEmbeddedImage($cms->GetAdminImagePath()  . 'email_cabecalho.gif', 'cabecalho', 'Cabeçalho');
     $mail->AddEmbeddedImage($cms->GetAdminImagePath()  . 'meioembiente.gif', 'meioambiente', 'Meio Ambiente');    
-    return $mail->Send($tmp, $assunto, $para, $fromMail, $fromName, $cc, $cco, $replyToMail); 
+
+    if($mail->Send($tmp, $assunto, $para, $fromMail, $fromName, $cc, $cco, $replyToMail))
+      return true;
+    else{
+      $this->ErrorInfo = $mail->ErrorInfo;
+      return false;
+    }
   }
+
 }
 ?>
