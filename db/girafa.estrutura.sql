@@ -21,13 +21,11 @@ CREATE TABLE IF NOT EXISTS `girafa`.`sis_grupos` (
   `ID` INT(11) NOT NULL AUTO_INCREMENT,
   `Lang` VARCHAR(10) NULL DEFAULT NULL,
   `Name` VARCHAR(100) NULL DEFAULT NULL,
-  `LastUpdate` DATETIME NULL DEFAULT NULL,
-  `LastUserName` VARCHAR(50) NULL DEFAULT NULL,
   PRIMARY KEY (`ID`))
 ENGINE = InnoDB
 AUTO_INCREMENT = 3
 DEFAULT CHARACTER SET = utf8
-COMMENT = 'Grupo de Segurança do Administrator';
+COMMENT = 'Grupo de SeguranÃ§a do Administrator';
 
 
 -- -----------------------------------------------------
@@ -41,8 +39,6 @@ CREATE TABLE IF NOT EXISTS `girafa`.`sis_usuarios` (
   `Password` CHAR(32) NULL DEFAULT NULL,
   `Group` INT(11) NULL DEFAULT NULL,
   `LastAccess` DATETIME NULL DEFAULT NULL,
-  `LastUpdate` DATETIME NULL DEFAULT NULL,
-  `LastUserName` VARCHAR(100) NULL DEFAULT NULL,
   `Developer` CHAR(1) NULL DEFAULT NULL,
   `Actived` CHAR(1) NULL DEFAULT NULL,
   PRIMARY KEY (`ID`),
@@ -53,7 +49,7 @@ CREATE TABLE IF NOT EXISTS `girafa`.`sis_usuarios` (
 ENGINE = InnoDB
 AUTO_INCREMENT = 1
 DEFAULT CHARACTER SET = utf8
-COMMENT = 'Usuários do Administrator';
+COMMENT = 'UsuÃ¡rios do Administrator';
 
 
 -- -----------------------------------------------------
@@ -62,8 +58,6 @@ COMMENT = 'Usuários do Administrator';
 CREATE TABLE IF NOT EXISTS `girafa`.`sis_usuarios_grupos` (
   `ID` INT(11) NOT NULL AUTO_INCREMENT,
   `Lang` VARCHAR(10) NULL DEFAULT NULL,
-  `LastUpdate` DATETIME NULL DEFAULT NULL,
-  `LastUserName` VARCHAR(50) NULL DEFAULT NULL,
   `User` INT(11) NULL DEFAULT NULL,
   `Group` INT(11) NULL DEFAULT NULL,
   PRIMARY KEY (`ID`),
@@ -78,7 +72,7 @@ CREATE TABLE IF NOT EXISTS `girafa`.`sis_usuarios_grupos` (
 ENGINE = InnoDB
 AUTO_INCREMENT = 3
 DEFAULT CHARACTER SET = utf8
-COMMENT = 'Tabela de Ligação de sysAdminUsers e sysAdminGroups';
+COMMENT = 'Tabela de LigaÃ§Ã£o de sysAdminUsers e sysAdminGroups';
 
 
 -- -----------------------------------------------------
@@ -87,8 +81,6 @@ COMMENT = 'Tabela de Ligação de sysAdminUsers e sysAdminGroups';
 CREATE TABLE IF NOT EXISTS `girafa`.`sis_logs` (
   `ID` INT(11) NOT NULL AUTO_INCREMENT,
   `Lang` VARCHAR(10) NULL DEFAULT NULL,
-  `LastUpdate` DATETIME NULL DEFAULT NULL,
-  `LastUserName` VARCHAR(50) NULL DEFAULT NULL,
   `UserName` VARCHAR(100) NULL DEFAULT NULL,
   `UserMail` VARCHAR(50) NULL DEFAULT NULL,
   `Action` CHAR(3) NULL DEFAULT NULL,
@@ -101,7 +93,7 @@ CREATE TABLE IF NOT EXISTS `girafa`.`sis_logs` (
 ENGINE = InnoDB
 AUTO_INCREMENT = 1
 DEFAULT CHARACTER SET = utf8
-COMMENT = 'Histórico de Ações no CMS';
+COMMENT = 'HistÃ³rico de AÃ§Ãµes no CMS';
 
 
 -- -----------------------------------------------------
@@ -110,8 +102,6 @@ COMMENT = 'Histórico de Ações no CMS';
 CREATE TABLE IF NOT EXISTS `girafa`.`sis_idiomas` (
   `ID` INT(11) NOT NULL AUTO_INCREMENT,
   `Lang` VARCHAR(10) NULL DEFAULT NULL,
-  `LastUpdate` DATETIME NULL DEFAULT NULL,
-  `LastUserName` VARCHAR(50) NULL DEFAULT NULL,
   `Nome` VARCHAR(30) NULL DEFAULT NULL,
   `Identificador` VARCHAR(10) NULL DEFAULT NULL,
   PRIMARY KEY (`ID`))
@@ -130,8 +120,6 @@ CREATE TABLE IF NOT EXISTS `girafa`.`sis_modulos` (
   `Name` VARCHAR(30) NULL DEFAULT NULL,
   `Path` VARCHAR(30) NULL DEFAULT NULL,
   `Actived` CHAR(1) NULL DEFAULT NULL,
-  `LastUpdate` DATETIME NULL DEFAULT NULL,
-  `LastUserName` VARCHAR(50) NULL DEFAULT NULL,
   `Description` VARCHAR(50) NULL DEFAULT NULL,
   `Developer` CHAR(1) NULL DEFAULT NULL,
   `Icon` VARCHAR(50) NULL DEFAULT NULL,
@@ -139,7 +127,7 @@ CREATE TABLE IF NOT EXISTS `girafa`.`sis_modulos` (
 ENGINE = InnoDB
 AUTO_INCREMENT = 4
 DEFAULT CHARACTER SET = utf8
-COMMENT = 'Gerencia Módulos do Sistema';
+COMMENT = 'Gerencia MÃ³dulos do Sistema';
 
 
 -- -----------------------------------------------------
@@ -156,8 +144,6 @@ CREATE TABLE IF NOT EXISTS `girafa`.`sis_pastas` (
   `Actived` CHAR(1) NULL DEFAULT NULL,
   `MultiLanguages` CHAR(1) NULL DEFAULT NULL,
   `CounterSQL` TEXT NULL DEFAULT NULL,
-  `LastUpdate` DATETIME NULL DEFAULT NULL,
-  `LastUserName` VARCHAR(50) NULL DEFAULT NULL,
   PRIMARY KEY (`ID`),
   INDEX `fk_sis_pastas_modulo` (`Module` ASC),
   CONSTRAINT `fk_sis_pastas_modulo`
@@ -166,7 +152,7 @@ CREATE TABLE IF NOT EXISTS `girafa`.`sis_pastas` (
 ENGINE = InnoDB
 AUTO_INCREMENT = 13
 DEFAULT CHARACTER SET = utf8
-COMMENT = 'Gerencia Pastas de determinado Módulo do Sistema';
+COMMENT = 'Gerencia Pastas de determinado MÃ³dulo do Sistema';
 
 
 -- -----------------------------------------------------
@@ -175,8 +161,6 @@ COMMENT = 'Gerencia Pastas de determinado Módulo do Sistema';
 CREATE TABLE IF NOT EXISTS `girafa`.`sis_relatorios` (
   `ID` INT(11) NOT NULL AUTO_INCREMENT,
   `Lang` VARCHAR(10) NULL DEFAULT NULL,
-  `LastUpdate` DATETIME NULL DEFAULT NULL,
-  `LastUserName` VARCHAR(50) NULL DEFAULT NULL,
   `File` VARCHAR(50) NULL DEFAULT NULL,
   `Module` INT(11) NULL DEFAULT NULL,
   `Published` CHAR(1) NULL DEFAULT NULL,
@@ -190,7 +174,7 @@ CREATE TABLE IF NOT EXISTS `girafa`.`sis_relatorios` (
 ENGINE = InnoDB
 AUTO_INCREMENT = 1
 DEFAULT CHARACTER SET = utf8
-COMMENT = 'Relatórios dos Módulos';
+COMMENT = 'RelatÃ³rios dos MÃ³dulos';
 
 
 -- -----------------------------------------------------
@@ -199,8 +183,6 @@ COMMENT = 'Relatórios dos Módulos';
 CREATE TABLE IF NOT EXISTS `girafa`.`sis_modulos_idiomas` (
   `ID` INT(11) NOT NULL AUTO_INCREMENT,
   `Lang` VARCHAR(10) NULL DEFAULT NULL,
-  `LastUpdate` DATETIME NULL DEFAULT NULL,
-  `LastUserName` VARCHAR(50) NULL DEFAULT NULL,
   `Modulo` INT(11) NULL DEFAULT NULL,
   `Idioma` INT(11) NULL DEFAULT NULL,
   PRIMARY KEY (`ID`),
@@ -215,7 +197,7 @@ CREATE TABLE IF NOT EXISTS `girafa`.`sis_modulos_idiomas` (
 ENGINE = InnoDB
 AUTO_INCREMENT = 4
 DEFAULT CHARACTER SET = utf8
-COMMENT = 'Cadastro de Idiomas nos Módulos';
+COMMENT = 'Cadastro de Idiomas nos MÃ³dulos';
 
 
 -- -----------------------------------------------------
@@ -224,8 +206,6 @@ COMMENT = 'Cadastro de Idiomas nos Módulos';
 CREATE TABLE IF NOT EXISTS `girafa`.`sis_modulos_grupos` (
   `ID` INT(11) NOT NULL AUTO_INCREMENT,
   `Lang` VARCHAR(10) NULL DEFAULT NULL,
-  `LastUpdate` DATETIME NULL DEFAULT NULL,
-  `LastUserName` VARCHAR(50) NULL DEFAULT NULL,
   `Module` INT(11) NULL DEFAULT NULL,
   `Group` INT(11) NULL DEFAULT NULL,
   PRIMARY KEY (`ID`),
@@ -240,7 +220,7 @@ CREATE TABLE IF NOT EXISTS `girafa`.`sis_modulos_grupos` (
 ENGINE = InnoDB
 AUTO_INCREMENT = 6
 DEFAULT CHARACTER SET = utf8
-COMMENT = 'Grupos de Segurança do Módulo';
+COMMENT = 'Grupos de SeguranÃ§a do MÃ³dulo';
 
 
 -- -----------------------------------------------------
@@ -249,8 +229,6 @@ COMMENT = 'Grupos de Segurança do Módulo';
 CREATE TABLE IF NOT EXISTS `girafa`.`sis_parametros` (
   `ID` INT(11) NOT NULL AUTO_INCREMENT,
   `Lang` VARCHAR(10) NULL DEFAULT NULL,
-  `LastUpdate` DATETIME NULL DEFAULT NULL,
-  `LastUserName` VARCHAR(50) NULL DEFAULT NULL,
   `Nome` VARCHAR(100) NULL DEFAULT NULL,
   `Tipo` CHAR(3) NULL DEFAULT NULL,
   `Valor` TEXT NULL DEFAULT NULL,
@@ -259,7 +237,7 @@ CREATE TABLE IF NOT EXISTS `girafa`.`sis_parametros` (
 ENGINE = InnoDB
 AUTO_INCREMENT = 1
 DEFAULT CHARACTER SET = utf8
-COMMENT = 'Cadastro de Parâmetros';
+COMMENT = 'Cadastro de ParÃ¢metros';
 
 
 -- -----------------------------------------------------
@@ -268,8 +246,6 @@ COMMENT = 'Cadastro de Parâmetros';
 CREATE TABLE IF NOT EXISTS `girafa`.`sis_plugins` (
   `ID` INT NOT NULL AUTO_INCREMENT,
   `Lang` VARCHAR(10) NULL,
-  `LastUpdate` DATETIME NULL,
-  `LastUserName` VARCHAR(50) NULL,
   `Name` VARCHAR(50) NULL,
   `Actived` CHAR(1) NULL,
   `Path` VARCHAR(30) NULL,

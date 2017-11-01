@@ -926,9 +926,7 @@ class nbrAdminForms {
      * Dados para Desenvolvedores..
      */
     if($this->recordOpened){
-      $lastUpdate = new nbrDate($this->record->LastUpdate, ENUM_DATE_FORMAT::YYYY_MM_DD_HH_II_SS);
       $html .= '<span id="devenv">' . sprintf(__('Você está editando o registro <u>%s</u> da tabela <u>%s</u>.'), $this->record->ID, $this->tableName) . '</span>' . "\r\n";
-      $html .= '<span id="devenv">Este registro foi atualizado pela última vez em <u>' . $lastUpdate->GetFullDateForShorten() . '</u> às <u>' . $lastUpdate->GetDate('H:i') . '</u> por <u>' . $this->record->LastUserName . '</u>.</span>' . "\r\n";
     } else
       $html .= '<span id="devenv">' . sprintf(__('Você está inserindo um novo registro na tabela %s.'), $this->tableName). '</span>' . "\r\n";
 

@@ -138,9 +138,6 @@ if(intval($hub->GetParam('ID')) > 0){
       $sql .= '`' . $field . "`='" .addcslashes($_POST[$field], "'") . "'";
   }
   
-  //Adiciona Data de Ultima Atualização..
-  $sql .= ", LastUpdate = NOW(), LastUserName = '" . $security->GetUserName() . " (" . $security->GetUserMail() . ")'";
-  
   //Verifica se a pasta (folder) é Multilinguística e adiciona o idioma ao registro...
   if($hub->GetParam('_languages') == 'Y'){
   	$sql .= ", Lang = '" . $_SESSION['lang_admin'] . "'";
@@ -220,10 +217,6 @@ if(intval($hub->GetParam('ID')) > 0){
     else 
       $str_values .= "'" . addcslashes($_POST[$field], "'") . "'";
   }
-  
-  //Adiciona Data de Ultima Atualização..
-  $str_fields .= ', LastUpdate, LastUserName';
-  $str_values .= ", NOW(), '" . $security->GetUserName() . " (" . $security->GetUserMail() . ")'";
 
   //Verifica se a pasta (folder) é Multilinguística e adiciona o idioma ao registro...
   if($hub->GetParam('_languages') == 'Y'){
