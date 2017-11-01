@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 01-Nov-2017 às 16:09
+-- Generation Time: 01-Nov-2017 às 16:40
 -- Versão do servidor: 5.7.14
 -- PHP Version: 5.6.25
 
@@ -140,7 +140,7 @@ INSERT INTO `sis_pastas` (`ID`, `Lang`, `Module`, `Name`, `Order`, `File`, `Grou
 (7, 'pt-br', 2, 'Usuários', 10, 'admin.usuarios.grid.php', 'Geral', 'Y', 'N', NULL, '2013-06-17 17:53:18', 'Instalador CMS'),
 (8, 'pt-br', 2, 'Grupos', 20, 'admin.grupos.grid.php', 'Geral', 'Y', 'N', NULL, '2013-06-17 17:53:18', 'Instalador CMS'),
 (9, 'pt-br', 1, 'Parâmetros', 20, 'admin.params.grid.php', 'Banco de Dados', 'Y', 'N', NULL, '2013-09-24 13:26:08', 'Instalador CMS'),
-(10, 'pt-br', 3, 'Do CMS', 20, 'admin.params.cms.php', 'Geral', 'Y', 'N', NULL, '2013-09-24 14:26:31', 'Instalador CMS'),
+(10, 'pt-br', 3, 'Geral', 20, 'admin.params.grid.php', 'Geral', 'Y', 'N', NULL, '2017-11-01 16:39:46', 'Admin (teste@teste.com.br)'),
 (12, 'pt-br', 4, 'Cache', 10, 'index.php', 'Geral', 'Y', 'N', NULL, '2013-09-24 14:26:31', 'Instalador CMS');
 
 --
