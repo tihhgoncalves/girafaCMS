@@ -2,7 +2,7 @@
 //Módulo e Pasta aberta..
 if($hub->ExistParam('_moduleID')){
   $moduleObj = nbrModule::LoadModule($hub->GetParam('_moduleID'));
-  $folderObj = LoadRecord('sysModuleFolders', $hub->GetParam('_folderID'));
+  $folderObj = LoadRecord('sis_pastas', $hub->GetParam('_folderID'));
 }
 //Verifica segurança..
 $security->SecurityCheck();
@@ -251,7 +251,7 @@ if($hub->ExistParam('_moduleID')){
 </ul>
 
 <?
-  $sql = 'SELECT * FROM sysModuleReports';
+  $sql = 'SELECT * FROM sis_relatorios';
   $sql .= " WHERE Published = 'Y' AND Module = $moduleObj->ID";
   $sql .= ' ORDER BY Title ASC';
   $relatorios = $db->LoadObjects($sql);
@@ -305,7 +305,7 @@ if($hub->ExistParam('_moduleID')){
   $primeiro = true;
 	  foreach ($langs_front['activated'] as $x=>$flag) {
 	    
-	  	$sql  = 'SELECT * FROM sysLanguages';
+	  	$sql  = 'SELECT * FROM sis_idiomas';
 	  	$sql .= " WHERE Identificador = '$flag'";
 	  	
 	  	$db_flags = $db->LoadObjects($sql);

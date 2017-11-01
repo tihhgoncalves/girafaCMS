@@ -6,7 +6,7 @@ class nbrModuleFolders{
   function __construct($module){
     global $db;
     
-    $sql  = 'SELECT * FROM sysModuleFolders';
+    $sql  = 'SELECT * FROM sis_pastas';
     $sql .= ' WHERE MODULE = ' . $module . " AND Actived = 'Y'";
     $sql .= ' ORDER BY `Order` ASC, Grouper ASC';
     $res = $db->LoadObjects($sql);

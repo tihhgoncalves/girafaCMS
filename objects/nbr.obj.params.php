@@ -5,7 +5,7 @@ class nbrParams{
   
   public function __construct(){
     global $db;
-    $sql  = 'SELECT * FROM sysParams';
+    $sql  = 'SELECT * FROM sis_parametros';
     $pms = $db->LoadObjects($sql);
     
     foreach ($pms as $pm) {

@@ -68,7 +68,7 @@ class nbrLogs{
     }
      
     $post = new nbrTablePost();
-    $post->table = 'sysLogs';
+    $post->table = 'sis_logs';
     $post->AddFieldString('UserName',    $security->GetUserID() . ' - ' . $security->GetUserName());
     $post->AddFieldString('UserMail',    $security->GetUserMail());
     $post->AddFieldString('IP',          $_SERVER["REMOTE_ADDR"]);

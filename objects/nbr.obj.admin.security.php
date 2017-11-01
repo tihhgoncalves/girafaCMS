@@ -35,7 +35,7 @@ class nbrAdminSecurity{
     }
     
     //Verifica se Usuário está Ativo..
-    $sql = 'SELECT ID FROM sysAdminUsers WHERE ID = ' . $this->GetUserID() . ' AND Actived = "Y"';
+    $sql = 'SELECT ID FROM sis_usuarios WHERE ID = ' . $this->GetUserID() . ' AND Actived = "Y"';
     $res = $db->LoadObjects($sql);
 
     if(count($res) == 0){
@@ -53,9 +53,9 @@ class nbrAdminSecurity{
 
     //Verifica se tem permissão pra módulo
     if($hub->ExistParam('_moduleID')){
-      $sql  = 'SELECT sysAdminUsersGroups.ID FROM sysAdminUsersGroups';
-      $sql .= ' LEFT JOIN sysModuleSecurityGroups ON(sysModuleSecurityGroups.`Group` = sysAdminUsersGroups.`Group`)';
-      $sql .= ' WHERE sysAdminUsersGroups.`User` = ' . $this->GetUserID() . ' AND sysModuleSecurityGroups.Module = ' . $moduleObj->ID;
+      $sql  = 'SELECT sis_usuarios_grupos.ID FROM sis_usuarios_grupos';
+      $sql .= ' LEFT JOIN sis_modulos_grupos ON(sis_modulos_grupos.`Group` = sis_usuarios_grupos.`Group`)';
+      $sql .= ' WHERE sis_usuarios_grupos.`User` = ' . $this->GetUserID() . ' AND sis_modulos_grupos.Module = ' . $moduleObj->ID;
       $res = $db->LoadObjects($sql);
       
       if(count($res) == 0)
@@ -77,7 +77,7 @@ class nbrAdminSecurity{
     $user = addslashes($user);
     $pass = md5(addslashes($pass));
     
-    $sql = 'SELECT * FROM sysAdminUsers';
+    $sql = 'SELECT * FROM sis_usuarios';
     $sql .= " WHERE (`Mail` = '$user' AND `Password` = '$pass')";
     $res = $db->LoadObjects($sql);
     
@@ -93,7 +93,7 @@ class nbrAdminSecurity{
       $_SESSION[$this->_getKeySession()]['developer'] = $res[0]->Developer;
 
       //Atualiza data do Último Login..
-      $sql = 'UPDATE sysAdminUsers SET LastAccess = NOW() WHERE ID = ' . $res[0]->ID;
+      $sql = 'UPDATE sis_usuarios SET LastAccess = NOW() WHERE ID = ' . $res[0]->ID;
       $db->Execute($sql);
       
       //Registra o Log..
