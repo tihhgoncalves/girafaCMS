@@ -12,6 +12,7 @@ require_once('loader_config.php');
  */
 
 /** Faz includes de projetos meus, mas independentes */
+include(get_config('BOWER_COMPONENTS_PATH') . 'tihh.php.errors/load.php');
 include(get_config('BOWER_COMPONENTS_PATH') . 'tihh.php.obj.db.mysql/load.php');
 include(get_config('BOWER_COMPONENTS_PATH') . 'tihh.php.fnc.getTags/load.php');
 

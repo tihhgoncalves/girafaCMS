@@ -30,7 +30,8 @@
     "font-awesome": "https://github.com/FortAwesome/Font-Awesome.git#^4.7.0",
     "poshytip": "https://github.com/vadikom/poshytip.git",
     "PHPMailer": "https://github.com/PHPMailer/PHPMailer.git#^6.0.1",
-    "tihh.php.fnc.getTags": "https://github.com/tihhgoncalves/tihh.php.fnc.getTags.git#^1.0",
-    "tihh.php.obj.db.mysql": "https://github.com/tihhgoncalves/tihh.php.obj.db.mysql.git#^1.0"
+    "tihh.php.erros": "^1.0.x",
+    "tihh.php.fnc.getTags": "^1.0.x",
+    "tihh.php.obj.db.mysql": "^1.0.x"
   }
 }
