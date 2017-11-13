@@ -302,7 +302,7 @@ class nbrAdminGrid{
     
     if(!empty($wheres))
       $sql .= $wheres;
-      
+
     $res = $db->LoadObjects($sql);
     $totalReg = $res[0]->TOTAL;
     $this->totalRecords = $totalReg;

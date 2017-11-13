@@ -41,7 +41,7 @@ class nbrEvents{
   public function includeFilesEventsPlugins(){
     global $PLUGINS_PATH, $PLUGINS_URL, $db;
 
-    $sql  = 'SELECT * FROM sysPlugins';
+    $sql  = 'SELECT * FROM sis_plugins';
     $sql .= " WHERE Actived = 'Y'";
     
     $plugins = $db->LoadObjects($sql);

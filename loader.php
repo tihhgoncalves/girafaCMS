@@ -19,7 +19,6 @@ include(get_config('BOWER_COMPONENTS_PATH') . 'tihh.php.fnc.getTags/load.php');
 /**
  * Faz includes dos objetos
  */  
-  include($OBJECTS_PATH . 'nbr.obj.table.create.php');
   include($OBJECTS_PATH . 'nbr.obj.admin.security.php');
   include($OBJECTS_PATH . 'nbr.obj.string.php');
   include($OBJECTS_PATH . 'nbr.obj.date.php');  
@@ -34,8 +33,7 @@ include(get_config('BOWER_COMPONENTS_PATH') . 'tihh.php.fnc.getTags/load.php');
   include($OBJECTS_PATH . 'nbr.obj.report.pdf.php');  
   include($OBJECTS_PATH . 'nbr.obj.msg.php');
   include($OBJECTS_PATH . 'nbr.obj.langs.php');
-//include($OBJECTS_PATH . 'nbr.obj.linkThumb.php'); // Esse objeto será excluído do CMS
-  include($OBJECTS_PATH . 'nbr.obj.cache.php'); 
+  include($OBJECTS_PATH . 'nbr.obj.cache.php');
   include($OBJECTS_PATH . 'nbr.obj.events.php'); 
   include($OBJECTS_PATH . 'nbr.obj.params.php'); 
   include($OBJECTS_PATH . 'nbr.obj.tableManager.php');

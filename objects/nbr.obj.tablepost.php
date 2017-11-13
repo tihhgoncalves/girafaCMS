@@ -149,10 +149,6 @@ class nbrTablePost{
   public function Execute(){
     global $db, $security, $ADMIN_UPLOAD_PATH;
     
-    //Adiciona usuário...
-    $this->AddFieldDateTime('LastUpdate', date('Y-m-d H:i:s'));
-    $this->AddFieldString('LastUserName', $security->GetUserName() . ' (' . $security->GetUserMail() . ')');
-    
     $sql = $this->getSql();
     
     $res = $db->Execute($sql);

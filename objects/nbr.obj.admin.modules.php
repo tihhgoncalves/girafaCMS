@@ -32,9 +32,9 @@ class nbrModules{
  
     
     //Grupos de Segurança...
-    $sql  = 'SELECT `Group` FROM sysAdminUsersGroups';
+    $sql  = 'SELECT `Group` FROM sis_usuarios_grupos';
     $sql .= ' WHERE `User` = ' . $security->GetUserID();
-    
+
     $res = $db->LoadObjects($sql);
     
     $groups = array();
@@ -43,12 +43,12 @@ class nbrModules{
     }
     
     //Módulos..
-    $sql  = 'SELECT sysModules.* FROM sysModuleSecurityGroups';
-    $sql .= ' JOIN sysModules ON(sysModules.ID = sysModuleSecurityGroups.Module)';
-    $sql .= ' WHERE sysModules.Actived = \'Y\' AND sysModuleSecurityGroups.`Group` IN(' . implode(',', $groups) . ')';
-    $sql .= ' GROUP BY sysModuleSecurityGroups.`Module`';
-    $sql .= ' ORDER BY sysModules.Name ASC';
-    
+    $sql  = 'SELECT sis_modulos.* FROM sis_modulos_grupos';
+    $sql .= ' JOIN sis_modulos ON(sis_modulos.ID = sis_modulos_grupos.Module)';
+    $sql .= ' WHERE sis_modulos.Actived = \'Y\' AND sis_modulos_grupos.`Group` IN(' . implode(',', $groups) . ')';
+    $sql .= ' GROUP BY sis_modulos_grupos.`Module`';
+    $sql .= ' ORDER BY sis_modulos.Name ASC';
+
     $modules = $db->LoadObjects($sql);
     
     $a_modules = array();
@@ -76,11 +76,12 @@ class nbrModule{
     global $MODULES_URL, $MODULES_PATH, $db, $hub, $ROOT_URL, $CMS_URL;
     
     //Seleciona a Primeira Pasta..
-    $sql  = 'SELECT sysModuleFolders.*, sysModules.Path, sysModuleFolders.ID folderID, sysModuleFolders.Name folderName, sysModuleFolders.MultiLanguages MultiLanguages FROM sysModuleFolders';
-    $sql .= " LEFT JOIN sysModules ON(sysModules.ID = sysModuleFolders.Module)";
-    $sql .= " WHERE sysModuleFolders.Actived = 'Y' AND sysModuleFolders.Module = " . $reg->ID;
-    $sql .= ' ORDER BY sysModuleFolders.`Order` ASC';
+    $sql  = 'SELECT sis_pastas.*, sis_modulos.Path, sis_pastas.ID folderID, sis_pastas.Name folderName, sis_pastas.MultiLanguages MultiLanguages FROM sis_pastas';
+    $sql .= " LEFT JOIN sis_modulos ON(sis_modulos.ID = sis_pastas.Module)";
+    $sql .= " WHERE sis_pastas.Actived = 'Y' AND sis_pastas.Module = " . $reg->ID;
+    $sql .= ' ORDER BY sis_pastas.`Order` ASC';
     $sql .= ' LIMIT 0,1';
+
     $pastas = $db->LoadObjects($sql);
     $pasta = $pastas[0];
     
@@ -111,7 +112,7 @@ class nbrModule{
     global $db;
     //Carrega módulos..
     
-    $sql  = 'SELECT * FROM sysModules';
+    $sql  = 'SELECT * FROM sis_modulos';
     $sql .= " WHERE ID=" . $id;
     $modules = $db->LoadObjects($sql);
     
@@ -122,7 +123,7 @@ class nbrModule{
   public function CheckLanguage($languadeID){
     global $db;
     
-    $sql  = 'SELECT COUNT(ID) TOTAL FROM sysModulesLanguages';
+    $sql  = 'SELECT COUNT(ID) TOTAL FROM sis_modulos_idiomas';
     $sql .= " WHERE Modulo =" . $this->ID . " AND Idioma =" . $languadeID;
     $res = $db->LoadObjects($sql);
     
@@ -132,7 +133,7 @@ class nbrModule{
   public function GetNotifications(){
     global $db;
 
-    $sql = 'SELECT * FROM sysModuleFolders';
+    $sql = 'SELECT * FROM sis_pastas';
     $sql .= " WHERE Module = " . $this->ID . " AND CounterSQL IS NOT NULL AND Actived = 'Y'";
     $res = $db->LoadObjects($sql);
 
