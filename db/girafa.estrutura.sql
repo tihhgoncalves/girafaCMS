@@ -9,15 +9,9 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 -- -----------------------------------------------------
 
 -- -----------------------------------------------------
--- Schema girafa
+-- Table `sis_grupos`
 -- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `girafa` DEFAULT CHARACTER SET utf8 ;
-USE `girafa` ;
-
--- -----------------------------------------------------
--- Table `girafa`.`sis_grupos`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `girafa`.`sis_grupos` (
+CREATE TABLE IF NOT EXISTS `sis_grupos` (
   `ID` INT(11) NOT NULL AUTO_INCREMENT,
   `Lang` VARCHAR(10) NULL DEFAULT NULL,
   `Name` VARCHAR(100) NULL DEFAULT NULL,
@@ -29,9 +23,9 @@ COMMENT = 'Grupo de Segurança do Administrator';
 
 
 -- -----------------------------------------------------
--- Table `girafa`.`sis_usuarios`
+-- Table `sis_usuarios`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `girafa`.`sis_usuarios` (
+CREATE TABLE IF NOT EXISTS `sis_usuarios` (
   `ID` INT(11) NOT NULL AUTO_INCREMENT,
   `Lang` VARCHAR(10) NULL DEFAULT NULL,
   `Name` VARCHAR(100) NULL DEFAULT NULL,
@@ -45,7 +39,7 @@ CREATE TABLE IF NOT EXISTS `girafa`.`sis_usuarios` (
   INDEX `fk_sis_usuarios_grupo` (`Group` ASC),
   CONSTRAINT `fk_sis_usuarios_grupo`
     FOREIGN KEY (`Group`)
-    REFERENCES `girafa`.`sis_grupos` (`ID`))
+    REFERENCES `sis_grupos` (`ID`))
 ENGINE = InnoDB
 AUTO_INCREMENT = 1
 DEFAULT CHARACTER SET = utf8
@@ -53,9 +47,9 @@ COMMENT = 'Usuários do Administrator';
 
 
 -- -----------------------------------------------------
--- Table `girafa`.`sis_usuarios_grupos`
+-- Table `sis_usuarios_grupos`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `girafa`.`sis_usuarios_grupos` (
+CREATE TABLE IF NOT EXISTS `sis_usuarios_grupos` (
   `ID` INT(11) NOT NULL AUTO_INCREMENT,
   `Lang` VARCHAR(10) NULL DEFAULT NULL,
   `User` INT(11) NULL DEFAULT NULL,
@@ -65,10 +59,10 @@ CREATE TABLE IF NOT EXISTS `girafa`.`sis_usuarios_grupos` (
   INDEX `fk_sis_usuarios_grupos_grupo` (`Group` ASC),
   CONSTRAINT `fk_sis_usuarios_grupos_grupo`
     FOREIGN KEY (`Group`)
-    REFERENCES `girafa`.`sis_grupos` (`ID`),
+    REFERENCES `sis_grupos` (`ID`),
   CONSTRAINT `fk_sis_usuarios_grupos_usuario`
     FOREIGN KEY (`User`)
-    REFERENCES `girafa`.`sis_usuarios` (`ID`))
+    REFERENCES `sis_usuarios` (`ID`))
 ENGINE = InnoDB
 AUTO_INCREMENT = 3
 DEFAULT CHARACTER SET = utf8
@@ -76,9 +70,9 @@ COMMENT = 'Tabela de Ligação de sysAdminUsers e sysAdminGroups';
 
 
 -- -----------------------------------------------------
--- Table `girafa`.`sis_logs`
+-- Table `sis_logs`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `girafa`.`sis_logs` (
+CREATE TABLE IF NOT EXISTS `sis_logs` (
   `ID` INT(11) NOT NULL AUTO_INCREMENT,
   `Lang` VARCHAR(10) NULL DEFAULT NULL,
   `UserName` VARCHAR(100) NULL DEFAULT NULL,
@@ -97,9 +91,9 @@ COMMENT = 'Histórico de Ações no CMS';
 
 
 -- -----------------------------------------------------
--- Table `girafa`.`sis_idiomas`
+-- Table `sis_idiomas`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `girafa`.`sis_idiomas` (
+CREATE TABLE IF NOT EXISTS `sis_idiomas` (
   `ID` INT(11) NOT NULL AUTO_INCREMENT,
   `Lang` VARCHAR(10) NULL DEFAULT NULL,
   `Nome` VARCHAR(30) NULL DEFAULT NULL,
@@ -112,9 +106,9 @@ COMMENT = 'Cadastro de Idiomas';
 
 
 -- -----------------------------------------------------
--- Table `girafa`.`sis_modulos`
+-- Table `sis_modulos`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `girafa`.`sis_modulos` (
+CREATE TABLE IF NOT EXISTS `sis_modulos` (
   `ID` INT(11) NOT NULL AUTO_INCREMENT,
   `Lang` VARCHAR(10) NULL DEFAULT NULL,
   `Name` VARCHAR(30) NULL DEFAULT NULL,
@@ -131,9 +125,9 @@ COMMENT = 'Gerencia Módulos do Sistema';
 
 
 -- -----------------------------------------------------
--- Table `girafa`.`sis_pastas`
+-- Table `sis_pastas`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `girafa`.`sis_pastas` (
+CREATE TABLE IF NOT EXISTS `sis_pastas` (
   `ID` INT(11) NOT NULL AUTO_INCREMENT,
   `Lang` VARCHAR(10) NULL DEFAULT NULL,
   `Module` INT(11) NULL DEFAULT NULL,
@@ -148,7 +142,7 @@ CREATE TABLE IF NOT EXISTS `girafa`.`sis_pastas` (
   INDEX `fk_sis_pastas_modulo` (`Module` ASC),
   CONSTRAINT `fk_sis_pastas_modulo`
     FOREIGN KEY (`Module`)
-    REFERENCES `girafa`.`sis_modulos` (`ID`))
+    REFERENCES `sis_modulos` (`ID`))
 ENGINE = InnoDB
 AUTO_INCREMENT = 13
 DEFAULT CHARACTER SET = utf8
@@ -156,9 +150,9 @@ COMMENT = 'Gerencia Pastas de determinado Módulo do Sistema';
 
 
 -- -----------------------------------------------------
--- Table `girafa`.`sis_relatorios`
+-- Table `sis_relatorios`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `girafa`.`sis_relatorios` (
+CREATE TABLE IF NOT EXISTS `sis_relatorios` (
   `ID` INT(11) NOT NULL AUTO_INCREMENT,
   `Lang` VARCHAR(10) NULL DEFAULT NULL,
   `File` VARCHAR(50) NULL DEFAULT NULL,
@@ -170,7 +164,7 @@ CREATE TABLE IF NOT EXISTS `girafa`.`sis_relatorios` (
   INDEX `fk_sis_relatorios_modulo` (`Module` ASC),
   CONSTRAINT `fk_sis_relatorios_modulo`
     FOREIGN KEY (`Module`)
-    REFERENCES `girafa`.`sis_modulos` (`ID`))
+    REFERENCES `sis_modulos` (`ID`))
 ENGINE = InnoDB
 AUTO_INCREMENT = 1
 DEFAULT CHARACTER SET = utf8
@@ -178,9 +172,9 @@ COMMENT = 'Relatórios dos Módulos';
 
 
 -- -----------------------------------------------------
--- Table `girafa`.`sis_modulos_idiomas`
+-- Table `sis_modulos_idiomas`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `girafa`.`sis_modulos_idiomas` (
+CREATE TABLE IF NOT EXISTS `sis_modulos_idiomas` (
   `ID` INT(11) NOT NULL AUTO_INCREMENT,
   `Lang` VARCHAR(10) NULL DEFAULT NULL,
   `Modulo` INT(11) NULL DEFAULT NULL,
@@ -190,10 +184,10 @@ CREATE TABLE IF NOT EXISTS `girafa`.`sis_modulos_idiomas` (
   INDEX `fk_sis_modulos_idiomas_idioma` (`Idioma` ASC),
   CONSTRAINT `fk_sis_modulos_idiomas_idioma`
     FOREIGN KEY (`Idioma`)
-    REFERENCES `girafa`.`sis_idiomas` (`ID`),
+    REFERENCES `sis_idiomas` (`ID`),
   CONSTRAINT `fk_sis_modulos_idiomas_modulo`
     FOREIGN KEY (`Modulo`)
-    REFERENCES `girafa`.`sis_modulos` (`ID`))
+    REFERENCES `sis_modulos` (`ID`))
 ENGINE = InnoDB
 AUTO_INCREMENT = 4
 DEFAULT CHARACTER SET = utf8
@@ -201,9 +195,9 @@ COMMENT = 'Cadastro de Idiomas nos Módulos';
 
 
 -- -----------------------------------------------------
--- Table `girafa`.`sis_modulos_grupos`
+-- Table `sis_modulos_grupos`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `girafa`.`sis_modulos_grupos` (
+CREATE TABLE IF NOT EXISTS `sis_modulos_grupos` (
   `ID` INT(11) NOT NULL AUTO_INCREMENT,
   `Lang` VARCHAR(10) NULL DEFAULT NULL,
   `Module` INT(11) NULL DEFAULT NULL,
@@ -213,10 +207,10 @@ CREATE TABLE IF NOT EXISTS `girafa`.`sis_modulos_grupos` (
   INDEX `fk_sis_modulos_grupos_grupo` (`Group` ASC),
   CONSTRAINT `fk_sis_modulos_grupos_grupo`
     FOREIGN KEY (`Group`)
-    REFERENCES `girafa`.`sis_grupos` (`ID`),
+    REFERENCES `sis_grupos` (`ID`),
   CONSTRAINT `fk_sis_modulos_grupos_modulo`
     FOREIGN KEY (`Module`)
-    REFERENCES `girafa`.`sis_modulos` (`ID`))
+    REFERENCES `sis_modulos` (`ID`))
 ENGINE = InnoDB
 AUTO_INCREMENT = 6
 DEFAULT CHARACTER SET = utf8
@@ -224,9 +218,9 @@ COMMENT = 'Grupos de Segurança do Módulo';
 
 
 -- -----------------------------------------------------
--- Table `girafa`.`sis_parametros`
+-- Table `sis_parametros`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `girafa`.`sis_parametros` (
+CREATE TABLE IF NOT EXISTS `sis_parametros` (
   `ID` INT(11) NOT NULL AUTO_INCREMENT,
   `Lang` VARCHAR(10) NULL DEFAULT NULL,
   `Nome` VARCHAR(100) NULL DEFAULT NULL,
@@ -241,9 +235,9 @@ COMMENT = 'Cadastro de Parâmetros';
 
 
 -- -----------------------------------------------------
--- Table `girafa`.`sis_plugins`
+-- Table `sis_plugins`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `girafa`.`sis_plugins` (
+CREATE TABLE IF NOT EXISTS `sis_plugins` (
   `ID` INT NOT NULL AUTO_INCREMENT,
   `Lang` VARCHAR(10) NULL,
   `Name` VARCHAR(50) NULL,
