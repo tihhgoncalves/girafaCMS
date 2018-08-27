@@ -1,6 +1,6 @@
 <?
-$config_d["ROOT_PATH"]               = "/root/site/";
-$config_d["ROOT_URL"]                = "http://localhost/site";
+$config_d["ROOT_PATH"]               = "";
+$config_d["ROOT_URL"]                = "";
 
 $config_d["BOWER_COMPONENTS_PATH"]   = "{ROOT_PATH}bower_components/";
 $config_d["BOWER_COMPONENTS_URL"]    = "{ROOT_URL}bower_components/";

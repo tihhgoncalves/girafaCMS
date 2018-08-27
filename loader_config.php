@@ -4,6 +4,8 @@
  * Carrega CONFIG
  */
 
+include('./bower_components/tihh.site.uri.php/load.php');
+$uri = new tihh_URI();
 
 function is_localhost(){
   return ( $_SERVER['HTTP_HOST'] == 'localhost');
@@ -17,6 +19,17 @@ require_once('config_default.php');
 require_once(dirname(__FILE__) . '/../../config.php');
 
 $configs = array_merge($config_d, $config);
+
+
+//se nao for forçado, pegar URL padrão
+if(empty($configs['ROOT_URL'])){
+  $configs['ROOT_URL'] = $uri->base();
+}
+
+//se nao for forçado, pegar PATH padrão
+if(empty($configs['ROOT_PATH'])){
+  $configs['ROOT_PATH'] = dirname(dirname(__DIR__)) . '/';
+}
 
 //joga config pra GLOBALS
 foreach($configs as $k=>$c){
