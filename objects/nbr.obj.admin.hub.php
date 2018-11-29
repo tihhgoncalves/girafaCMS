@@ -131,7 +131,7 @@ class nbrAdminHub{
       $value = str_replace('[pi]', '|', $value);
       $value = str_replace('[eq]', '=', $value);
       
-      return utf8_encode($value);
+      return $value;
     }
     return null;
   }
