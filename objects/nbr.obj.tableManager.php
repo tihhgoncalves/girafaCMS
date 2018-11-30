@@ -9,7 +9,7 @@ class nbrTableManager{
   private $tableID;
 
 
-  function nbrTableManager($table, $comments, $autoDelete = true){
+  function __construct($table, $comments, $autoDelete = true){
     $this->table = $table;
     $this->comments = $comments;
     $this->autoDelete = $autoDelete;

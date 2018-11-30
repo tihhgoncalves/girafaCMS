@@ -3,8 +3,7 @@
 /**
  * Carrega CONFIG
  */
-
-include('./bower_components/tihh.site.uri.php/load.php');
+include(dirname(dirname(__FILE__)) . '/tihh.site.uri.php/load.php');
 $uri = new tihh_URI();
 
 function is_localhost(){
@@ -42,7 +41,8 @@ foreach($configs as $k=>$c){
     preg_match_all($re, $c, $out);
 
     if (isset($out[1][0])) {
-      $val = $$out[1][0];
+      $val = $out[1][0];
+      $val = $$val;
       $c = str_replace($out[0][0], $val, $c);
     }
   }

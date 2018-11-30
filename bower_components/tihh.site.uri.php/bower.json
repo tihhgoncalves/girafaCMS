@@ -1,0 +1,24 @@
+{
+  "name": "tihh.site.uri.php",
+  "homepage": "https://github.com/tihhgoncalves/tihh.site.uri.php",
+  "authors": [
+    "Tihh Gonçalves <tihh.gon@gmail.com>"
+  ],
+  "description": "Objeto de PHP que retorna a url base do site.",
+  "main": "load.php",
+  "keywords": [
+    "php",
+    "object",
+    "url",
+    "base"
+  ],
+  "license": "MIT",
+  "private": false,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

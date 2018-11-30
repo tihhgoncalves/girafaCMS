@@ -1,0 +1,15 @@
+{
+  "name": "tihh.php.errors",
+  "homepage": "https://github.com/tihhgoncalves/tihh.php.errors",
+  "_release": "1.0.1",
+  "_resolution": {
+    "type": "version",
+    "tag": "1.0.1",
+    "commit": "110f7b1bf5e4f3a86e736ed823e3493b18f84c55"
+  },
+  "_source": "https://github.com/tihhgoncalves/tihh.php.errors.git",
+  "_target": "^1.0.x",
+  "_originalSource": "tihh.php.errors",
+  "_direct": true,
+  "version": "1.0.1"
+}

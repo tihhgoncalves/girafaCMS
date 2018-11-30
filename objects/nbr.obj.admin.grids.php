@@ -99,16 +99,18 @@ class nbrAdminGrid{
   private function getValue($field, $record){
     global $cms, $hub, $ADMIN_PAGES_PATH, $ADMIN_UPLOAD_PATH, $ADMIN_UPLOAD_URL;
 
+    $fld = $field['fieldName'];
+
     switch ($field['type']) {
       case 'STR':
-        $value = $record->$field['fieldName'];
+        $value = $record->$fld;
         $value = $this->mark($value);
         break;
         
       case 'IMG':
-        if(!empty($record->$field['fieldName'])){
-          $imgFile = $ADMIN_UPLOAD_PATH . $record->$field['fieldName'];
-          $value  = '<a href="' . ($ADMIN_UPLOAD_URL . $record->$field['fieldName']) . '" title="Clique aqui para ampliar a foto"  class="fancybox">';
+        if(!empty($record->$fld)){
+          $imgFile = $ADMIN_UPLOAD_PATH . $record->$fld;
+          $value  = '<a href="' . ($ADMIN_UPLOAD_URL . $record->$fld) . '" title="Clique aqui para ampliar a foto"  class="fancybox">';
           $value .= '<img src="' . nbrMagicImage::CreateThumbBackgroundCenter($imgFile, $field['length'], $field['height'], '#FFFFFF') . '">';
           $value .= '</a>';
         } else 
@@ -116,16 +118,16 @@ class nbrAdminGrid{
         break;
 
       case 'NUM':
-        $value = number_format($record->$field['fieldName'], 2, ',', '.');
+        $value = number_format($record->$fld, 2, ',', '.');
         break;
 
       case 'INT':
-        $value = intval($record->$field['fieldName']);
+        $value = intval($record->$fld);
         break;
 
       case 'BOL':
-        $img = ($record->$field['fieldName'] == 'Y')?'grid_bool_check.gif':'grid_bool_uncheck.gif';
-        $title = ($record->$field['fieldName'] == 'Y')?'Sim (ativo)':'Não (inativo)';
+        $img = ($record->$fld == 'Y')?'grid_bool_check.gif':'grid_bool_uncheck.gif';
+        $title = ($record->$fld == 'Y')?'Sim (ativo)':'Não (inativo)';
         
         $html = null;
         
@@ -133,8 +135,8 @@ class nbrAdminGrid{
           
           $hub->SetParam('_script', $ADMIN_PAGES_PATH . 'grid.boolean.php');
           $hub->SetParam('table', $this->tableName);
-          $hub->SetParam('field', $field['fieldName']);
-          $hub->SetParam('value', (($record->$field['fieldName'] == 'Y')?'N':'Y') );
+          $hub->SetParam('field', $fld);
+          $hub->SetParam('value', (($record->$fld == 'Y')?'N':'Y') );
           $hub->SetParam('id', $record->ID);
 
           if($this->macroFile != null)
@@ -152,7 +154,7 @@ class nbrAdminGrid{
         break;
 
       case 'DTT':
-        $value = $record->$field['fieldName'];
+        $value = $record->$fld;
         
         if(!empty($value)){
           $date = new nbrDate($value, ENUM_DATE_FORMAT::YYYY_MM_DD_HH_II_SS);
@@ -162,7 +164,7 @@ class nbrAdminGrid{
         break;
 
       case 'DTA':
-        $value = $record->$field['fieldName'];
+        $value = $record->$fld;
 
         if(!empty($value)){
           $date = new nbrDate($value, ENUM_DATE_FORMAT::YYYY_MM_DD_HH_II_SS);
@@ -174,25 +176,25 @@ class nbrAdminGrid{
         $options = explode('|',$field['lst_options']);
         foreach ($options as $values) {
           $a_value = explode('=', $values);
-          if($record->$field['fieldName'] == $a_value[0])
+          if($record->$fld == $a_value[0])
           $value = $a_value[1];
 
         }
         break;
 
       case 'TAB':
-        $value = $record->$field['fieldName'];
+        $value = $record->$fld;
         $value = $this->mark($value);
         break;
 
       case 'CUS':
-        $value = $field['fieldName'];
+        $value = $fld;
         break;
     }
 
     //Verifica se existe evento macroGridValues na macro...
     if(function_exists('macroGridValues')){
-      $nValue = macroGridValues($field['fieldName'] , $value, $record);
+      $nValue = macroGridValues($fld , $value, $record);
 
       if((!empty($nValue)) || is_int($nValue))
         $value = $nValue;

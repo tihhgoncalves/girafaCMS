@@ -30,7 +30,7 @@ include(get_config('BOWER_COMPONENTS_PATH') . 'tihh.php.fnc.getTags/load.php');
   include($OBJECTS_PATH . 'nbr.obj.router.php');
   include($OBJECTS_PATH . 'nbr.obj.page.php');
   include($OBJECTS_PATH . 'nbr.obj.tablepost.php');
-  include($OBJECTS_PATH . 'nbr.obj.report.pdf.php');  
+  //include($OBJECTS_PATH . 'nbr.obj.report.pdf.php');
   include($OBJECTS_PATH . 'nbr.obj.msg.php');
   include($OBJECTS_PATH . 'nbr.obj.langs.php');
   include($OBJECTS_PATH . 'nbr.obj.cache.php');

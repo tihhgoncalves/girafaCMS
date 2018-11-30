@@ -1,0 +1,33 @@
+{
+  "name": "tihh.php.obj.db.mysql",
+  "homepage": "https://github.com/tihhgoncalves/tihh.php.obj.db.mysql",
+  "_release": "1.0.1",
+  "_resolution": {
+    "type": "version",
+    "tag": "1.0.1",
+    "commit": "1db47581d2f861c507749d0506596b882d8503e0"
+  },
+  "_source": "https://github.com/tihhgoncalves/tihh.php.obj.db.mysql.git",
+  "_target": "^1.0.x",
+  "_originalSource": "tihh.php.obj.db.mysql",
+  "_direct": true,
+  "authors": [
+    "Tihh Gonçalves <tiago@tiago.art.br>"
+  ],
+  "description": "Objeto de PHP que administra conexões de um site com o banco de dados de MySQL.",
+  "main": "load.php",
+  "keywords": [
+    "php",
+    "mysql",
+    "db",
+    "database",
+    "php",
+    "base"
+  ],
+  "license": "MIT",
+  "ignore": [
+    ".idea",
+    "bower_components"
+  ],
+  "version": "1.0.1"
+}

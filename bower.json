@@ -32,6 +32,7 @@
     "PHPMailer": "https://github.com/PHPMailer/PHPMailer.git#^6.0.1",
     "tihh.php.errors": "^1.0.x",
     "tihh.php.fnc.getTags": "^1.0.x",
-    "tihh.php.obj.db.mysql": "^1.0.x"
+    "tihh.php.obj.db.mysql": "^1.0.x",
+    "tihh.site.uri.php": "*"
   }
 }

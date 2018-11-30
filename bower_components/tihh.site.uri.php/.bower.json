@@ -1,0 +1,34 @@
+{
+  "name": "tihh.site.uri.php",
+  "homepage": "https://github.com/tihhgoncalves/tihh.site.uri.php",
+  "authors": [
+    "Tihh Gonçalves <tihh.gon@gmail.com>"
+  ],
+  "description": "Objeto de PHP que retorna a url base do site.",
+  "main": "load.php",
+  "keywords": [
+    "php",
+    "object",
+    "url",
+    "base"
+  ],
+  "license": "MIT",
+  "private": false,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "_release": "027e7f2872",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "027e7f2872148b7d85eef8ed197c138ca18f54f9"
+  },
+  "_source": "https://github.com/tihhgoncalves/tihh.site.uri.php.git",
+  "_target": "*",
+  "_originalSource": "tihh.site.uri.php",
+  "_direct": true
+}
