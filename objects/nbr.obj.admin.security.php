@@ -101,7 +101,7 @@ class nbrAdminSecurity{
       
       return true;
     }else 
-      return utf8_decode('O usuário ou senha estão incorretos.');
+      return 'O usuário ou senha estão incorretos.';
   }
   
   /**
