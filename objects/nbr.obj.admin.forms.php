@@ -142,6 +142,24 @@ class nbrAdminForms {
 
   public function AddFieldList($fieldName, $legend, $options, $columns, $valueDefault = null, $required = true, $readOnly = false, $validateType = 'required', $alphabeticalOrder = true){
 
+    if(is_array($options)){
+
+      $options_str = null;
+      $prim = true;
+      foreach($options as $x=>$opt){
+
+        if(!$prim)
+          $options_str .= '|';
+
+        $options_str .= trim($x) . '=' . trim($opt);
+
+        $prim = false;
+      }
+      $options = $options_str;
+
+    }
+
+
     $val = $this->getValue($fieldName, $valueDefault);
 
     //Ordenar em Ordem Alfabética..

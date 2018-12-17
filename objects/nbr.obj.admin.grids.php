@@ -414,6 +414,25 @@ class nbrAdminGrid{
    * @param string $align
    */
   public function AddColumnList($fieldName, $legend, $width, $options, $align = 'left'){
+
+
+    if(is_array($options)){
+
+      $options_str = null;
+      $prim = true;
+      foreach($options as $x=>$opt){
+
+        if(!$prim)
+          $options_str .= '|';
+
+        $options_str .= trim($x) . '=' . trim($opt);
+
+        $prim = false;
+      }
+      $options = $options_str;
+
+    }
+
     $this->addColumn($fieldName, $legend, $width, $align, 'LST', $options);
   }
 
