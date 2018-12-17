@@ -37,7 +37,18 @@
   $hub->SetParam('_script', $ADMIN_PAGES_PATH . 'login.script.login.php');
   ?>
     <form id="login" action="<?= $hub->GetUrl() ?>" enctype="multipart/form-data" method="post">
-        <input name="mail" type="text" value="<?= $hub->GetParam('mail'); ?>" />
+
+
+      <?
+
+      $mail = $hub->GetParam('mail');
+
+      if(empty($mail))
+        $mail = $_COOKIE['login_mail'];
+
+
+      ?>
+        <input name="mail" type="text" value="<?= $mail; ?>" />
         <input name="password" maxlength="20" type="password" />
         
         <input type="hidden" name="lang" id="lang" value="<?= $langs->default; ?>">

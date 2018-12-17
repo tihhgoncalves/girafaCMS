@@ -82,6 +82,10 @@ class nbrAdminSecurity{
     $res = $db->LoadObjects($sql);
     
     if(count($res) > 0){
+
+
+      /// REGISTRA O COOKIE (por 31 dias)
+      setcookie('login_mail', $res[0]->Mail, (time() + (31 * 24 * 3600)), '/');
       
       if($res[0]->Actived != 'Y')
         return 'O usuário está inativo no momento.';
