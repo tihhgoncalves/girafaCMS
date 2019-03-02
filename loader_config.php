@@ -7,7 +7,7 @@ include(dirname(dirname(__FILE__)) . '/tihh.site.uri.php/load.php');
 $uri = new tihh_URI();
 
 function is_localhost(){
-  return ( $_SERVER['HTTP_HOST'] == 'localhost');
+	return (in_array($_SERVER['REMOTE_ADDR'], ['127.0.0.1', '::1']));
 }
 
 
