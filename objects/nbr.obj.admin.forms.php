@@ -657,7 +657,7 @@ class nbrAdminForms {
       $this->fieldsName[] = $fieldName;
   }
 
-  public function AddFieldCustom($fieldName){
+  public function AddFieldCustom($fieldName, $select = true){
 
     $tpl = new girafaTpl('forms/field-custom.tpl');
     $tpl->setValue('NAME', $fieldName);
@@ -665,7 +665,9 @@ class nbrAdminForms {
 
     $html = $this->eventAfterField($fieldName, $html);
     $this->html_fields[] = $html;
-    $this->fieldsName[] = $fieldName;
+
+    if($select)
+      $this->fieldsName[] = $fieldName;
 
   }
 
