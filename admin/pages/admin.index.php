@@ -1,13 +1,13 @@
-<div id="dashboard">...</div>
-<script src="http://dashboard.tiago.art.br/js/base.js"></script>
-<link rel="stylesheet" href="http://dashboard.tiago.art.br/css/base.css">
+<?
+//verifica de site tem dashboard personalizado...
 
-<script>
+$dash_template = get_config('ROOT_PATH') . 'site/admin/dashboard.php';
 
-  $(document).ready(function(){
-
-    $('#dashboard').load('http://dashboard.tiago.art.br');
-
-  });
-
-</script>
+if(file_exists($dash_template)){
+  include($dash_template);
+} else {
+  ?>
+  <p>...</p>
+  <?
+}
+  ?>
